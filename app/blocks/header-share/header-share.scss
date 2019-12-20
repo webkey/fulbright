@@ -1,0 +1,55 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.h-share {
+	$space: 1rem;
+
+	&__list {
+		display: flex;
+		align-items: flex-start;
+		margin: 0 -#{$space / 2} -#{$space};
+	}
+
+	&__item {
+		$size: 2.4rem;
+
+		height: $size;
+		width: $size;
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		margin: 0 #{$space / 2} #{$space};
+		font-size: 1.4rem;
+		line-height: 1.8rem;
+		text-align: left;
+		color: white;
+		text-decoration: none;
+		transition: opacity $animation-speed;
+
+		&:hover {
+			opacity: 0.5;
+		}
+
+		& > span {
+			@include hide-text;
+		}
+
+		svg {
+			$size: 2.4rem;
+			$int: round-float($size / 2, 1);
+
+			display: inline-block;
+			vertical-align: top;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			height: $size;
+			width: $size;
+			margin: -#{$int} 0 0 -#{$int};
+		}
+
+		path {
+			fill: currentColor;
+		}
+	}
+}

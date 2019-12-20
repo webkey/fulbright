@@ -1,0 +1,14 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.h-options {
+	&__list {
+		display: flex;
+		align-items: center;
+		margin: 0 -0.9rem;
+	}
+
+	&__item {
+		padding: 0 0.9rem;
+	}
+}

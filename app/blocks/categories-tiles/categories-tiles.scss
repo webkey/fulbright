@@ -1,0 +1,132 @@
+.categories-tiles {
+	display: block;
+	overflow: hidden; // for aos animation
+
+	&__list {
+		margin: 0 -0.4rem -0.9rem;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+	}
+
+	&__item {
+		flex-shrink: 0;
+		padding: 0 0.4rem 0.9rem;
+	}
+
+	&__el {
+		$el: &;
+
+		display: block;
+		position: relative;
+		background-color: #f2f2f2;
+		border-radius: 2rem;
+		height: 21.8rem;
+		width: 21.8rem;
+		padding: 4.2rem 0.5rem 0.5rem;
+		text-decoration: none;
+		color: inherit;
+		transition: background-color $animation-speed;
+
+		&:active {
+			background-color: $highlight-color--hover;
+		}
+
+		&-figure {
+			position: relative;
+			height: 8rem;
+			width: 8rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0 auto 1rem;
+		}
+
+		&-icon {
+			svg {
+				display: block;
+				flex-shrink: 0;
+				max-height: 100%;
+				max-width: 100%;
+			}
+
+			path,
+			rect {
+				transition: opacity $animation-speed, fill $animation-speed;
+
+				@at-root {
+					#{$el}:active & {
+						fill: white;
+
+						&.l-color {
+							opacity: 0;
+						}
+					}
+				}
+			}
+		}
+
+		&-title {
+			position: relative;
+			font-weight: bold;
+			font-size: 1.7rem;
+			line-height: 2.8rem;
+			text-align: center;
+			color: $title-color;
+			transition: color $animation-speed;
+
+			@at-root {
+				#{$el}:active & {
+					color: white;
+				}
+			}
+		}
+
+		&-bg {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			overflow: hidden;
+
+			&-figure {
+				width: 24.6rem;
+				position: absolute;
+				background-image: url('../images/bubble-sm.svg');
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				transition: transform $animation-speed, opacity $animation-speed;
+				opacity: 0;
+				transform: translate3d(1.5rem, 1.5rem, 0);
+
+				&_bottom-right,
+				&_right-bottom {
+					left: 100%;
+					top: 100%;
+					margin: -13.4rem -18.8rem;
+				}
+
+				@at-root {
+					#{$el}:hover & {
+						opacity: 1;
+						transform: translate3d(0, 0, 0);
+					}
+
+					#{$el}:active & {
+						opacity: 0;
+						transform: translate3d(1.5rem, 1.5rem, 0);
+					}
+				}
+
+				&::before {
+					content: "";
+					display: block;
+
+					@include ratio(246, 241);
+				}
+			}
+		}
+	}
+}

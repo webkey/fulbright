@@ -1,0 +1,68 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.btn-default {
+	$btn: &;
+
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	cursor: pointer;
+	margin: 0;
+	padding: 1.1rem 3.1rem;
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	border: none;
+	border-radius: 0;
+	background-color: $highlight-color;
+	box-shadow: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+
+	@at-root {
+		#{$btn},
+		input#{$btn} {
+			border-radius: 0.4rem;
+		}
+	}
+
+	span {
+		display: block;
+		position: relative;
+	}
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		border-radius: 0.4rem;
+		background-color: $highlight-color--hover;
+		will-change: transform;
+		transform-origin: top left;
+		transition: transform $animation-speed, opacity $animation-speed;
+		opacity: 0;
+		transform: translateZ(0) scale(0, 1);
+	}
+
+	&:hover {
+		&::before {
+			opacity: 1;
+			transform: translateZ(0) scale(1, 1);
+		}
+	}
+
+	&:active {
+		&::before {
+			opacity: 1;
+			transform: translateZ(0) scale(1, 1);
+			background-color: $highlight-color--active;
+		}
+	}
+}

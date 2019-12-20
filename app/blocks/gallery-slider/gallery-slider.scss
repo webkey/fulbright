@@ -1,0 +1,245 @@
+.gallery-slider {
+	position: relative;
+	overflow: visible;
+	padding-bottom: 10.7rem;
+
+	html:not(.no-js) &:not(.is-loaded) {
+		opacity: 0;
+		pointer-events: none;
+		overflow: hidden;
+	}
+
+	&__slide {
+		$slide: &;
+
+		position: relative;
+		padding: 1.5rem 1.5rem 13.7rem;
+		width: 55.8rem + 3rem;
+
+		&.swiper-slide-active {
+			z-index: 10;
+		}
+
+		&-frame {
+			position: relative;
+			height: 36.4rem;
+		}
+
+		&-el {
+			$el: &;
+
+			display: block;
+			text-decoration: none;
+			color: inherit;
+			user-select: none;
+			-webkit-tap-highlight-color: transparent;
+
+			@at-root {
+				#{$slide}:not(.swiper-slide-active) & {
+					pointer-events: none;
+				}
+			}
+
+			&-figure {
+				position: relative;
+				background-color: #ccc;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+
+				&::before {
+					content: "";
+					display: block;
+
+					@include ratio(558, 364);
+				}
+			}
+
+			&-content {
+				position: absolute;
+				left: 0;
+				top: 100%;
+				width: 100%;
+				padding-top: 3rem;
+			}
+
+			&-title {
+				$lh: 2.8rem;
+
+				font-weight: bold;
+				font-size: 1.7rem;
+				line-height: $lh;
+				color: $title-color-alt;
+				text-align: center;
+				height: $lh * 2;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 2;
+				margin: 0 0 0.9rem;
+				transition: color $animation-speed;
+
+				@at-root {
+					a#{$el}:hover & {
+						color: $link-color;
+					}
+				}
+			}
+
+			&-date {
+				display: block;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 1.2rem;
+				line-height: 1.6rem;
+				color: #2f343d;
+				text-align: center;
+				transition: color $animation-speed;
+
+				@at-root {
+					a#{$el}:hover & {
+						color: $link-color;
+					}
+				}
+			}
+		}
+	}
+
+	&__buttons {
+		position: absolute;
+		top: 19.7rem;
+		height: 0;
+		width: 100%;
+		z-index: 5;
+	}
+
+	&__button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 4.8rem;
+		width: 4.8rem;
+		margin-top: -2.4rem;
+		color: black;
+		border-radius: 4.8rem;
+		background-color: white;
+		transition: background-color $animation-speed, box-shadow $animation-speed, color $animation-speed;
+		cursor: pointer;
+		box-shadow: 0 4px 20px rgba(black, 0.15);
+		-webkit-tap-highlight-color: transparent;
+
+		svg {
+			display: inline-block;
+			vertical-align: top;
+			height: 2.4rem;
+			width: 2.4rem;
+		}
+
+		path {
+			fill: currentColor;
+		}
+
+		&_prev {
+			float: left;
+		}
+
+		&_next {
+			float: right;
+		}
+
+		// :hover
+		&:hover {
+			background-color: $link-color;
+			color: white;
+			box-shadow: 0 4px 20px rgba($link-color, 0.15);
+		}
+
+		// :active
+		&:active {
+			transition-duration: 0s;
+			background-color: $highlight-color--active;
+			color: white;
+			box-shadow: 0 4px 20px rgba($highlight-color--active, 0.15);
+		}
+	}
+
+	&__pagination {
+		position: absolute;
+		left: 0;
+		bottom: 4.5rem;
+		width: 100%;
+		z-index: 5;
+		pointer-events: none;
+
+		&-list {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&-bullet {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 4.4rem;
+			width: 4.4rem;
+			margin: 0.8rem;
+			cursor: pointer;
+			pointer-events: auto;
+
+			&::before,
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transition: transform $animation-speed;
+				transform: scale(0);
+			}
+
+			&::before {
+				width: 4.4rem;
+				height: 4.4rem;
+				border-radius: 4.4rem;
+				margin: -2.2rem;
+				background-color: rgba($link-color, 0.1);
+			}
+
+			&::after {
+				width: 3rem;
+				height: 3rem;
+				border-radius: 3rem;
+				margin: -1.5rem;
+				background-color: rgba($link-color, 0.1);
+			}
+
+			span {
+				position: relative;
+				display: block;
+				height: 10px;
+				width: 10px;
+				border-radius: 10px;
+				background-color: $link-color;
+				z-index: 5;
+			}
+
+			// :hover
+			&:hover {
+				&::after {
+					transform: scale(1);
+				}
+			}
+
+			// Active
+			&_active {
+				&::before,
+				&::after {
+					transform: scale(1);
+				}
+			}
+		}
+	}
+}

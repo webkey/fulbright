@@ -1,0 +1,237 @@
+.promo-slider {
+	position: relative;
+
+	html:not(.no-js) &:not(.is-loaded) {
+		opacity: 0;
+		pointer-events: none;
+		overflow: hidden;
+	}
+
+	&__slide {
+		position: relative;
+		display: block;
+		text-decoration: none;
+
+		&-bg {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			background-color: #ccc;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
+
+			&-cover {
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				opacity: 0.28;
+
+				@include linear-gradient(90deg, $base-gradient-color-start 0%, $base-gradient-color-end 100%);
+			}
+		}
+
+		&-figure {
+			width: 67.6rem;
+			position: absolute;
+			opacity: 0.5;
+			background-image: url('../images/bubble.svg');
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+
+			&_bottom-right,
+			&_right-bottom {
+				left: 50%;
+				bottom: 8rem;
+				margin: 0 -21rem;
+			}
+
+			&::before {
+				content: "";
+				display: block;
+
+				@include ratio(676, 695);
+			}
+		}
+
+		&-container {
+			position: relative;
+		}
+
+		&-holder {
+			height: 53.1rem;
+			padding-bottom: 0.6rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&-content {
+			max-width: 80rem;
+		}
+
+		&-title {
+			font-weight: bold;
+			font-size: 6.4rem;
+			line-height: 7rem;
+			color: white;
+			text-align: center;
+			text-shadow: 0 4px 14px rgba(41, 53, 72, 0.4);
+			margin-bottom: 3.8rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-text {
+			font-weight: bold;
+			font-size: 2.8rem;
+			line-height: 3.2rem;
+			color: white;
+			text-align: center;
+			text-shadow: 0 4px 14px rgba(41, 53, 72, 0.4);
+		}
+	}
+
+	&__buttons {
+		position: absolute;
+		top: 50%;
+		height: 0;
+		width: 100%;
+		z-index: 5;
+	}
+
+	&__button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 4.8rem;
+		width: 4.8rem;
+		margin-top: -2.5rem;
+		color: black;
+		border-radius: 4.8rem;
+		background-color: white;
+		transition: background-color $animation-speed, box-shadow $animation-speed, color $animation-speed;
+		cursor: pointer;
+		box-shadow: 0 4px 20px rgba(black, 0.15);
+
+		svg {
+			display: inline-block;
+			vertical-align: top;
+			height: 2.4rem;
+			width: 2.4rem;
+		}
+
+		path {
+			fill: currentColor;
+		}
+
+		&_prev {
+			float: left;
+		}
+
+		&_next {
+			float: right;
+		}
+
+		// :hover
+		&:hover {
+			background-color: $highlight-color--hover;
+			color: white;
+			box-shadow: 0 4px 20px rgba($highlight-color--hover, 0.15);
+		}
+
+		// :active
+		&:active {
+			transition-duration: 0s;
+			background-color: $highlight-color--active;
+			color: white;
+			box-shadow: 0 4px 20px rgba($highlight-color--active, 0.15);
+		}
+	}
+
+	&__pagination {
+		position: absolute;
+		left: 0;
+		bottom: 2.4rem;
+		width: 100%;
+		z-index: 5;
+		pointer-events: none;
+
+		&-list {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&-bullet {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 4.4rem;
+			width: 4.4rem;
+			margin: 0.5rem;
+			cursor: pointer;
+			pointer-events: auto;
+
+			&::before,
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transition: transform $animation-speed;
+				transform: scale(0);
+			}
+
+			&::before {
+				width: 4.4rem;
+				height: 4.4rem;
+				border-radius: 4.4rem;
+				margin: -2.2rem;
+				background-color: rgba(white, 0.1);
+			}
+
+			&::after {
+				width: 3rem;
+				height: 3rem;
+				border-radius: 3rem;
+				margin: -1.5rem;
+				background-color: rgba(white, 0.3);
+			}
+
+			span {
+				position: relative;
+				display: block;
+				height: 10px;
+				width: 10px;
+				border-radius: 10px;
+				background-color: white;
+				z-index: 5;
+			}
+
+			// :hover
+			&:hover {
+				&::after {
+					transform: scale(1);
+				}
+			}
+
+			// Active
+			&_active {
+				&::before,
+				&::after {
+					transform: scale(1);
+				}
+			}
+		}
+	}
+}

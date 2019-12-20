@@ -1,0 +1,427 @@
+.nav {
+	display: block;
+	transition: opacity $animation-speed;
+	font-size: 1.4rem;
+	line-height: 2.8rem;
+
+	.h-search-panel-is-open & {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: flex-start;
+		margin: 0 -1.8rem -2rem;
+
+		@include below($lg) {
+			display: block;
+			margin-left: 0;
+			margin-right: 0;
+		}
+	}
+
+	&__li {
+		$li: &;
+
+		position: relative;
+		margin: 0 1.8rem 2rem;
+
+		@include below($lg) {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		&.has-drop {
+			padding-right: 2.8rem;
+		}
+
+		&-el {
+			$el: &;
+
+			position: relative;
+			color: $text-color;
+			user-select: none;
+
+			@include below($lg) {
+				color: white;
+			}
+
+			@at-root {
+				// if link
+				a#{$el} {
+					text-decoration: none;
+					transition: color $animation-speed;
+
+					// js hover - class .hover
+					#{$li}.hover & {
+						color: $link-color;
+					}
+				}
+			}
+
+			&-in {
+				display: inline-block;
+				vertical-align: top;
+				padding-bottom: 1px;
+				box-shadow: inset 0 -2px 0 transparent;
+
+				@at-root {
+					// .current
+					#{$li}.current & {
+						box-shadow: inset 0 -2px 0 $link-color;
+
+						@include below($lg) {
+							font-weight: bold;
+							box-shadow: inset 0 -2px 0 transparent;
+						}
+					}
+				}
+			}
+		}
+
+		&-arr {
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 2.8rem;
+			width: 2.8rem;
+			font-size: 0;
+			line-height: 0;
+
+			@at-root {
+				// js hover - class .hover
+				#{$li}.hover & {
+					transform: rotate(0.5turn);
+				}
+			}
+
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				margin: -1.2rem;
+				right: 50%;
+				top: 50%;
+				height: 2.4rem;
+				width: 2.4rem;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTEuOTk5OCAxMy4xNzIyTDE2Ljk0OTggOC4yMjIxN0wxOC4zNjM4IDkuNjM2MTdMMTEuOTk5OCAxNi4wMDAyTDUuNjM1NzcgOS42MzYxN0w3LjA0OTc3IDguMjIyMTdMMTEuOTk5OCAxMy4xNzIyWiIgZmlsbD0iIzdjODQ4OCIvPjwvc3ZnPg==);
+
+				@include below($lg) {
+					background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTEuOTk5OCAxMy4xNzIyTDE2Ljk0OTggOC4yMjIxN0wxOC4zNjM4IDkuNjM2MTdMMTEuOTk5OCAxNi4wMDAyTDUuNjM1NzcgOS42MzYxN0w3LjA0OTc3IDguMjIyMTdMMTEuOTk5OCAxMy4xNzIyWiIgZmlsbD0iI2ZmZmZmZiIvPjwvc3ZnPg==);
+				}
+			}
+		}
+
+		&-drop {
+			min-width: 20rem;
+
+			html:not(.no-js) & {
+				position: absolute;
+				left: 0;
+				top: 100%;
+				opacity: 0;
+				pointer-events: none;
+				transform: translate3d(0, -0.2rem, 0);
+				transition: opacity $animation-speed, transform $animation-speed;
+
+				@include below($lg) {
+					position: relative;
+					left: auto;
+					top: auto;
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
+					pointer-events: auto;
+					display: none;
+				}
+			}
+
+			@at-root {
+				#{$li}.hover & {
+					html:not(.no-js) & {
+						opacity: 1;
+						pointer-events: auto;
+						transform: translate3d(0, 0, 0);
+					}
+				}
+			}
+		}
+	}
+}
+
+.sub-nav {
+	padding: 1rem 0;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	color: #262b33;
+	background-color: white;
+	box-shadow: 0 0.4rem 1.4rem rgba(41, 53, 72, 0.4);
+
+	@include below($lg) {
+		background: none;
+		box-shadow: none;
+	}
+
+	&__list {
+		display: block;
+	}
+
+	&__li {
+		$li: &;
+
+		position: relative;
+
+		&.has-drop {
+			padding-right: 1rem;
+		}
+
+		&-el {
+			$el: &;
+
+			display: block;
+			position: relative;
+			padding: 0.3rem 1.8rem;
+			color: $text-color;
+			user-select: none;
+
+			@include below($lg) {
+				color: white;
+			}
+
+			@at-root {
+				// if link
+				a#{$el} {
+					text-decoration: none;
+					transition: color $animation-speed;
+
+					// js hover - class .hover
+					#{$li}.hover & {
+						color: $link-color;
+					}
+				}
+			}
+
+			&-in {
+				display: inline-block;
+				vertical-align: top;
+				padding-bottom: 1px;
+				box-shadow: inset 0 -2px 0 transparent;
+
+				@at-root {
+					// .current
+					#{$li}.current & {
+						box-shadow: inset 0 -2px 0 $link-color;
+					}
+				}
+			}
+		}
+
+		&-arr {
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 2.8rem;
+			width: 2.8rem;
+			font-size: 0;
+			line-height: 0;
+			transform: rotate(-0.25turn);
+
+			@at-root {
+				// js hover - class .hover
+				#{$li}.hover & {
+					transform: rotate(0.25turn);
+				}
+			}
+
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				margin: -1.2rem;
+				right: 50%;
+				top: 50%;
+				height: 2.4rem;
+				width: 2.4rem;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTEuOTk5OCAxMy4xNzIyTDE2Ljk0OTggOC4yMjIxN0wxOC4zNjM4IDkuNjM2MTdMMTEuOTk5OCAxNi4wMDAyTDUuNjM1NzcgOS42MzYxN0w3LjA0OTc3IDguMjIyMTdMMTEuOTk5OCAxMy4xNzIyWiIgZmlsbD0iIzdjODQ4OCIvPjwvc3ZnPg==);
+			}
+		}
+
+		&-drop {
+			min-width: 20rem;
+
+			html:not(.no-js) & {
+				position: absolute;
+				left: 100%;
+				top: -1rem;
+				opacity: 0;
+				pointer-events: none;
+				transform: translate3d(-0.2rem, 0, 0);
+				transition: opacity $animation-speed, transform $animation-speed;
+
+				@include below($lg) {
+					position: relative;
+					left: auto;
+					top: auto;
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
+					pointer-events: auto;
+					display: none;
+				}
+			}
+
+			@at-root {
+				#{$li}.hover & {
+					html:not(.no-js) & {
+						opacity: 1;
+						pointer-events: auto;
+						transform: translate3d(0, 0, 0);
+					}
+				}
+			}
+		}
+	}
+}
+
+.sub-sub-nav {
+	padding: 1rem 0;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	color: #262b33;
+	background-color: white;
+	box-shadow: 0 0.4rem 1.4rem rgba(41, 53, 72, 0.4);
+
+	@include below($lg) {
+		background: none;
+		box-shadow: none;
+	}
+
+	&__list {
+		display: block;
+	}
+
+	&__li {
+		$li: &;
+
+		position: relative;
+
+		&.has-drop {
+			padding-right: 1rem;
+		}
+
+		&-el {
+			$el: &;
+
+			display: block;
+			padding: 0.3rem 1.8rem;
+			position: relative;
+			color: $text-color;
+			user-select: none;
+
+			@include below($lg) {
+				color: white;
+			}
+
+			@at-root {
+				// if link
+				a#{$el} {
+					text-decoration: none;
+					transition: color $animation-speed;
+
+					// js hover - class .hover
+					#{$li}.hover & {
+						color: $link-color;
+					}
+				}
+			}
+
+			&-in {
+				display: inline-block;
+				vertical-align: top;
+				padding-bottom: 1px;
+				box-shadow: inset 0 -2px 0 transparent;
+
+				@at-root {
+					// .current
+					#{$li}.current & {
+						box-shadow: inset 0 -2px 0 $link-color;
+					}
+				}
+			}
+		}
+
+		&-arr {
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 2.8rem;
+			width: 2.8rem;
+			font-size: 0;
+			line-height: 0;
+			transform: rotate(-0.25turn);
+
+			@at-root {
+				// js hover - class .hover
+				#{$li}.hover & {
+					transform: rotate(0.25turn);
+				}
+			}
+
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				margin: -1.2rem;
+				right: 50%;
+				top: 50%;
+				height: 2.4rem;
+				width: 2.4rem;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTEuOTk5OCAxMy4xNzIyTDE2Ljk0OTggOC4yMjIxN0wxOC4zNjM4IDkuNjM2MTdMMTEuOTk5OCAxNi4wMDAyTDUuNjM1NzcgOS42MzYxN0w3LjA0OTc3IDguMjIyMTdMMTEuOTk5OCAxMy4xNzIyWiIgZmlsbD0iIzdjODQ4OCIvPjwvc3ZnPg==);
+			}
+		}
+
+		&-drop {
+			min-width: 20rem;
+
+			html:not(.no-js) & {
+				position: absolute;
+				left: 100%;
+				top: 0;
+				opacity: 0;
+				pointer-events: none;
+				transform: translate3d(-0.5rem, 0, 0);
+				transition: opacity $animation-speed, transform $animation-speed;
+
+				@include below($lg) {
+					position: relative;
+					left: auto;
+					top: auto;
+					opacity: 1;
+					transform: translate3d(0, 0, 0);
+					pointer-events: auto;
+					display: none;
+				}
+			}
+
+			@at-root {
+				#{$li}.hover & {
+					html:not(.no-js) & {
+						opacity: 1;
+						pointer-events: auto;
+						transform: translate3d(0, 0, 0);
+					}
+				}
+			}
+		}
+	}
+}

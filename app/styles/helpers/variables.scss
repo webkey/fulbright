@@ -1,0 +1,65 @@
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+// Colors
+// ====================================================
+$base-color: #0841a2 !default;
+$base-color-alt: #1279c5 !default;
+$base-color-light: #1ca9dd !default;
+// ----------------------------------------------------
+$link-color: #1279c5 !default;
+$focus-color: #1279c5 !default;
+$success-color: #28a745 !default;
+$error-color: #dc3545 !default;
+$info-color: #17a2b8 !default;
+$warning-color: #ffc107 !default;
+// ----------------------------------------------------
+$base-gradient-color-start: $base-color !default;
+$base-gradient-color-end: #1caade !default;
+// ----------------------------------------------------
+$highlight-color: #0841a2 !default;
+$highlight-color--hover: #073789 !default;
+$highlight-color--active: #275fbd !default;
+// ----------------------------------------------------
+$bg-color: #fff !default;
+$bg-color-alt: #f3f3f3 !default;
+// ----------------------------------------------------
+$text-color: #3f444f !default;
+$text-color-muted: #5a5f6a !default;
+// ----------------------------------------------------
+$title-color: #262b33 !default;
+$title-color-alt: #2f343d !default;
+// ----------------------------------------------------
+$border-color: #ccc !default;
+// ----------------------------------------------------
+$mark-color: $info-color !default;
+
+// Layout page
+// ====================================================
+// Minimal width of site
+$layout-page-min-width: 32rem !default;
+// Maximal width of site
+$layout-page-max-width: 256rem !default;
+// Spaces of site
+$layout-page-space: 0 2.8rem !default;
+$layout-page-space--sm: 0 2rem !default;
+
+// Layout content
+// ====================================================
+// Maximal width of site
+$layout-content-max-width: 114.6rem !default;
+
+// Grid layout
+// ====================================================
+$grid-space: 3rem !default;
+
+// Header
+// ====================================================
+$header-height--sm: 5rem !default;
+
+// Animation
+// ====================================================
+$animation-speed: 0.35s !default;

@@ -1,0 +1,8 @@
+.promo {
+	display: block;
+	margin-bottom: 12rem;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

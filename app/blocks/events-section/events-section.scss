@@ -1,0 +1,29 @@
+.events-section {
+	margin-bottom: 9.8rem;
+
+	&:last-child {
+		margin-bottom: 6.4rem;
+	}
+
+	&__head {
+		display: block;
+		margin-bottom: 6.1rem;
+		text-align: center;
+
+		&-title {
+			font-weight: bold;
+			font-size: 4.2rem;
+			line-height: 4.8rem;
+			color: $title-color;
+			margin-bottom: 0;
+		}
+	}
+
+	&__content {
+		margin-bottom: 4rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

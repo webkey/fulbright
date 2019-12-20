@@ -1,0 +1,43 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.site-control {
+	position: relative;
+	display: block;
+	background-color: white;
+	z-index: 5;
+
+	@include below($lg) {
+		background: none;
+	}
+
+	&__container {
+		position: relative;
+		margin: 0 -1rem;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+
+		@include below($lg) {
+			display: block;
+			margin: 0;
+		}
+	}
+
+	&__nav {
+		padding: 1.8rem 1rem 1.6rem;
+
+		@include below($lg) {
+			padding: 0;
+		}
+	}
+
+	&__search {
+		padding: 1.2rem 1rem 1.1rem;
+		line-height: 1;
+
+		@include below($lg) {
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+.gallery-section {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	margin: 0 auto 10rem;
+	padding-top: 3.8rem;
+
+	&:last-child {
+		margin-bottom: 6.4rem;
+	}
+
+	&__bg {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-image: url('../images/map.png');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: auto 100%;
+	}
+
+	&__head {
+		position: relative;
+		display: block;
+		margin-bottom: 4.6rem;
+		text-align: center;
+
+		&-title {
+			font-weight: bold;
+			font-size: 4.2rem;
+			line-height: 4.8rem;
+			color: $title-color;
+			margin-bottom: 0;
+		}
+	}
+
+	&__content {
+		position: relative;
+		margin-bottom: 4rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

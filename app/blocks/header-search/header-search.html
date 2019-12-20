@@ -1,0 +1,29 @@
+<div class="h-search js-h-search">
+	<div class="h-search__panel js-h-search-panel">
+		<form class="h-search__form" action="#" method="post" onsubmit="alert('Форма находится в тестовом режиме. Чтобы закрыть окно, нажмите ОК.'); return false;">
+			<div class="h-search__field">
+				<input type="text" placeholder="Search" class="h-search__input js-h-search-input" data-swc-prevent-remove />
+				<a href="#" class="h-search__close">
+					<div class="h-search__close-icon">
+						@@include("../../svg/icon-close.svg")
+					</div>
+					<div class="h-search__close-text">Close search panel</div>
+				</a>
+				<div class="h-search__submit">
+					<div class="h-search__submit-icon">
+						@@include("../../svg/icon-search.svg")
+					</div>
+					<div class="h-search__submit-text">Submit</div>
+					<input class="h-search__submit-input" type="submit" value="">
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<a href="#searchPanel" class="h-search__control js-h-search-control">
+		<div class="h-search__submit-icon">
+			@@include("../../svg/icon-search.svg")
+		</div>
+		<div class="h-search__submit-text">Open search panel</div>
+	</a>
+</div>
