@@ -4,8 +4,10 @@
 .language-switcher {
 	position: relative;
 
-	@include below($lg) {
-		display: none;
+	.header-main & {
+		@include below($lg) {
+			display: none;
+		}
 	}
 
 	&__control {

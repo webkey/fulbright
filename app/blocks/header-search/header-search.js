@@ -1,6 +1,10 @@
 app.headerSearch = {
 	controlElement: '.js-h-search-control',
+	controlMobElement: '.js-hm-search-control',
+	closeElement: '.js-h-search-close',
+	closeMobElement: '.js-hm-search-close',
 	panelElement: '.js-h-search-panel',
+	panelMobElement: '.js-hm-search-panel',
 	inputElement: '.js-h-search-input',
 	wrapElement: '.js-h-search-wrap',
 	init() {
@@ -13,7 +17,10 @@ app.headerSearch = {
 		const $input = $(self.inputElement);
 		$(self.controlElement).switchClass({
 			removeExisting: true,
-			switchClassTo: $(self.panelElement).add(self.wrapElement),
+			switchClassTo: $(self.panelElement).add(self.wrapElement).add(self.panelMobElement),
+			toggleEl: $(self.controlMobElement),
+			removeEl: $(self.closeElement).add(self.closeMobElement),
+			preventRemoveClass: 'js-h-search-prevent-hide',
 			modifiers: {
 				activeClass: 'h-search-panel-is-open'
 			},

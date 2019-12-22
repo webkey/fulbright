@@ -47,7 +47,7 @@
 		background-size: contain;
 
 		@include retina {
-			background: url(../images/logo-2x.png) no-repeat;
+			background-image: url(../images/logo-2x.png);
 		}
 
 		&::before {

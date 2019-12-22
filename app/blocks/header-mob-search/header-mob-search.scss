@@ -1,30 +1,75 @@
 @import '../../styles/helpers/variables';
 @import '../../styles/helpers/mixins';
 
-.h-search {
-	$search-form-size: 4rem 38.7rem;
+.hm-search-control {
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: 4rem;
+	color: white;
+	cursor: pointer;
+	text-decoration: none;
+	border-radius: 0;
+	user-select: none;
+	transition: color $animation-speed;
+	-webkit-tap-highlight-color: transparent;
+
+	&:hover {
+		color: white;
+	}
+
+	&__icon {
+		position: relative;
+		display: inline-block;
+		height: 2.4rem;
+		width: 2.4rem;
+		margin-right: 1rem;
+
+		svg {
+			$size: 2.4rem;
+
+			height: $size;
+			width: $size;
+			display: block;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin: -#{round-float($size / 2, 1)} 0 0 -#{round-float($size / 2, 1)};
+		}
+
+		path {
+			fill: currentColor;
+		}
+	}
+
+	&__text {
+		display: inline-block;
+		font-size: 1.3rem;
+		line-height: 2.4rem;
+	}
+}
+
+.hm-search {
+	$search-form-size: 6rem 100%;
 
 	position: relative;
-	margin: 0 -1.1rem 0 0;
+	height: nth($search-form-size, 1);
+	width: nth($search-form-size, 2);
+	z-index: 5;
 
-	&__panel {
-		position: relative;
-		height: nth($search-form-size, 1);
-		width: nth($search-form-size, 2);
-		z-index: 5;
+	html:not(.no-js) & {
+		position: absolute;
+		left: 0;
+		top: 100%;
+		opacity: 0;
+		pointer-events: none;
+		transform: translate3d(0, -1rem, 0);
+		transition: opacity $animation-speed, transform $animation-speed;
 
-		html:not(.no-js) & {
-			position: absolute;
-			right: 0;
-			top: 0;
-			opacity: 0;
-			pointer-events: none;
-			transition: opacity $animation-speed;
-
-			&.h-search-panel-is-open {
-				opacity: 1;
-				pointer-events: auto;
-			}
+		&.h-search-panel-is-open {
+			opacity: 1;
+			pointer-events: auto;
+			transform: translate3d(0, 0, 0);
 		}
 	}
 
@@ -45,7 +90,7 @@
 		cursor: text;
 		background-color: white;
 		box-shadow: none;
-		border: 1px solid #dedede;
+		border: none;
 		border-radius: 4px;
 		font-family: inherit;
 		font-size: $font-size;
@@ -177,56 +222,17 @@
 		&-text {
 			@include hide-text;
 		}
-	}
 
-	&__control {
-		display: inline-block;
-		vertical-align: top;
-		position: relative;
-		height: 4rem;
-		width: 4rem;
-		color: $link-color;
-		cursor: pointer;
-		border-radius: 4px;
-		user-select: none;
-		transition: color $animation-speed;
-		-webkit-tap-highlight-color: transparent;
-
-		&:hover {
-			color: $highlight-color--hover;
-		}
-
-		&:active {
-			color: $highlight-color--active;
-		}
-
-		&-icon {
+		&-input {
 			position: absolute;
-			left: 0;
-			top: 0;
-			height: 100%;
 			width: 100%;
-			pointer-events: none;
-
-			svg {
-				$size: 2.4rem;
-
-				height: $size;
-				width: $size;
-				display: block;
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				margin: -#{round-float($size / 2, 1)} 0 0 -#{round-float($size / 2, 1)};
-			}
-
-			path {
-				fill: currentColor;
-			}
-		}
-
-		&-text {
-			@include hide-text;
+			height: 100%;
+			border: none;
+			background: none;
+			box-shadow: none;
+			padding: 0;
+			margin: 0;
+			cursor: pointer;
 		}
 	}
 }

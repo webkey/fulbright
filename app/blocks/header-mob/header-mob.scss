@@ -1,0 +1,72 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.header-mob {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: $header-height--sm;
+	width: 100%;
+	padding: 0 #{nth($layout-page-space--sm, 2)};
+	min-width: $layout-page-min-width;
+	z-index: 20;
+	display: none;
+
+	@include below($lg) {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	&__bg {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		opacity: 0;
+		transition: opacity $animation-speed;
+
+		@include linear-gradient(90deg, rgba($base-gradient-color-start, 0.5) 0%, rgba($base-gradient-color-end, 0.5) 100%);
+
+		.show-bg & {
+			opacity: 1;
+		}
+	}
+
+	&__language {
+		margin-left: 2.8rem;
+	}
+
+	&__mob-menu-control {
+		height: 5rem;
+		width: 5rem;
+		position: absolute;
+		left: 0;
+		top: 0;
+		font-size: 0;
+		line-height: 0;
+		cursor: pointer;
+		z-index: 20;
+		display: none;
+
+		@include below($lg) {
+			display: block;
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			height: 2.4rem;
+			width: 2.4rem;
+			transform: translate(-50%, -50%);
+			background-repeat: no-repeat;
+			background-position: 50%;
+			background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMyA0SDIxVjZIM1Y0Wk0zIDExSDIxVjEzSDNWMTFaTTMgMThIMjFWMjBIM1YxOFoiIGZpbGw9IndoaXRlIi8+PC9zdmc+);
+			background-size: contain;
+		}
+	}
+}

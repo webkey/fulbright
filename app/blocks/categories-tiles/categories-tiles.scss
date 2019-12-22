@@ -28,6 +28,12 @@
 		color: inherit;
 		transition: background-color $animation-speed;
 
+		@include below($lg) {
+			height: 13.6rem;
+			width: 13.6rem;
+			padding: 2.5rem 0.5rem 0.5rem;
+		}
+
 		&:active {
 			background-color: $highlight-color--hover;
 		}
@@ -40,6 +46,11 @@
 			align-items: center;
 			justify-content: center;
 			margin: 0 auto 1rem;
+
+			@include below($lg) {
+				height: 4.2rem;
+				width: 4.2rem;
+			}
 		}
 
 		&-icon {
@@ -74,6 +85,11 @@
 			text-align: center;
 			color: $title-color;
 			transition: color $animation-speed;
+
+			@include below($lg) {
+				font-size: 1.2rem;
+				line-height: 2rem;
+			}
 
 			@at-root {
 				#{$el}:active & {

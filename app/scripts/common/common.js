@@ -76,11 +76,13 @@ app.common = {
 	toggleMobMenu() {
 		app.common.initScript('jquery.switch-class', 'switchClass', () => {
 			const $controlElement = $('.js-mob-menu-control');
+			const $closeElement = $('.js-mob-menu-close');
 			const $html = $('html');
 			if ($controlElement.length) {
 				$controlElement.switchClass({
 					removeExisting: true,
 					switchClassTo: $('.js-mob-menu'),
+					removeEl: $closeElement,
 					cssScrollFixed: true,
 					preventRemoveClass: 'js-mob-menu-prevent-hide',
 					modifiers: {

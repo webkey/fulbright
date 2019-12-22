@@ -7,3 +7,4 @@ app.headerSearch.init();
 app.navigation.init();
 app.promoSlider.init();
 app.gallerySlider.init();
+app.toggleHeaderMobBg.init();

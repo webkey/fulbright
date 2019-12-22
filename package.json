@@ -1,15 +1,9 @@
 {
-  "name": "project-front-template-html",
+  "name": "fulbright",
   "version": "0.1.0",
-  "description": "A template for a quick start.",
+  "description": "fulbright",
   "keywords": [
-    "project",
-    "template",
-    "frontend",
-    "boilerplate",
-    "gulp",
-    "babel",
-    "stylus"
+    "fulbright"
   ],
   "scripts": {
     "start": "gulp --debug",
@@ -65,7 +59,7 @@
     "eslint": "^2.12.0",
     "eslint-loader": "^1.1.1",
     "expose-loader": "^0.7.1",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^7.0.1",
     "gulp-browserify": "^0.5.1",

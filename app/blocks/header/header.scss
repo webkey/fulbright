@@ -10,63 +10,48 @@
 		position: fixed;
 		left: 0;
 		top: 0;
-		height: $header-height--sm;
-		width: 100%;
-		min-width: $layout-page-min-width;
-		background-color: rgba(black, 0.5);
+		height: 100%;
+		width: 28rem;
+		max-width: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+		background-color: rgba($base-color-alt, 0.98);
+		will-change: transform, opacity;
+		transition: opacity $animation-speed, transform $animation-speed;
+		opacity: 0;
+		$translate: -100%, 0;
+
+		transform: translate($translate);
+		transform: translate3d($translate, 0);
 	}
 
-	&__holder {
-		position: relative;
-
+	&.mob-menu-is-open {
 		// mobile menu
 		@include below($lg) {
-			position: fixed;
-			left: 0;
-			top: 0;
-			height: 100%;
-			width: 48rem;
-			max-width: 100%;
-			overflow-x: hidden;
-			overflow-y: auto;
-			-webkit-overflow-scrolling: touch;
-			background-color: rgba($base-color-alt, 0.98);
-			z-index: 15;
-			will-change: transform, opacity;
-			transition: opacity $animation-speed, transform $animation-speed;
-			opacity: 0;
-			$translate: -100%, 0;
+			opacity: 1;
+			$translate: 0, 0;
 
 			transform: translate($translate);
 			transform: translate3d($translate, 0);
 		}
+	}
 
-		@include below($md) {
-			width: 28rem;
-		}
-
-		&.mob-menu-is-open {
-			// mobile menu
-			@include below($lg) {
-				opacity: 1;
-				$translate: 0, 0;
-
-				transform: translate($translate);
-				transform: translate3d($translate, 0);
-			}
-		}
+	&__holder {
+		position: relative;
 	}
 
 	&__frame {
 		// mobile menu
 		@include below($lg) {
-			padding-top: $header-height--sm;
+			overflow: hidden;
+			padding: 6.4rem 0 2rem;
 		}
 	}
 
-	&__mob-menu-control {
-		height: 5rem;
-		width: 5rem;
+	&__mob-menu-close {
+		height: 6.4rem;
+		width: 6.4rem;
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -80,8 +65,7 @@
 			display: block;
 		}
 
-		&::before,
-		&::after {
+		&::before {
 			content: "";
 			display: block;
 			position: absolute;
@@ -92,25 +76,8 @@
 			transform: translate(-50%, -50%);
 			background-repeat: no-repeat;
 			background-position: 50%;
-		}
-
-		&::before {
-			background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMyA0SDIxVjZIM1Y0Wk0zIDExSDIxVjEzSDNWMTFaTTMgMThIMjFWMjBIM1YxOFoiIGZpbGw9IndoaXRlIi8+PC9zdmc+);
-		}
-
-		&::after {
 			background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTIuMDAwMiAxMC41ODZMMTYuOTUwMiA1LjYzNkwxOC4zNjQyIDcuMDVMMTMuNDE0MiAxMkwxOC4zNjQyIDE2Ljk1TDE2Ljk1MDIgMTguMzY0TDEyLjAwMDIgMTMuNDE0TDcuMDUwMjMgMTguMzY0TDUuNjM2MjMgMTYuOTVMMTAuNTg2MiAxMkw1LjYzNjIzIDcuMDVMNy4wNTAyMyA1LjYzNkwxMi4wMDAyIDEwLjU4NloiIGZpbGw9IiNmZmZmZmYiIC8+PC9zdmc+);
-			display: none;
-		}
-
-		&.mob-menu-is-open {
-			&::before {
-				display: none;
-			}
-
-			&::after {
-				display: block;
-			}
+			background-size: contain;
 		}
 	}
 }

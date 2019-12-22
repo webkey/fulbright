@@ -12,6 +12,10 @@ html {
 	}
 
 	@include below($lg) {
+		font-size: 100%;
+	}
+
+	@include below($md) {
 		font-size: 62.5%;
 	}
 

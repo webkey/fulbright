@@ -8,6 +8,7 @@
 	}
 
 	&__slide {
+		overflow: hidden;
 		position: relative;
 		display: block;
 		text-decoration: none;
@@ -44,11 +45,23 @@
 			background-repeat: no-repeat;
 			background-size: contain;
 
+			@include below($lg) {
+				width: 35rem;
+			}
+
 			&_bottom-right,
 			&_right-bottom {
 				left: 50%;
 				bottom: 8rem;
 				margin: 0 -21rem;
+
+				@include below($lg) {
+					top: 0;
+					right: 0;
+					bottom: auto;
+					left: auto;
+					margin: -6rem -9rem;
+				}
 			}
 
 			&::before {
@@ -69,10 +82,50 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+
+			@include below($lg) {
+				height: 48rem;
+			}
 		}
 
 		&-content {
 			max-width: 80rem;
+		}
+
+		&-logo {
+			position: relative;
+			margin: 0 auto 1.5rem;
+			width: 12.6rem;
+			max-width: 100%;
+			flex-shrink: 0;
+			background: url(../images/logo-2x.png) no-repeat;
+			background-size: contain;
+			display: none;
+
+			@include below($lg) {
+				display: block;
+			}
+
+			&::before {
+				content: "";
+				display: block;
+				pointer-events: none;
+
+				@include ratio(174, 34);
+			}
+
+			&-inner {
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: block;
+				overflow: hidden;
+				text-indent: -9999px;
+				height: 100%;
+				width: 100%;
+				user-select: none;
+				-webkit-tap-highlight-color: transparent;
+			}
 		}
 
 		&-title {
@@ -83,6 +136,12 @@
 			text-align: center;
 			text-shadow: 0 4px 14px rgba(41, 53, 72, 0.4);
 			margin-bottom: 3.8rem;
+
+			@include below($lg) {
+				font-size: 2.8rem;
+				line-height: 4.2rem;
+				margin-bottom: 0.6rem;
+			}
 
 			&:last-child {
 				margin-bottom: 0;
@@ -96,6 +155,11 @@
 			color: white;
 			text-align: center;
 			text-shadow: 0 4px 14px rgba(41, 53, 72, 0.4);
+
+			@include below($lg) {
+				font-size: 1.7rem;
+				line-height: 2.8rem;
+			}
 		}
 	}
 
@@ -105,6 +169,10 @@
 		height: 0;
 		width: 100%;
 		z-index: 5;
+
+		@include below($lg) {
+			display: none;
+		}
 	}
 
 	&__button {
@@ -211,9 +279,9 @@
 			span {
 				position: relative;
 				display: block;
-				height: 10px;
-				width: 10px;
-				border-radius: 10px;
+				height: 1rem;
+				width: 1rem;
+				border-radius: 1rem;
 				background-color: white;
 				z-index: 5;
 			}

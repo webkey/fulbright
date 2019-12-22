@@ -3,6 +3,10 @@
 	display: block;
 	color: white;
 
+	@include below($lg) {
+		padding: 4rem 0;
+	}
+
 	@include linear-gradient(66.93deg, #37455e -6.09%, rgba(#36445c, 0.86) 126.3%);
 
 	&__bg {
@@ -40,6 +44,10 @@
 		background: url(../images/logo.png) no-repeat;
 		background-size: contain;
 
+		@include retina {
+			background-image: url(../images/logo-2x.png);
+		}
+
 		&::before {
 			content: "";
 			display: block;
@@ -69,6 +77,10 @@
 		color: rgba(white, 0.7);
 		margin-bottom: 0.9rem;
 
+		@include below($lg) {
+			margin-bottom: 2rem;
+		}
+
 		&:last-child {
 			margin-bottom: 0;
 		}
@@ -89,6 +101,12 @@
 		padding: 6.2rem 0 0.5rem;
 		margin: 0 -1.5rem;
 
+		@include below($lg) {
+			display: block;
+			padding: 0;
+			margin: 0 0 -2rem;
+		}
+
 		&-grid {
 			$width: 33.33%;
 
@@ -96,9 +114,19 @@
 			max-width: $width;
 			padding: 0 1.5rem;
 
+			@include below($lg) {
+				max-width: none;
+				padding: 0;
+				margin: 0 0 3rem;
+			}
+
 			&_nav,
 			&_contacts {
 				padding-top: 3.2rem;
+
+				@include below($lg) {
+					padding-top: 0;
+				}
 			}
 		}
 	}
@@ -143,7 +171,7 @@
 		font-size: 1.2rem;
 		line-height: 1.8rem;
 		color: white;
-		margin: 0 -1.5rem -2rem;
+		margin: 0 -1.5rem -2.2rem;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: flex-start;
@@ -190,17 +218,32 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding: 1.8rem 0;
+		padding: 1.8rem 0 2.8rem;
 		font-size: 1.2rem;
 		line-height: 1.6rem;
 
+		@include below($lg) {
+			display: block;
+			padding: 0;
+		}
+
 		&-left {
 			padding-right: 1.5rem;
+
+			@include below($lg) {
+				padding: 0;
+				margin-bottom: 1rem;
+			}
 		}
 
 		&-right {
 			padding-left: 1.5rem;
 			text-align: right;
+
+			@include below($lg) {
+				padding: 0;
+				text-align: left;
+			}
 		}
 	}
 
@@ -210,6 +253,10 @@
 		opacity: 0.3;
 		font-size: 1.2rem;
 		line-height: 2.4rem;
+
+		@include below($lg) {
+			font-size: 1.3rem;
+		}
 	}
 
 	&__development {
@@ -217,6 +264,10 @@
 		align-items: center;
 		font-size: 1.1rem;
 		line-height: 2.4rem;
+
+		@include below($lg) {
+			font-size: 1.3rem;
+		}
 
 		&-text {
 			display: block;
@@ -251,7 +302,11 @@
 	}
 
 	&__tape {
+		position: absolute;
+		bottom: 0;
+		left: 0;
 		height: 1rem;
+		width: 100%;
 
 		@include linear-gradient(to right, $base-gradient-color-start, $base-gradient-color-end);
 	}

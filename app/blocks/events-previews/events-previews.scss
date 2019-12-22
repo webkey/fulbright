@@ -5,6 +5,10 @@ $grid-space: $grid-space;
 		margin: 0 -#{$grid-space / 2} -5.6rem;
 
 		@include clearfix;
+
+		@include below($lg) {
+			margin: 0 0 -4rem;
+		}
 	}
 
 	&__item-main {
@@ -14,6 +18,14 @@ $grid-space: $grid-space;
 		width: 50%;
 		padding: 0 #{$grid-space / 2};
 		margin-bottom: 5.6rem;
+
+		@include below($lg) {
+			float: none;
+			width: auto;
+			padding-left: 0;
+			padding-right: 0;
+			margin-bottom: 4rem;
+		}
 	}
 
 	&__item {
@@ -23,6 +35,14 @@ $grid-space: $grid-space;
 		width: 50%;
 		padding: 0 #{$grid-space / 2} 0 5.6rem;
 		margin-bottom: 5.6rem;
+
+		@include below($lg) {
+			float: none;
+			width: auto;
+			padding-left: 0;
+			padding-right: 0;
+			margin-bottom: 4rem;
+		}
 	}
 
 	&__el {
@@ -48,6 +68,10 @@ $grid-space: $grid-space;
 			-webkit-line-clamp: $count;
 			margin: -0.8rem 0 1.2rem;
 			transition: color $animation-speed;
+
+			@include below($lg) {
+				margin-top: 0;
+			}
 
 			@at-root {
 				a#{$el}:hover & {
@@ -178,6 +202,10 @@ $grid-space: $grid-space;
 			background-size: cover;
 			margin-bottom: 3.4rem;
 
+			@include below($lg) {
+				margin-bottom: 1.5rem;
+			}
+
 			&::before {
 				content: "";
 				display: block;
@@ -188,25 +216,49 @@ $grid-space: $grid-space;
 
 		&-title {
 			$lh: 4.2rem;
+			$count: 3;
 
 			font-weight: bold;
 			font-size: 2.8rem;
 			line-height: $lh;
 			color: $title-color-alt;
-			height: $lh * 3;
+			height: $lh * $count;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			display: -webkit-box;
 			-webkit-box-orient: vertical;
-			-webkit-line-clamp: 3;
+			-webkit-line-clamp: $count;
 			margin-bottom: 3.5rem;
 			transition: color $animation-speed;
+
+			@include below($lg) {
+				$lh: 2.8rem;
+				$count: 2;
+
+				font-size: 1.7rem;
+				line-height: $lh;
+				height: $lh * $count;
+				-webkit-line-clamp: $count;
+				margin-bottom: 1.2rem;
+			}
 
 			@at-root {
 				a#{$el}:hover & {
 					color: $link-color;
 				}
 			}
+		}
+
+		&-sep {
+			height: 3px;
+			margin: 1.2rem 0 1.8rem;
+			display: none;
+
+			@include below($lg) {
+				display: block;
+			}
+
+			@include linear-gradient(to right, $base-gradient-color-start, $base-gradient-color-end);
 		}
 
 		&-meta {

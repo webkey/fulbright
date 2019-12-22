@@ -1,9 +1,10 @@
-<header class="header">
-	<a href="#" class="header__mob-menu-control js-mob-menu-control">Open menu</a>
-	<div class="header__holder js-mob-menu js-mob-menu-prevent-hide">
+@@include("../header-mob/header-mob.html")
+<header class="header js-mob-menu js-mob-menu-prevent-hide">
+	<div class="header__holder">
 		<div class="header__frame">
 			@@include("../header-main/header-main.html", {"currentItem": "@@currentItem"})
 			@@include("../site-control/site-control.html", {"currentItem": "@@currentItem"})
 		</div>
 	</div>
+	<a href="#" class="header__mob-menu-close js-mob-menu-close">Open menu</a>
 </header>

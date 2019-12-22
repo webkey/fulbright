@@ -2,10 +2,15 @@ $grid-space: $grid-space;
 
 .news-previews {
 	&__list {
-		margin: 0 -#{$grid-space / 2} -5.2rem;
+		margin: 0 -#{$grid-space / 2} -5.5rem;
 		display: flex;
 		align-items: flex-start;
 		flex-wrap: wrap;
+
+		@include below($lg) {
+			display: block;
+			margin: 0 0 -4rem;
+		}
 	}
 
 	&__item {
@@ -13,6 +18,14 @@ $grid-space: $grid-space;
 		max-width: 33.33%;
 		padding: 0 #{$grid-space / 2};
 		margin-bottom: 5.5rem;
+
+		@include below($lg) {
+			display: inline-block;
+			width: 100%;
+			max-width: none;
+			padding: 0;
+			margin-bottom: 4rem;
+		}
 	}
 
 	&__el {
