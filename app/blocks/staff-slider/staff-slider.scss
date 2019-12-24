@@ -1,0 +1,255 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.staff-slider {
+	position: relative;
+	padding-bottom: 10.7rem;
+
+	@include below($lg) {
+		padding-bottom: 6rem;
+	}
+
+	html:not(.no-js) &:not(.is-loaded) {
+		opacity: 0;
+		pointer-events: none;
+		overflow: hidden;
+	}
+
+	&__slide {
+		$slide: &;
+
+		&-frame {
+			position: relative;
+		}
+
+		&-el {
+			$el: &;
+
+			display: block;
+			text-decoration: none;
+			-webkit-tap-highlight-color: transparent;
+
+			&-figure {
+				position: relative;
+				overflow: hidden;
+				background-color: #ccc;
+
+				&::before {
+					content: "";
+					display: block;
+
+					@include ratio(294, 338);
+				}
+			}
+
+			&-img {
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+			}
+
+			&-cover {
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				background-color: $base-color;
+				transition: transform $animation-speed 0.1s, opacity $animation-speed 0.1s;
+				will-change: transform, opacity;
+				transform: translate3d(-100%, 10%, 0);
+				opacity: 0;
+
+				@at-root {
+					a#{$el}:hover & {
+						transition-delay: 0s;
+						transform: translate3d(0, 0, 0);
+						opacity: 1;
+					}
+
+					a#{$el}:active & {
+						background-color: $highlight-color--active;
+					}
+				}
+			}
+
+			&-link {
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 2rem;
+				transition: transform $animation-speed, opacity $animation-speed;
+				will-change: transform, opacity;
+				transform: translate3d(-100%, 0, 0);
+				opacity: 0;
+
+				@at-root {
+					a#{$el}:hover & {
+						transition-delay: 0.1s;
+						transform: translate3d(0, 0, 0);
+						opacity: 1;
+					}
+				}
+			}
+
+			&-more {
+				display: block;
+				position: relative;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 1.4rem;
+				line-height: 1.8rem;
+				color: white;
+				padding-right: 2rem;
+				transition: color $animation-speed;
+
+				&::before {
+					content: "";
+					display: block;
+					position: absolute;
+					right: -0.5rem;
+					top: -0.3rem;
+					height: 2.4rem;
+					width: 2.4rem;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: contain;
+					background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTMuMTcyIDEyTDguMjIxOTggNy4wNDk5OUw5LjYzNTk4IDUuNjM1OTlMMTYgMTJMOS42MzU5OCAxOC4zNjRMOC4yMjE5OCAxNi45NUwxMy4xNzIgMTJaIiBmaWxsPSIjZmZmIi8+PC9zdmc+);
+					transition: transform $animation-speed;
+					transform: translate3d(0, 0, 0);
+					will-change: transform;
+				}
+
+				&:hover::before {
+					transform: translate3d(0.5rem, 0, 0);
+				}
+			}
+
+			&-content {
+				padding: 2.4rem 0 0;
+				position: relative;
+			}
+
+			&-title {
+				font-weight: bold;
+				font-size: 1.7rem;
+				line-height: 2.8rem;
+				color: $title-color-alt;
+				margin: 0 0 0.1rem;
+				transition: color $animation-speed;
+
+				@at-root {
+					a#{$el}:hover & {
+						color: $link-color;
+					}
+				}
+			}
+
+			&-text {
+				font-size: 1.7rem;
+				line-height: 3.2rem;
+				color: $text-color;
+				transition: color $animation-speed;
+
+				@at-root {
+					a#{$el}:hover & {
+						color: $link-color;
+					}
+				}
+			}
+		}
+	}
+
+	&__pagination {
+		position: absolute;
+		left: 0;
+		bottom: 4.5rem;
+		width: 100%;
+		z-index: 5;
+		pointer-events: none;
+
+		@include below($lg) {
+			bottom: 0;
+		}
+
+		&-list {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&-bullet {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 4.4rem;
+			width: 4.4rem;
+			margin: 0.8rem;
+			cursor: pointer;
+			pointer-events: auto;
+
+			&::before,
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transition: transform $animation-speed;
+				transform: scale(0);
+			}
+
+			&::before {
+				width: 4.4rem;
+				height: 4.4rem;
+				border-radius: 4.4rem;
+				margin: -2.2rem;
+				background-color: rgba($link-color, 0.1);
+			}
+
+			&::after {
+				width: 3rem;
+				height: 3rem;
+				border-radius: 3rem;
+				margin: -1.5rem;
+				background-color: rgba($link-color, 0.1);
+			}
+
+			span {
+				position: relative;
+				display: block;
+				height: 1rem;
+				width: 1rem;
+				border-radius: 1rem;
+				background-color: $link-color;
+				z-index: 5;
+			}
+
+			// :hover
+			&:hover {
+				&::after {
+					transform: scale(1);
+				}
+			}
+
+			// Active
+			&_active {
+				&::before,
+				&::after {
+					transform: scale(1);
+				}
+			}
+		}
+	}
+}

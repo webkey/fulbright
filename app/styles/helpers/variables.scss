@@ -3,6 +3,7 @@ $sm: 576px;
 $md: 768px;
 $lg: 992px;
 $xl: 1200px;
+$xxl: 1366px;
 
 // Colors
 // ====================================================
@@ -44,8 +45,9 @@ $layout-page-min-width: 32rem !default;
 // Maximal width of site
 $layout-page-max-width: 256rem !default;
 // Spaces of site
-$layout-page-space: 0 2.8rem !default;
-$layout-page-space--sm: 0 2rem !default;
+$layout-page-space: 0 4.2rem !default;
+$layout-page-space--md: 0 2.8rem !default;
+$layout-page-space--sm: 0 1.6rem !default;
 
 // Layout content
 // ====================================================
@@ -55,6 +57,11 @@ $layout-content-max-width: 114.6rem !default;
 // Grid layout
 // ====================================================
 $grid-space: 3rem !default;
+
+// Content
+// ====================================================
+$bottom-space: 3.2rem;
+$bottom-space--mob: 2rem;
 
 // Header
 // ====================================================

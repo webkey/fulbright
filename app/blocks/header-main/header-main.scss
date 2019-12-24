@@ -12,17 +12,18 @@
 	@include below($lg) {
 		background: none;
 		border-bottom: none;
-		margin-bottom: 2rem;
+		margin-bottom: 2.5rem;
 	}
 
 	&__container {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		min-height: 9.4rem;
+		padding: 2.7rem 0;
 
 		@include below($lg) {
 			display: block;
+			padding: 0;
 		}
 	}
 

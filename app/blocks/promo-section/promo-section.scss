@@ -1,4 +1,7 @@
-.promo {
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.promo-section {
 	display: block;
 	margin-bottom: 12rem;
 

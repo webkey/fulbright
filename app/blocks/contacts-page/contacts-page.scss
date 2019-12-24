@@ -1,0 +1,18 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.contacts-page {
+	padding: 17.3rem 0 5.3rem;
+
+	@include below($lg) {
+		padding: 4rem 0 5rem;
+	}
+
+	&__heading {
+		margin-bottom: 4.9rem;
+
+		@include below($lg) {
+			margin-bottom: 2.5rem;
+		}
+	}
+}

@@ -1,13 +1,21 @@
-$grid-space: $grid-space;
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
 
 .events-previews {
-	&__list {
-		margin: 0 -#{$grid-space / 2} -5.6rem;
+	$grid-space: $grid-space;
+	$item-bottom-space: 5.6rem;
+	$item-bottom-space--sm: 4rem;
 
-		@include clearfix;
+	overflow: hidden;
+
+	&__list {
+		display: inline-block;
+		width: calc(100% + #{$grid-space});
+		margin: 0 -#{$grid-space / 2} -#{$item-bottom-space};
 
 		@include below($lg) {
-			margin: 0 0 -4rem;
+			width: 100%;
+			margin: 0 0 -#{$item-bottom-space--sm};
 		}
 	}
 
@@ -17,14 +25,14 @@ $grid-space: $grid-space;
 		min-height: 5rem;
 		width: 50%;
 		padding: 0 #{$grid-space / 2};
-		margin-bottom: 5.6rem;
+		margin-bottom: $item-bottom-space;
 
 		@include below($lg) {
 			float: none;
 			width: auto;
 			padding-left: 0;
 			padding-right: 0;
-			margin-bottom: 4rem;
+			margin-bottom: $item-bottom-space--sm;
 		}
 	}
 
@@ -33,7 +41,7 @@ $grid-space: $grid-space;
 		clear: right;
 		min-height: 5rem;
 		width: 50%;
-		padding: 0 #{$grid-space / 2} 0 5.6rem;
+		padding: 0 #{$grid-space / 2} 0 #{$item-bottom-space};
 		margin-bottom: 5.6rem;
 
 		@include below($lg) {
@@ -41,7 +49,7 @@ $grid-space: $grid-space;
 			width: auto;
 			padding-left: 0;
 			padding-right: 0;
-			margin-bottom: 4rem;
+			margin-bottom: #{$item-bottom-space--sm};
 		}
 	}
 
@@ -177,7 +185,7 @@ $grid-space: $grid-space;
 				}
 
 				&::after {
-					background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTMuMTcyMiAxMkw4LjIyMjE3IDcuMDQ5OTlMOS42MzYxNyA1LjYzNTk5TDE2LjAwMDIgMTJMOS42MzYxNyAxOC4zNjRMOC4yMjIxNyAxNi45NUwxMy4xNzIyIDEyWiIgZmlsbD0iIzA3Mzc4OSIvPjwvc3ZnPg==);
+					background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTMuMTcyIDEyTDguMjIxOTggNy4wNDk5OUw5LjYzNTk4IDUuNjM1OTlMMTYgMTJMOS42MzU5OCAxOC4zNjRMOC4yMjE5OCAxNi45NUwxMy4xNzIgMTJaIiBmaWxsPSIjMTI3OWM1Ii8+PC9zdmc+);
 					opacity: 0;
 
 					@at-root {

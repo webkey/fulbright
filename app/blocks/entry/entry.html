@@ -1,0 +1,28 @@
+<div class="entry">
+	<div class="entry__bg lozad" data-background-image="assets/images/@@image">
+		<div class="promo-slider__slide-bg-cover"></div>
+	</div>
+	<div class="entry__figure entry__figure_@@figurePosition"></div>
+	<div class="layout-page">
+		<div class="layout-content">
+			<div class="entry__container">
+				<div class="entry__holder">
+					<div class="entry__logo">
+						<a href="index.html" class="entry__logo-inner">Fulbright</a>
+					</div>
+					<h1 class="entry__title">@@title</h1>
+					<div class="entry__breadcrumbs">
+						<ul class="entry__breadcrumbs-list">
+							@@for (var i = 0; i < breadcrumbs.items.length; i++) {
+							<li class="entry__breadcrumbs-li">
+								<a class="entry__breadcrumbs-li-el" href="#" title="`+breadcrumbs.items[i]+`">`+breadcrumbs.items[i]+`</a>
+							</li>
+							}
+							@@if(context.breadcrumbs.last){<li class="entry__breadcrumbs-li">@@breadcrumbs.last</li>}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

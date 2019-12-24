@@ -1,0 +1,62 @@
+@@include("../blocks/head/head.html", {"title": "News - Fulbright"})
+@@include("../blocks/header/header.html", {"currentItem": "News"})
+<div class="main">
+	@@include("../blocks/entry/entry.html", {
+		"image": "img-entry-news.jpg",
+		"title": "News",
+		"figurePosition": "top-left",
+		"breadcrumbs": {
+			"items": ["Home", "About us"],
+			"last": "News"
+		}
+	})
+	<div class="frame">
+		<div class="layout-page">
+			<div class="layout-content">
+				<div class="frame__layout">
+					<aside class="frame__sidebar">
+						<div class="frame__sidebar-row" data-aos="fade-up">
+							<ul class="menu">
+								<li class="menu__li">
+									<a class="menu__li-el" href="#">Spring activities</a>
+									<div class="menu__li-drop">
+										<ul class="sub-menu">
+											<li class="sub-menu__li"><a class="sub-menu__li-el" href="#">2017 Fulbright Presentations</a></li>
+											<li class="sub-menu__li"><a class="sub-menu__li-el" href="#">2016 Fulbright Presentations</a></li>
+											<li class="sub-menu__li current"><span class="sub-menu__li-el">2015 Fulbright Presentations</span></li>
+											<li class="sub-menu__li"><a class="sub-menu__li-el" href="#">2014 Fulbright Presentations</a></li>
+										</ul>
+									</div>
+								</li>
+								<li class="menu__li">
+									<a class="menu__li-el" href="#">Spring activities</a>
+									<div class="menu__li-drop">
+										<ul class="sub-menu">
+											<li class="sub-menu__li"><a class="sub-menu__li-el" href="#">2017 Fulbright Presentations</a></li>
+											<li class="sub-menu__li"><a class="sub-menu__li-el" href="#">2016 Fulbright Presentations</a></li>
+											<li class="sub-menu__li"><a class="sub-menu__li-el" href="#">2015 Fulbright Presentations</a></li>
+											<li class="sub-menu__li"><a class="sub-menu__li-el" href="#">2014 Fulbright Presentations</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="frame__sidebar-row" data-aos="fade-up">
+							<a href="#" class="btn-all">See all</a>
+						</div>
+					</aside>
+					<div class="frame__content">
+						<div class="frame__content-row">
+							@@include("../blocks/news/news.html")
+						</div>
+						<div class="frame__content-row frame__content-row_pagination">
+							@@include("../blocks/pagination/pagination.html")
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+@@include("../blocks/footer/footer.html", {"currentItem": "News"})
+@@include("../blocks/link/link.html")

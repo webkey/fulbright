@@ -1,0 +1,219 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.about-tabs {
+	&__nav {
+		overflow: hidden;
+		position: relative;
+		margin-bottom: 3.4rem;
+
+		@include below($lg) {
+			overflow: visible;
+			width: 24rem;
+			max-width: 100%;
+			margin-bottom: 2rem;
+		}
+	}
+
+	&__select {
+		position: relative;
+		width: 100%;
+		padding: 0.9rem 3.5rem 0.9rem 1.5rem;
+		font-weight: bold;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		text-decoration: none;
+		background-color: white;
+		border-radius: 0.4rem;
+		border: 1px solid $border-color;
+		user-select: none;
+		will-change: background-color, color;
+		transition-property: background-color, color;
+		transition-duration: 0.25s;
+		display: none;
+
+		@include below($lg) {
+			display: block;
+		}
+
+		span {
+			display: block;
+
+			@include truncate(100%);
+		}
+
+		i {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			margin: -2rem 0;
+			height: 4rem;
+			width: 4rem;
+			font-size: 0;
+			line-height: 0;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 2.4rem;
+			background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTEuOTk5OCAxMy4xNzIyTDE2Ljk0OTggOC4yMjIxN0wxOC4zNjM4IDkuNjM2MTdMMTEuOTk5OCAxNi4wMDAyTDUuNjM1NzcgOS42MzYxN0w3LjA0OTc3IDguMjIyMTdMMTEuOTk5OCAxMy4xNzIyWiIgZmlsbD0iIzdjODQ4OCIvPjwvc3ZnPg==);
+		}
+
+		&.about-tabs__select_open i {
+			transform: rotate(0.5turn);
+		}
+	}
+
+	&__thumbs {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: center;
+		margin: 0 -1.8rem -2rem;
+		font-weight: bold;
+		font-size: 1.7rem;
+		line-height: 3.2rem;
+		user-select: none;
+
+		@include below($lg) {
+			overflow: hidden;
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 100%;
+			width: 100%;
+			margin: -1px 0 0;
+			font-size: 1.6rem;
+			background-color: white;
+			border-radius: 0.4rem;
+			border: 1px solid $border-color;
+			z-index: 15;
+			transition: opacity $animation-speed, transform $animation-speed;
+			opacity: 0;
+			transform: translate3d(0, -0.5rem, 0);
+			pointer-events: none;
+
+			&.about-tabs__select_open {
+				opacity: 1;
+				transform: translate3d(0, 0, 0);
+				pointer-events: auto;
+			}
+		}
+
+		html.no-js & {
+			display: none;
+		}
+
+		&-el {
+			$el: &;
+
+			display: block;
+			position: relative;
+			margin: 0 1.8rem 2rem;
+			color: $title-color-alt;
+			text-decoration: none;
+			transition: color $animation-speed;
+			user-select: none;
+			-webkit-tap-highlight-color: transparent;
+
+			@include below($lg) {
+				margin: 0;
+				padding: 0.4rem 1.5rem;
+			}
+
+			&:hover {
+				color: $link-color;
+			}
+
+			&.about-tabs_active {
+				cursor: default;
+				color: $title-color-alt;
+				pointer-events: none;
+
+				&:hover {
+					color: $title-color-alt;
+				}
+
+				@include below($lg) {
+					pointer-events: auto;
+					background-color: #f2f2f2;
+					color: $text-color-muted;
+
+					&:hover {
+						color: $text-color-muted;
+					}
+				}
+			}
+
+			@include below($lg) {
+				margin-left: 0;
+				margin-right: 0;
+			}
+
+			&-in {
+				display: inline-block;
+				vertical-align: top;
+				padding-bottom: 1px;
+				box-shadow: inset 0 -2px 0 transparent;
+
+				@at-root {
+					#{$el}.about-tabs_active & {
+						box-shadow: inset 0 -2px 0 $link-color;
+
+						@include below($lg) {
+							font-weight: bold;
+							box-shadow: inset 0 -2px 0 transparent;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__panels {
+		z-index: 1;
+	}
+
+	&__panel {
+		opacity: 0;
+		visibility: hidden;
+
+		html.no-js & {
+			opacity: 1;
+			visibility: visible;
+		}
+
+		&-content {
+			display: flex;
+
+			@include below($lg) {
+				display: block;
+			}
+
+			&-left {
+				$width: 59.9%;
+
+				flex: 1 0 $width;
+				max-width: $width;
+				padding-right: 8.5%;
+
+				@include below($lg) {
+					max-width: none;
+					margin-bottom: 3rem;
+					padding-right: 0;
+				}
+			}
+
+			&-right {
+				$width: 40.1%;
+
+				flex: 1 0 $width;
+				max-width: $width;
+				padding-top: 2.1rem;
+
+				@include below($lg) {
+					max-width: none;
+					padding-top: 0;
+				}
+			}
+		}
+	}
+}

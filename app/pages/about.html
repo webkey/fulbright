@@ -1,0 +1,47 @@
+@@include("../blocks/head/head.html", {"title": "About us - Fulbright"})
+@@include("../blocks/header/header.html", {"currentItem": "About"})
+<div class="main">
+	@@include("../blocks/entry/entry.html", {
+		"image": "img-entry-about-us.jpg",
+		"title": "About us",
+		"figurePosition": "bottom-left",
+		"breadcrumbs": {
+			"items": ["Home"],
+			"last": "About us"
+		}
+	})
+	<div class="single">
+		<section class="single-section single-section_about">
+			<div class="single-section__heading" data-aos="fade-up">
+				@@include("../blocks/hgroup/hgroup.html", {
+				"title": "About the fulbright program",
+				"text": "The Fulbright Program, the U.S. government's flagship program in international educational exchange, was proposed to the U.S. Congress in 1945 by then freshman Senator J. William Fulbright of Arkansas."
+				})
+			</div>
+			<div class="single-section__content" data-aos="fade-up">
+				<div class="layout-page">
+					<div class="layout-content">
+						@@include("../blocks/about-tabs/about-tabs.html")
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="single-section single-section_about">
+			<div class="single-section__heading" data-aos="fade-up">
+				<div class="layout-page">
+					<div class="layout-content">
+						<div class="single-section__heading-title">Meet the staff</div>
+					</div>
+				</div>
+			</div>
+			<div class="single-section__content" data-aos="fade-up">
+				<div class="layout-page">
+					@@include("../blocks/staff-slider/staff-slider.html")
+				</div>
+			</div>
+		</section>
+	</div>
+	@@include("../blocks/bottom-map/bottom-map.html")
+</div>
+@@include("../blocks/footer/footer.html", {"currentItem": "Grants for Americans"})
+@@include("../blocks/link/link.html")

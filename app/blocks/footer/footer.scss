@@ -4,7 +4,7 @@
 	color: white;
 
 	@include below($lg) {
-		padding: 4rem 0;
+		padding: 3.7rem 0;
 	}
 
 	@include linear-gradient(66.93deg, #37455e -6.09%, rgba(#36445c, 0.86) 126.3%);
@@ -46,6 +46,10 @@
 
 		@include retina {
 			background-image: url(../images/logo-2x.png);
+		}
+
+		@include below($lg) {
+			margin-bottom: 1.5rem;
 		}
 
 		&::before {
@@ -141,8 +145,10 @@
 		align-items: flex-start;
 
 		&-col {
-			flex: 1 0 50%;
-			max-width: 100%;
+			$width: 50%;
+
+			flex: 1 0 $width;
+			max-width: $width;
 			padding: 0 1.5rem;
 		}
 
@@ -177,8 +183,10 @@
 		align-items: flex-start;
 
 		&-col {
-			flex: 1 0 50%;
-			max-width: 100%;
+			$width: 50%;
+
+			flex: 1 0 $width;
+			max-width: $width;
 			padding: 0 1.5rem;
 		}
 

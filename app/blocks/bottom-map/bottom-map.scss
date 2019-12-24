@@ -1,0 +1,8 @@
+.bottom-map {
+	overflow: hidden;
+	height: 53.2rem;
+
+	@include below($lg) {
+		height: 28rem;
+	}
+}

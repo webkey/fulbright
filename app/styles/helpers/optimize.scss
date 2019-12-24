@@ -251,3 +251,8 @@ input[type="range"] {
 	appearance: none;
 	border-radius: 0;
 }
+
+// remove border from iframe
+iframe {
+	border: none;
+}

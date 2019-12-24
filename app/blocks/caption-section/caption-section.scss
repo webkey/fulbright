@@ -1,6 +1,6 @@
-$grid-space: $grid-space;
-
 .caption-section {
+	$grid-space: $grid-space;
+
 	margin-bottom: 11rem;
 
 	@include below($lg) {
@@ -27,9 +27,9 @@ $grid-space: $grid-space;
 		}
 	}
 
-	&__head {
-		flex: 1 0 33.33%;
-		max-width: 33.33%;
+	&__heading {
+		flex: 1 0 calc(100% - (58.33% + #{$grid-space / 2}));
+		max-width: calc(100% - (58.33% + #{$grid-space / 2}));
 		padding: 4.6rem #{$grid-space / 2} 0;
 
 		@include below($lg) {
@@ -38,16 +38,25 @@ $grid-space: $grid-space;
 			margin-bottom: 3rem;
 		}
 
+		&-holder {
+			padding-right: 17%;
+
+			@include below($lg) {
+				padding-right: 0;
+			}
+		}
+
 		&-title {
 			font-weight: bold;
 			font-size: 6.4rem;
 			line-height: 7rem;
 			color: $base-gradient-color-start;
+			margin-bottom: 2rem;
 
 			@include below($lg) {
 				font-size: 2.8rem;
 				line-height: 4.2rem;
-				margin-bottom: 3rem;
+				margin-bottom: 2.5rem;
 			}
 
 			@supports (background-clip: text) {

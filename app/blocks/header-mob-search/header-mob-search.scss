@@ -75,6 +75,7 @@
 
 	&__field {
 		position: relative;
+		box-shadow: 0 5px 5px rgba(black, 0.15);
 	}
 
 	&__input {
@@ -83,7 +84,7 @@
 		$ident-v: #{round-float((nth($search-form-size, 1) - $line-height) / 2, 1)};
 
 		display: block;
-		padding: #{$ident-v} 4rem #{$ident-v} 1.5rem;
+		padding: #{$ident-v} 8.2rem #{$ident-v} 1.5rem;
 		width: 100%;
 		height: nth($search-form-size, 1);
 		color: black;
@@ -109,7 +110,7 @@
 	&__submit {
 		position: absolute;
 		top: 50%;
-		right: 0;
+		right: 0.8rem;
 		height: 4rem;
 		width: 4rem;
 		margin: -2rem 0;
@@ -175,7 +176,7 @@
 	&__close {
 		position: absolute;
 		top: 50%;
-		right: 3.2rem;
+		right: 4rem;
 		height: 4rem;
 		width: 4rem;
 		margin: -2rem 0;

@@ -27,7 +27,7 @@
 		opacity: 0;
 		transition: opacity $animation-speed;
 
-		@include linear-gradient(90deg, rgba($base-gradient-color-start, 0.5) 0%, rgba($base-gradient-color-end, 0.5) 100%);
+		@include linear-gradient(90deg, rgba($base-gradient-color-start, 0.6) 0%, rgba($base-gradient-color-end, 0.6) 100%);
 
 		.show-bg & {
 			opacity: 1;

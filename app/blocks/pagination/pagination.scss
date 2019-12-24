@@ -1,0 +1,224 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.pagination {
+	$pagination-vspace: 0.5rem;
+	$pagination-hspace: 0;
+	$pagination-font-size: 1.7rem;
+	$pagination-border-width: 0;
+
+	display: inline-block;
+	vertical-align: top;
+	font-weight: bold;
+	color: $title-color-alt;
+	user-select: none;
+	cursor: default;
+	z-index: 5;
+
+	&__layout {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: -#{$pagination-vspace} 0;
+	}
+
+	&__left,
+	&__right {
+		font-size: 1.7rem;
+		line-height: 4.2rem;
+		padding: #{$pagination-vspace} 0;
+
+		@include below($lg) {
+			line-height: 3.2rem;
+		}
+	}
+
+	&__left {
+		margin-left: -1.8rem;
+
+		@include below($lg) {
+			margin-left: -1.1rem;
+		}
+	}
+
+	&__right {
+		margin-right: -1.8rem;
+
+		@include below($lg) {
+			margin-right: -1.1rem;
+		}
+	}
+
+	&__prev,
+	&__first,
+	&__next,
+	&__last {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		padding: 0 0.2rem;
+		color: inherit;
+		text-align: center;
+		background: transparent;
+		min-width: 4.2rem;
+		height: 4.2rem;
+		text-decoration: none;
+		transition: color $animation-speed;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+
+		@include below($lg) {
+			min-width: 3.2rem;
+			height: 3.2rem;
+		}
+
+		&:hover {
+			color: $link-color;
+		}
+
+		&.disabled {
+			opacity: 0.5;
+			color: inherit;
+			cursor: default;
+			pointer-events: none;
+		}
+
+		&-text {
+			@include hide-text;
+		}
+
+		&-arr {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+
+			$size: 2.4rem;
+
+			height: $size;
+			width: $size;
+			margin: -#{$size / 2};
+			font-size: 0;
+			line-height: 0;
+
+			svg {
+				display: block;
+				height: 100%;
+				width: 100%;
+			}
+
+			path {
+				fill: currentColor;
+			}
+		}
+	}
+
+	&__pages {
+		display: flex;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		&-li {
+			$li: &;
+
+			padding: #{$pagination-vspace} #{$pagination-hspace};
+			font-size: 1.7rem;
+			line-height: 4.2rem;
+			text-indent: 0.08em;
+
+			@include below($lg) {
+				font-size: 1.6rem;
+				line-height: 3.2rem;
+				text-indent: 0.05em;
+			}
+
+			&-el {
+				$el: &;
+
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				padding: 0 0.2rem;
+				color: inherit;
+				text-align: center;
+				background: transparent;
+				min-width: 4.2rem;
+				height: 4.2rem;
+				user-select: none;
+				-webkit-tap-highlight-color: transparent;
+
+				@include below($lg) {
+					min-width: 3.2rem;
+					height: 3.2rem;
+				}
+
+				&::before {
+					content: "";
+					display: block;
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					background-color: #f2f2f2;
+
+					$size: 4.8rem;
+
+					height: $size;
+					width: $size;
+					margin: -#{$size / 2};
+					border-radius: $size;
+					z-index: -1;
+					transition: opacity $animation-speed;
+					opacity: 0;
+					pointer-events: none;
+
+					@include below($lg) {
+						$size: 4rem;
+
+						height: $size;
+						width: $size;
+						margin: -#{$size / 2};
+						border-radius: $size;
+					}
+				}
+
+				@at-root {
+					a#{$el} {
+						text-decoration: none;
+						cursor: pointer;
+						transition: color $animation-speed;
+						user-select: none;
+						-webkit-tap-highlight-color: transparent;
+
+						&:hover {
+							color: $link-color;
+						}
+					}
+
+					#{$li}.current & {
+						&::before {
+							opacity: 1;
+						}
+					}
+				}
+			}
+
+			&-dots {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				padding: 0 0.2rem;
+				color: inherit;
+				text-align: center;
+				background: transparent;
+				min-width: 4.2rem;
+				height: 4.2rem;
+
+				@include below($lg) {
+					min-width: 3.2rem;
+					height: 3.2rem;
+				}
+			}
+		}
+	}
+}

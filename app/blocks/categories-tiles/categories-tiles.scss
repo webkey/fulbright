@@ -2,6 +2,16 @@
 	display: block;
 	overflow: hidden; // for aos animation
 
+	@include below($lg) {
+		max-width: 100%;
+		width: 42.6rem;
+		margin: 0 auto;
+	}
+
+	@include below($sm) {
+		width: 28.2rem;
+	}
+
 	&__list {
 		margin: 0 -0.4rem -0.9rem;
 		display: flex;
@@ -117,11 +127,19 @@
 				opacity: 0;
 				transform: translate3d(1.5rem, 1.5rem, 0);
 
+				@include below($lg) {
+					width: 16.6rem;
+				}
+
 				&_bottom-right,
 				&_right-bottom {
 					left: 100%;
 					top: 100%;
 					margin: -13.4rem -18.8rem;
+
+					@include below($lg) {
+						margin: -9.4rem -10.8rem;
+					}
 				}
 
 				@at-root {

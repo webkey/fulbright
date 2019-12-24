@@ -13,6 +13,10 @@
 	}
 
 	&__label {
+		@include below($lg) {
+			margin-bottom: 0.8rem;
+		}
+
 		&-inner {
 			font-weight: 600;
 			font-size: 1.4rem;

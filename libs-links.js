@@ -5,7 +5,8 @@ export const libsJsLink = [
 	'node_modules/swiper/dist/js/swiper.min.js',
 	'node_modules/aos/dist/aos.js',
 	'app/libs/js/jquery.switch-class.js',
-	'app/libs/js/jquery.nav.js'
+	'app/libs/js/jquery.nav.js',
+	'app/libs/js/jquery.tabs.js'
 ];
 
 export const libsCssLink = [

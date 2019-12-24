@@ -1,0 +1,207 @@
+.entry {
+	overflow: hidden;
+	position: relative;
+	display: block;
+	text-decoration: none;
+
+	&__bg {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+		background-color: #ccc;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+
+		&-cover {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			opacity: 0.28;
+
+			@include linear-gradient(90deg, $base-gradient-color-start 0%, $base-gradient-color-end 100%);
+		}
+	}
+
+	&__figure {
+		width: 67.6rem;
+		position: absolute;
+		opacity: 0.5;
+		background-image: url('../images/bubble.svg');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+
+		@include below($lg) {
+			width: 35rem;
+		}
+
+		&_bottom-right,
+		&_right-bottom {
+			right: 50%;
+			bottom: 50%;
+			margin: -54.5rem -45.8rem;
+
+			@include below($lg) {
+				margin: -27.4rem -25.5rem;
+			}
+		}
+
+		&_top-right,
+		&_right-top {
+			right: 50%;
+			top: 50%;
+			margin: -57.5rem -56.7rem;
+
+			@include below($lg) {
+				margin: -27.4rem -25.5rem;
+			}
+		}
+
+		&_top-left,
+		&_left-top {
+			left: 50%;
+			top: 50%;
+			margin: -55.9rem -48rem;
+
+			@include below($lg) {
+				margin: -27.4rem -25.5rem;
+			}
+		}
+
+		&_bottom-left,
+		&_left-bottom {
+			left: 50%;
+			bottom: 50%;
+			margin: -54.5rem -45.8rem;
+
+			@include below($lg) {
+				margin: -27.4rem -25.5rem;
+			}
+		}
+
+		&::before {
+			content: "";
+			display: block;
+
+			@include ratio(676, 695);
+		}
+	}
+
+	&__container {
+		height: 36.2rem;
+		padding-bottom: 0.1rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__holder {
+		position: relative;
+	}
+
+	&__logo {
+		position: relative;
+		margin: 0 auto 1.1rem;
+		width: 12.6rem;
+		max-width: 100%;
+		flex-shrink: 0;
+		background: url(../images/logo-2x.png) no-repeat;
+		background-size: contain;
+		display: none;
+
+		@include below($lg) {
+			display: block;
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			pointer-events: none;
+
+			@include ratio(174, 34);
+		}
+
+		&-inner {
+			position: absolute;
+			left: 0;
+			top: 0;
+			display: block;
+			overflow: hidden;
+			text-indent: -9999px;
+			height: 100%;
+			width: 100%;
+			user-select: none;
+			-webkit-tap-highlight-color: transparent;
+		}
+	}
+
+	&__title {
+		font-weight: bold;
+		font-size: 6.4rem;
+		line-height: 7rem;
+		color: white;
+		text-align: center;
+		text-shadow: 0 4px 14px rgba(41, 53, 72, 0.4);
+		margin-bottom: 1.6rem;
+
+		@include below($lg) {
+			font-size: 2.8rem;
+			line-height: 4.2rem;
+			margin-bottom: 1rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__breadcrumbs {
+		font-weight: bold;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		color: white;
+		text-align: center;
+
+		@include below($lg) {
+			font-size: 1.4rem;
+		}
+
+		&-list {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			cursor: default;
+		}
+
+		&-li {
+			display: inline;
+			margin: 0;
+
+			&::after {
+				display: inline;
+				content: ">";
+			}
+
+			&:last-child {
+				&::after {
+					content: none;
+				}
+			}
+
+			&-el {
+				color: inherit;
+				text-decoration: none;
+				transition: opacity $animation-speed;
+
+				&:hover {
+					opacity: 0.6;
+				}
+			}
+		}
+	}
+}

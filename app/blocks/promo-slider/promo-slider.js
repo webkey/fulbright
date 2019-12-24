@@ -12,7 +12,7 @@ app.promoSlider = {
 			return;
 		}
 
-		const slider = new Swiper('.js-promo-slider', app.promoSlider.options);
+		const slider = new Swiper('.js-promo-slider', this.options);
 
 		slider.on('init', function () {
 			$promoSlider.addClass('is-loaded');

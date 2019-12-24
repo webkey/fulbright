@@ -1,7 +1,6 @@
 .gallery-section {
 	position: relative;
 	display: block;
-	overflow: hidden;
 	margin: 0 auto 10rem;
 	padding-top: 3.8rem;
 
@@ -30,9 +29,8 @@
 		background-size: auto 100%;
 	}
 
-	&__head {
+	&__heading {
 		position: relative;
-		display: block;
 		margin-bottom: 4.6rem;
 		text-align: center;
 

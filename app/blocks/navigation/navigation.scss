@@ -4,6 +4,10 @@
 	font-size: 1.4rem;
 	line-height: 2.8rem;
 
+	@include below($lg) {
+		font-size: 1.6rem;
+	}
+
 	.h-search-panel-is-open & {
 		opacity: 0;
 		pointer-events: none;
@@ -198,12 +202,20 @@
 
 		position: relative;
 
+		@include below($lg) {
+			margin-top: 0.5rem;
+		}
+
 		&.has-drop {
 			padding-right: 1rem;
 
 			@include below($lg) {
 				padding-right: 2.8rem;
 			}
+		}
+
+		&:first-child {
+			margin-top: 0;
 		}
 
 		&-el {
@@ -367,12 +379,20 @@
 
 		position: relative;
 
+		@include below($lg) {
+			margin-top: 0.5rem;
+		}
+
 		&.has-drop {
 			padding-right: 1rem;
 
 			@include below($lg) {
 				padding-right: 2.8rem;
 			}
+		}
+
+		&:first-child {
+			margin-top: 0;
 		}
 
 		&-el {

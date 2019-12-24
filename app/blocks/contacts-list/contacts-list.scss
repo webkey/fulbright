@@ -1,0 +1,100 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.contacts-list {
+	display: block;
+
+	&__item {
+		position: relative;
+		padding: 2rem 0 2.3rem;
+
+		@include below($lg) {
+			padding: 1.5rem 0 1.8rem;
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 3px;
+
+			@include linear-gradient(to right, $base-gradient-color-start, $base-gradient-color-end);
+		}
+
+		&:last-child {
+			&::after {
+				content: none;
+			}
+		}
+
+		&-row {
+			margin-bottom: 1rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.contacts-list-el {
+	display: flex;
+	align-items: flex-start;
+
+	&__icon {
+		padding: 0.5rem 2.8rem 0 0;
+		margin-left: -0.4rem;
+		line-height: 2.4rem;
+
+		@include below($lg) {
+			padding: 0.2rem 2rem 0 0;
+		}
+	}
+
+	&__title {
+		font-weight: bold;
+		font-size: 1.2rem;
+		line-height: 2.4rem;
+		color: $title-color-alt;
+		margin-bottom: 0.2rem;
+
+		@include below($lg) {
+			font-size: 1.6rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__text {
+		font-size: 1.7rem;
+		line-height: 3.2rem;
+		color: $text-color;
+
+		@include below($lg) {
+			font-size: 1.8rem;
+		}
+
+		&-row {
+			margin-bottom: 0.5rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
+			transition: color $animation-speed;
+
+			&:hover {
+				color: $link-color;
+			}
+		}
+	}
+}

@@ -1,0 +1,63 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.contacts {
+	$grid-space: $grid-space;
+
+	display: block;
+
+	&__layout {
+		display: flex;
+		align-items: flex-start;
+
+		@include below($lg) {
+			display: block;
+		}
+	}
+
+	&__content {
+		$width: 40%;
+
+		flex: 1 0 $width;
+		max-width: $width;
+		padding-right: 8.6%;
+
+		@include below($lg) {
+			max-width: none;
+			padding-right: 0;
+			margin-bottom: 2rem;
+		}
+
+		&-title {
+			font-weight: bold;
+			font-size: 1.7rem;
+			line-height: 2.8rem;
+			color: $title-color-alt;
+			margin-bottom: 3.2rem;
+
+			@include below($lg) {
+				margin-bottom: 2rem;
+			}
+		}
+	}
+
+	&__aside {
+		$width: 60%;
+
+		flex: 1 0 $width;
+		max-width: $width;
+
+		@include below($lg) {
+			max-width: none;
+		}
+
+		&-figure {
+			padding-top: 1.1rem;
+
+			&-img {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}

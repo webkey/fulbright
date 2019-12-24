@@ -1,0 +1,30 @@
+@@include("../blocks/head/head.html", {"title": "Contacts - Fulbright"})
+@@include("../blocks/header/header.html", {"currentItem": "Contacts"})
+<div class="main">
+	@@include("../blocks/entry/entry.html", {
+		"image": "img-entry-contacts.jpg",
+		"title": "Contacts",
+		"figurePosition": "top-right",
+		"breadcrumbs": {
+			"items": ["Home", "About us"],
+			"last": "Contacts"
+		}
+	})
+	<section class="contacts-page">
+		<div class="contacts-page__heading">
+			@@include("../blocks/hgroup/hgroup.html", {
+			"title": "Location of the fulbright office <span class='nobr'>in Moscow</span>",
+			"text": "The Fulbright Program in RussiaInstitute of International Education <br> (Institut Mezhdunarodnogo Obrazovaniya)"
+			})
+		</div>
+		<div class="layout-page">
+			<div class="layout-content">
+				@@include("../blocks/contacts/contacts.html")
+			</div>
+		</div>
+	</section>
+
+	@@include("../blocks/bottom-map/bottom-map.html")
+</div>
+@@include("../blocks/footer/footer.html", {"currentItem": "Contacts"})
+@@include("../blocks/link/link.html")

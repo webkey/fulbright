@@ -9,26 +9,29 @@
 		}
 		@@if(context.currentItem != 'Home'){
 		<li class="nav__li">
-			<a class="nav__li-el" href="#">
+			<a class="nav__li-el" href="index.html">
 				<span class="nav__li-el-in">Home</span>
 			</a>
 		</li>
 		}
-		<li class="nav__li has-drop">
-			<a class="nav__li-el" href="#">
-				<span class="nav__li-el-in">Grants for Americans</span>
-			</a>
+		<li class="nav__li has-drop@@if(context.currentItem == 'Grants for Americans'){ current}">
+			@@if(context.currentItem == 'Grants for Americans'){
+			<span class="nav__li-el"><span class="nav__li-el-in">Grants for Americans</span></span>
+			}
+			@@if(context.currentItem != 'Grants for Americans'){
+			<a class="nav__li-el" href="inner.html"><span class="nav__li-el-in">Grants for Americans</span></a>
+			}
 			<em class="nav__li-arr">&#9660;</em>
 			<div class="nav__li-drop js-drop">
 				<div class="sub-nav">
 					<ul class="sub-nav__list">
 						<li class="sub-nav__li">
-							<a class="sub-nav__li-el" href="#">
+							<a class="sub-nav__li-el" href="inner.html">
 								<span class="sub-nav__li-el-in">Student programs</span>
 							</a>
 						</li>
 						<li class="sub-nav__li has-drop">
-							<a class="sub-nav__li-el" href="#">
+							<a class="sub-nav__li-el" href="inner.html">
 								<span class="sub-nav__li-el-in">Scholar grants</span>
 							</a>
 							<em class="sub-nav__li-arr">&#9660;</em>
@@ -36,17 +39,17 @@
 								<div class="sub-sub-nav">
 									<ul class="sub-sub-nav__list">
 										<li class="sub-sub-nav__li">
-											<a class="sub-sub-nav__li-el" href="#">
+											<a class="sub-sub-nav__li-el" href="inner.html">
 												<span class="sub-sub-nav__li-el-in">Senior specialist</span>
 											</a>
 										</li>
 										<li class="sub-sub-nav__li">
-											<a class="sub-sub-nav__li-el" href="#">
+											<a class="sub-sub-nav__li-el" href="inner.html">
 												<span class="sub-sub-nav__li-el-in">Senior scholars</span>
 											</a>
 										</li>
 										<li class="sub-sub-nav__li">
-											<a class="sub-sub-nav__li-el" href="#">
+											<a class="sub-sub-nav__li-el" href="inner.html">
 												<span class="sub-sub-nav__li-el-in">Sivachev chair</span>
 											</a>
 										</li>
@@ -124,24 +127,49 @@
 				</div>
 			</div>
 		</li>
-		<li class="nav__li has-drop">
-			<a class="nav__li-el" href="#">
+		<li class="nav__li has-drop@@if(context.currentItem == 'About' || context.currentItem == 'Contacts' || context.currentItem == 'News'){ current}">
+			@@if(context.currentItem != 'About'){
+			<a class="nav__li-el" href="about.html">
 				<span class="nav__li-el-in">About Us</span>
 			</a>
+			}
+			@@if(context.currentItem == 'About'){
+			<span class="nav__li-el">
+				<span class="nav__li-el-in">About Us</span>
+			</span>
+			}
 			<em class="nav__li-arr">&#9660;</em>
 			<div class="nav__li-drop js-drop">
 				<div class="sub-nav">
 					<ul class="sub-nav__list">
+						@@if(context.currentItem != 'Contacts'){
 						<li class="sub-nav__li">
-							<a class="sub-nav__li-el" href="#">
+							<a class="sub-nav__li-el" href="contacts.html">
 								<span class="sub-nav__li-el-in">Contacts</span>
 							</a>
 						</li>
+						}
+						@@if(context.currentItem == 'Contacts'){
+						<li class="sub-nav__li current">
+							<span class="sub-nav__li-el">
+								<span class="sub-nav__li-el-in">Contacts</span>
+							</span>
+						</li>
+						}
+						@@if(context.currentItem != 'News'){
 						<li class="sub-nav__li">
-							<a class="sub-nav__li-el" href="#">
+							<a class="sub-nav__li-el" href="news.html">
 								<span class="sub-nav__li-el-in">News</span>
 							</a>
 						</li>
+						}
+						@@if(context.currentItem == 'News'){
+						<li class="sub-nav__li current">
+							<span class="sub-nav__li-el">
+								<span class="sub-nav__li-el-in">News</span>
+							</span>
+						</li>
+						}
 						<li class="sub-nav__li">
 							<a class="sub-nav__li-el" href="#">
 								<span class="sub-nav__li-el-in">Forum</span>

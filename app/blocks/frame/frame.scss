@@ -1,0 +1,72 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.frame {
+	$grid-space: $grid-space;
+
+	padding: 10.4rem 0 10.9rem;
+
+	@include below($lg) {
+		padding: 4rem 0 5rem;
+	}
+
+	&__layout {
+		display: flex;
+		align-items: flex-start;
+		margin: 0 -#{$grid-space / 2};
+
+		@include below($lg) {
+			display: block;
+			margin: 0;
+		}
+	}
+
+	&__sidebar {
+		flex: 1 0 25%;
+		max-width: 25%;
+		padding: 0.5rem #{$grid-space / 2} 0;
+
+		@include below($lg) {
+			max-width: none;
+			padding: 0;
+			margin-bottom: 3rem;
+		}
+
+		&-row {
+			margin-bottom: 3.6rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__content {
+		flex: 1 0 75%;
+		max-width: 75%;
+		padding: 0 #{$grid-space / 2};
+
+		@include below($lg) {
+			max-width: none;
+			padding: 0;
+		}
+
+		&-row {
+			margin-bottom: 7.3rem;
+
+			@include below($lg) {
+				margin-bottom: 4rem;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			&_pagination {
+				@include below($lg) {
+					text-align: center;
+				}
+			}
+		}
+	}
+}

@@ -17,7 +17,7 @@ app.gallerySlider = {
 			return;
 		}
 
-		const slider = new Swiper('.' + this.sliderElement, app.gallerySlider.options);
+		const slider = new Swiper('.' + this.sliderElement, this.options);
 
 		slider.on('init', function () {
 			$promoSlider.addClass('is-loaded');

@@ -1,0 +1,265 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.content {
+	*::selection {
+		background-color: $base-color;
+		color: white;
+	}
+
+	p {
+		a:not(.btn-default) {
+			font-weight: bold;
+			color: $link-color;
+			word-wrap: break-word;
+			text-decoration: none;
+			-webkit-tap-highlight-color: transparent;
+
+			&:visited {
+				text-decoration: none;
+				color: $text-color-muted;
+			}
+
+			&:hover {
+				text-decoration: none;
+				color: $highlight-color--hover;
+			}
+
+			&:active {
+				text-decoration: none;
+				color: $highlight-color--active;
+			}
+		}
+	}
+
+	p,
+	.p,
+	pre {
+		margin-bottom: $bottom-space;
+
+		@include below($lg) {
+			margin-bottom: $bottom-space--mob;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	h1,
+	.h1 {
+		font-weight: bold;
+		font-size: 6.4rem;
+		line-height: 7rem;
+		color: $title-color;
+		margin: #{$bottom-space * 1.5} 0 $bottom-space;
+
+		@include below($lg) {
+			font-size: 2.8rem;
+			line-height: 4.2rem;
+			margin: #{$bottom-space--mob * 1.5} 0 $bottom-space--mob;
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	h2,
+	.h2 {
+		font-weight: bold;
+		font-size: 4.2rem;
+		line-height: 4.4rem;
+		color: $title-color;
+		margin: #{round-float($bottom-space * 1.5, 1)} 0 #{round-float($bottom-space * 1.46, 1)};
+
+		@include below($lg) {
+			font-size: 2.4rem;
+			line-height: 3.8rem;
+			margin: #{round-float($bottom-space--mob * 1.5, 1)} 0 #{round-float($bottom-space--mob * 1.46, 1)};
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	h3,
+	.h3 {
+		font-weight: bold;
+		font-size: 2.8rem;
+		line-height: 4.2rem;
+		color: $title-color-alt;
+		margin: #{round-float($bottom-space * 1.46, 1)} 0 #{round-float($bottom-space * 0.81, 1)};
+
+		@include below($lg) {
+			font-size: 2rem;
+			line-height: 3.6rem;
+			margin: #{round-float($bottom-space--mob * 1.46, 1)} 0 #{round-float($bottom-space--mob * 0.81, 1)};
+		}
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+
+	h4,
+	.h4 {
+		font-weight: bold;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		color: $title-color-alt;
+		margin: #{round-float($bottom-space * 1.3, 1)} 0 $bottom-space;
+	}
+
+	h5,
+	.h5 {
+		font-weight: normal;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		color: $title-color-alt;
+		margin: #{round-float($bottom-space * 1.3, 1)} 0 $bottom-space;
+	}
+
+	h6,
+	.h6 {
+		font-weight: bold;
+		font-size: 1.4rem;
+		line-height: 2.8rem;
+		color: $title-color-alt;
+		margin: #{round-float($bottom-space * 1.3, 1)} 0 $bottom-space;
+	}
+
+	img {
+		display: block;
+		margin: #{round-float($bottom-space * 1.25, 1)} 0 #{round-float($bottom-space * 1.69, 1)};
+		max-width: 100%;
+		height: auto;
+		text-align: center;
+		clear: both;
+
+		@include below($lg) {
+			margin-top: #{round-float($bottom-space--mob * 1.25, 1)};
+			margin-bottom: #{round-float($bottom-space--mob * 1.69, 1)};
+		}
+
+		&[align="left"],
+		&.imgl {
+			float: left;
+			clear: left;
+			text-align: left;
+			max-width: 45%;
+			margin-top: 0;
+			margin-right: #{round-float($bottom-space * 1.25, 1)};
+
+			@include below($lg) {
+				float: none;
+				max-width: 100%;
+				margin-right: auto;
+				text-align: center;
+			}
+		}
+
+		&[align="right"],
+		&.imgr {
+			float: right;
+			clear: right;
+			text-align: right;
+			max-width: 45%;
+			margin-top: 0;
+			margin-left: #{round-float($bottom-space * 1.25, 1)};
+
+			@include below($lg) {
+				float: none;
+				max-width: 100%;
+				margin-left: auto;
+				text-align: center;
+			}
+		}
+	}
+
+	.content__video {
+		display: block;
+		position: relative;
+		margin: #{round-float($bottom-space * 1.25, 1)} 0 #{round-float($bottom-space * 1.69, 1)};
+
+		@include below($lg) {
+			margin-top: #{round-float($bottom-space--mob * 1.25, 1)};
+			margin-bottom: #{round-float($bottom-space--mob * 1.69, 1)};
+		}
+
+		&::before {
+			content: "";
+			display: block;
+
+			@include ratio(16, 9);
+		}
+
+		iframe {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	.content__card {
+		margin-bottom: round-float($bottom-space * 0.86, 1);
+		display: flex;
+		align-items: flex-start;
+
+		@include below($lg) {
+			display: block;
+		}
+
+		&-figure {
+			$width: 46%;
+
+			flex: 1 0 $width;
+			max-width: $width;
+			padding-right: 3rem;
+
+			@include below($lg) {
+				max-width: none;
+				margin: 0 0 2rem;
+			}
+
+			img {
+				margin: 0;
+			}
+
+			figcaption {
+				display: block;
+				padding: 0;
+				margin: 1.8rem 0 0;
+				font-size: 1.4rem;
+				line-height: 2.8rem;
+			}
+		}
+
+		&-text {
+			$width: 54%;
+
+			flex: 1 0 $width;
+			max-width: $width;
+			margin-top: -1rem;
+
+			@include below($lg) {
+				max-width: none;
+				margin: 0;
+			}
+
+			h2,
+			h3,
+			h4 {
+				margin: 0 0 1.2rem;
+			}
+
+			strong,
+			b {
+				font-weight: 500;
+			}
+		}
+	}
+}

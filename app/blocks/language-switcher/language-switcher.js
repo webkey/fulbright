@@ -4,7 +4,9 @@ app.toggleLanguage = {
 	dropElement: '.js-lang-drop',
 	init() {
 		app.common.initScript('jquery.switch-class', 'switchClass', () => {
-			this.runToggleLanguage();
+			if ($(this.controlElement).length) {
+				this.runToggleLanguage();
+			}
 		});
 	},
 	runToggleLanguage() {

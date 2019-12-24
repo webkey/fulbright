@@ -9,7 +9,9 @@ app.headerSearch = {
 	wrapElement: '.js-h-search-wrap',
 	init() {
 		app.common.initScript('jquery.switch-class', 'switchClass', () => {
-			this.runHeaderSearch();
+			if ($(this.controlElement).length) {
+				this.runHeaderSearch();
+			}
 		});
 	},
 	runHeaderSearch() {

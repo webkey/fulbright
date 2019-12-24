@@ -38,7 +38,7 @@
 		$ident-v: #{round-float((nth($search-form-size, 1) - $line-height) / 2, 1)};
 
 		display: block;
-		padding: #{$ident-v} 4rem #{$ident-v} 1.5rem;
+		padding: #{$ident-v} 7rem #{$ident-v} 1.5rem;
 		width: 100%;
 		height: nth($search-form-size, 1);
 		color: black;

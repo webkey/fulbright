@@ -1,0 +1,97 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.menu {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	font-size: 1.7rem;
+	line-height: 2.8rem;
+
+	&__li {
+		$li: &;
+
+		position: relative;
+		margin: 0 0 3rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&-el {
+			$el: &;
+
+			position: relative;
+			font-weight: bold;
+			color: $title-color-alt;
+			user-select: none;
+
+			@at-root {
+				// .current
+				#{$li}.current & {
+					font-weight: bold;
+				}
+
+				// if link
+				a#{$el} {
+					text-decoration: none;
+					transition: color $animation-speed;
+
+					// :hover
+					&:hover {
+						color: $link-color;
+					}
+				}
+			}
+		}
+
+		&-drop {
+			padding-top: 1.5rem;
+		}
+	}
+}
+
+.sub-menu {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	font-size: 1.4rem;
+	line-height: 2.8rem;
+
+	&__li {
+		$li: &;
+
+		position: relative;
+		margin: 0 0 0.6rem;
+
+		&-el {
+			$el: &;
+
+			position: relative;
+			color: $text-color;
+			user-select: none;
+
+			@at-root {
+				// .current
+				#{$li}.current & {
+					font-weight: bold;
+				}
+
+				// if link
+				a#{$el} {
+					text-decoration: none;
+					transition: color $animation-speed;
+
+					// :hover
+					&:hover {
+						color: $link-color;
+					}
+				}
+			}
+		}
+
+		&-drop {
+			padding-top: 1.5rem;
+		}
+	}
+}

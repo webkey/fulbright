@@ -25,6 +25,11 @@
 		white-space: nowrap;
 		transition: opacity $animation-speed;
 
+		@include below($lg) {
+			width: 9.7rem;
+			padding-left: 2.5rem;
+		}
+
 		&:hover {
 			opacity: 0.7;
 		}
@@ -39,6 +44,12 @@
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: contain;
+
+			@include below($lg) {
+				height: 2rem;
+				width: 2rem;
+				margin: -1rem 0;
+			}
 
 			&_eng {
 				background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMjYiIHZpZXdCb3g9IjAgMCAyNiAyNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMyIgY3k9IjEzIiByPSIxMyIgZmlsbD0id2hpdGUiLz48bWFzayBpZD0ibWFzazAiIG1hc2stdHlwZT0iYWxwaGEiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHg9IjIiIHk9IjIiIHdpZHRoPSIyMiIgaGVpZ2h0PSIyMiI+PGNpcmNsZSBjeD0iMTMiIGN5PSIxMyIgcj0iMTAuNSIgZmlsbD0iI0M0QzRDNCIvPjwvbWFzaz48ZyBtYXNrPSJ1cmwoI21hc2swKSI+PHBhdGggZD0iTS0xMC43NTk4IC0wLjQ5Nzk4NkgzNi4yNTA0VjI1LjAzOTNILTEwLjc1OThWLTAuNDk3OTg2WiIgZmlsbD0iIzAxMjE2OSIvPjxwYXRoIGQ9Ik0tMTAuNzU5OCAtMC40OTc5ODZWMi4zNTUwMUwzMC45OTM5IDI1LjAzOTNIMzYuMjUwNFYyMi4xODYzTC01LjUwMzI2IC0wLjQ5Nzk4NkgtMTAuNzU5OFpNMzYuMjUwNCAtMC40OTc5ODZWMi4zNTUwMUwtNS41MDMyNiAyNS4wMzkzSC0xMC43NTk4VjIyLjE4NjNMMzAuOTkzOSAtMC40OTc5ODZIMzYuMjUwNFoiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTTguODI5MzIgLTAuNDk3OTg2VjI1LjAzOTNIMTYuNjYxM1YtMC40OTc5ODZIOC44MjkzMlpNLTEwLjc1OTggOC4wMTYxMVYxNi41MjUySDM2LjI1MDRWOC4wMTYxMUgtMTAuNzU5OFoiIGZpbGw9IndoaXRlIi8+PHBhdGggZD0iTS0xMC43NTk4IDkuNzE2OTNWMTQuODI0NEgzNi4yNTA0VjkuNzE2OTNILTEwLjc1OThaTTEwLjM5NDggLTAuNDk3OTg2VjI1LjAzOTNIMTUuMDk1OFYtMC40OTc5ODZIMTAuMzk0OFpNLTEwLjc1OTggMjUuMDM5M0w0LjkwODc1IDE2LjUyNTJIOC40MTYxNUwtNy4yNTY5NiAyNS4wMzkzSC0xMC43NTk4Wk0tMTAuNzU5OCAtMC40OTc5ODZMNC45MDg3NSA4LjAxNjExSDEuNDA1OTRMLTEwLjc1OTggMS40MDczNFYtMC40OTc5ODZaTTE3LjA3OSA4LjAxNjExTDMyLjc0NzYgLTAuNDk3OTg2SDM2LjI1MDRMMjAuNTgxOSA4LjAxNjExSDE3LjA3OVpNMzYuMjUwNCAyNS4wMzkzTDIwLjU4MTkgMTYuNTI1MkgyNC4wODQ3TDM2LjI1MDQgMjMuMTM0VjI1LjAzOTNaIiBmaWxsPSIjQzgxMDJFIi8+PC9nPjwvc3ZnPg==);
@@ -95,11 +106,17 @@
 
 		&-list {
 			box-shadow: 0 0.4rem 1.4rem rgba(#293548, 0.4);
-			padding: 0.8rem 1.9rem 1rem 1.8rem;
+			padding: 1rem 1.9rem 1rem 1.8rem;
 			font-size: 1.3rem;
 			line-height: 1.8rem;
 			color: $title-color;
 			background-color: white;
+
+			@include below($lg) {
+				font-size: 1.6rem;
+				line-height: 2.4rem;
+				padding: 1rem 1.8rem 0.6rem;
+			}
 		}
 
 		&-item {
