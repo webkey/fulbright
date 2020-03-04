@@ -10,9 +10,9 @@ app.navigation = {
 	runNavigation() {
 		$(this.navElement).nav({
 			// Elements
-			item: 'li',
-			drop: '.js-drop',
-			arrow: 'li > a + em',
+			item: '.js-nav-li',
+			drop: '.js-nav-drop',
+			arrow: '.js-nav-arrow',
 			// Additional settings
 			arrowEnable: true,
 			submenuPosition: false

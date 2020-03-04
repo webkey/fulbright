@@ -1,6 +1,8 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
 .categories-tiles {
 	display: block;
-	overflow: hidden; // for aos animation
 
 	@include below($lg) {
 		max-width: 100%;
@@ -33,7 +35,7 @@
 		border-radius: 2rem;
 		height: 21.8rem;
 		width: 21.8rem;
-		padding: 4.2rem 0.5rem 0.5rem;
+		padding: 4.2rem 1.2rem 0.5rem;
 		text-decoration: none;
 		color: inherit;
 		transition: background-color $animation-speed;
@@ -44,17 +46,14 @@
 			padding: 2.5rem 0.5rem 0.5rem;
 		}
 
-		&:active {
-			background-color: $highlight-color--hover;
-		}
+		//&:active {
+		//	background-color: $highlight-color--hover;
+		//}
 
 		&-figure {
 			position: relative;
 			height: 8rem;
 			width: 8rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
 			margin: 0 auto 1rem;
 
 			@include below($lg) {
@@ -64,27 +63,38 @@
 		}
 
 		&-icon {
-			svg {
-				display: block;
-				flex-shrink: 0;
-				max-height: 100%;
-				max-width: 100%;
-			}
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+			width: 100%;
 
-			path,
-			rect {
-				transition: opacity $animation-speed, fill $animation-speed;
+			//svg {
+			//	display: block;
+			//	flex-shrink: 0;
+			//	max-height: 100%;
+			//	max-width: 100%;
+			//}
+			//
+			//path,
+			//rect {
+			//	transition: opacity $animation-speed, fill $animation-speed;
+			//
+			//	@at-root {
+			//		#{$el}:active & {
+			//			fill: white;
+			//
+			//			&.l-color {
+			//				opacity: 0;
+			//			}
+			//		}
+			//	}
+			//}
+		}
 
-				@at-root {
-					#{$el}:active & {
-						fill: white;
-
-						&.l-color {
-							opacity: 0;
-						}
-					}
-				}
-			}
+		&-img {
+			max-width: 100%;
+			max-height: 100%;
 		}
 
 		&-title {
@@ -101,11 +111,11 @@
 				line-height: 2rem;
 			}
 
-			@at-root {
-				#{$el}:active & {
-					color: white;
-				}
-			}
+			//@at-root {
+			//	#{$el}:active & {
+			//		color: white;
+			//	}
+			//}
 		}
 
 		&-bg {
@@ -148,10 +158,10 @@
 						transform: translate3d(0, 0, 0);
 					}
 
-					#{$el}:active & {
-						opacity: 0;
-						transform: translate3d(1.5rem, 1.5rem, 0);
-					}
+					//#{$el}:active & {
+					//	opacity: 0;
+					//	transform: translate3d(1.5rem, 1.5rem, 0);
+					//}
 				}
 
 				&::before {

@@ -1,0 +1,424 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.tabs-slider {
+	$slide-height: 22rem;
+	$slide-height--sm: 22rem;
+	$slide-width: 43.8rem;
+	$slide-width--sm: 28rem;
+	$figure-size: 22rem;
+	$figure-size--sm: 18rem;
+
+	position: relative;
+	overflow: hidden;
+
+	&__line {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		width: 100%;
+		height: 0;
+		margin-top: -1px;
+		border-top: 1px solid #c4c4c4;
+	}
+
+	&__container {
+		position: relative;
+		//overflow: visible;
+		width: 154rem;
+		max-width: 100%;
+		margin: 0 auto;
+
+		@include below($lg) {
+			overflow: visible;
+		}
+
+		html:not(.no-js) &:not(.is-loaded) {
+			opacity: 0;
+			pointer-events: none;
+			overflow: hidden;
+		}
+	}
+
+	&__slide {
+		$slide: &;
+
+		position: relative;
+		padding: 0;
+		height: $slide-height;
+		width: $slide-width;
+		pointer-events: none;
+
+		@include below($lg) {
+			height: $slide-height--sm;
+			width: $slide-width--sm;
+		}
+
+		@include below($sm) {
+			height: $slide-height--sm;
+			width: 22rem;
+		}
+
+		&.swiper-slide-active {
+			z-index: 10;
+		}
+
+		&-frame {
+			position: relative;
+			height: 100%;
+		}
+
+		&-holder {
+			position: relative;
+			height: 100%;
+		}
+
+		&-el {
+			$el: &;
+
+			position: relative;
+			display: block;
+			height: 100%;
+			width: $figure-size;
+			margin: 0 auto;
+			text-decoration: none;
+			color: inherit;
+			user-select: none;
+			-webkit-tap-highlight-color: transparent;
+			pointer-events: auto;
+
+			@include below($lg) {
+				width: $figure-size--sm;
+			}
+
+			&-content {
+				height: 100%;
+				position: relative;
+			}
+
+			&-caption {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				bottom: 50%;
+				margin-bottom: 5.1rem;
+				text-align: center;
+				transform-origin: top center;
+
+				&-holder {
+					display: inline-block;
+					vertical-align: top;
+					transform-origin: bottom center;
+				}
+			}
+
+			&-title {
+				font-weight: bold;
+				font-size: 1.2rem;
+				line-height: 2.8rem;
+				color: $text-color-muted;
+				text-align: center;
+				overflow: hidden;
+				margin: 0 0 -1.4rem;
+				transition: color $animation-speed;
+
+				@at-root {
+					#{$slide}.swiper-slide-active & {
+						color: white;
+					}
+
+					a#{$el}:hover & {
+						color: $link-color;
+					}
+
+					#{$slide}.swiper-slide-active a#{$el}:hover & {
+						color: white;
+					}
+				}
+			}
+
+			&-text {
+				display: block;
+				font-style: normal;
+				font-size: 1.3rem;
+				line-height: 2.8rem;
+				color: #828282;
+				text-align: center;
+				transition: color $animation-speed;
+
+				@at-root {
+					#{$slide}.swiper-slide-active & {
+						color: white;
+					}
+
+					a#{$el}:hover & {
+						color: $link-color;
+					}
+
+					#{$slide}.swiper-slide-active a#{$el}:hover & {
+						color: white;
+					}
+				}
+			}
+
+			&-point {
+				$size: 1rem;
+
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				height: $size;
+				width: $size;
+				border-radius: $size;
+				margin: -#{round-float($size / 2, 1)};
+
+				&::before {
+					content: "";
+					display: block;
+					position: absolute;
+					left: 0;
+					top: 0;
+					height: 100%;
+					width: 100%;
+					border-radius: 50%;
+					background-color: #c4c4c4;
+					transition: background-color $animation-speed;
+				}
+
+				@at-root {
+					a#{$el}:hover & {
+						&::before {
+							background-color: $link-color;
+						}
+					}
+				}
+			}
+
+			&-active-point {
+				position: absolute;
+				left: 50%;
+				bottom: 50%;
+				height: 11.6rem;
+				width: 6rem;
+				margin: 0 -3rem -1.2rem;
+				transform-origin: bottom center;
+
+				&-svg {
+					display: block;
+					height: 100%;
+					width: 100%;
+
+					path {
+						transition: fill $animation-speed;
+						fill: $link-color;
+
+						@at-root {
+							a#{$el}:hover & {
+								fill: $highlight-color--hover;
+							}
+
+							a#{$el}:active & {
+								transition-duration: 0s;
+								fill: $highlight-color--active;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__buttons {
+		position: absolute;
+		top: round-float($slide-height / 2, 1);
+		height: 0;
+		width: 100%;
+		z-index: 5;
+
+		@include below($lg) {
+			top: round-float($slide-height--sm / 2, 1);
+		}
+
+		&-layout {
+			width: $figure-size + 4.6;
+			margin: 0 auto;
+
+			@include below($lg) {
+				width: $figure-size--sm + 3.6;
+			}
+		}
+	}
+
+	&__button {
+		$size: 5.8rem;
+
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: $size;
+		width: $size;
+		margin-top: -#{$size / 2};
+		color: black;
+		transition: color $animation-speed;
+		cursor: pointer;
+		-webkit-tap-highlight-color: transparent;
+
+		&::before {
+			$size: 4.8rem;
+
+			content: "";
+			display: block;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			height: $size;
+			width: $size;
+			margin: -#{$size / 2};
+			border-radius: $size;
+			background-color: white;
+			transition: background-color $animation-speed, box-shadow $animation-speed;
+			box-shadow: 0 4px 20px rgba(black, 0.15);
+
+			@include below($lg) {
+				$size: 4rem;
+
+				height: $size;
+				width: $size;
+				margin: -#{$size / 2};
+				border-radius: $size;
+			}
+		}
+
+		&_prev {
+			float: left;
+		}
+
+		&_next {
+			float: right;
+		}
+
+		svg {
+			position: relative;
+			display: block;
+			height: 2.4rem;
+			width: 2.4rem;
+		}
+
+		path {
+			fill: currentColor;
+		}
+
+		// :hover
+		&:hover {
+			color: white;
+
+			&::before {
+				background-color: $link-color;
+				box-shadow: 0 4px 20px rgba($link-color, 0.15);
+			}
+		}
+
+		// :active
+		&:active {
+			transition-duration: 0s;
+			color: white;
+
+			&::before {
+				transition-duration: 0s;
+				background-color: $highlight-color--active;
+				box-shadow: 0 4px 20px rgba($highlight-color--active, 0.15);
+			}
+		}
+	}
+
+	&__pagination {
+		position: relative;
+		padding: 0.2rem 0 0;
+		left: auto;
+		bottom: auto;
+		width: 100%;
+		z-index: 5;
+		pointer-events: none;
+		display: none;
+
+		@include below($lg) {
+			bottom: 0;
+		}
+
+		&-list {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&-bullet {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 4.4rem;
+			width: 4.4rem;
+			margin: 0.8rem;
+			cursor: pointer;
+			pointer-events: auto;
+
+			@include below($lg) {
+				margin: 0;
+			}
+
+			&::before,
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transition: transform $animation-speed;
+				transform: scale(0);
+			}
+
+			&::before {
+				width: 4.4rem;
+				height: 4.4rem;
+				border-radius: 4.4rem;
+				margin: -2.2rem;
+				background-color: rgba($link-color, 0.1);
+			}
+
+			&::after {
+				width: 3rem;
+				height: 3rem;
+				border-radius: 3rem;
+				margin: -1.5rem;
+				background-color: rgba($link-color, 0.1);
+			}
+
+			span {
+				position: relative;
+				display: block;
+				height: 1rem;
+				width: 1rem;
+				border-radius: 1rem;
+				background-color: $link-color;
+				z-index: 5;
+			}
+
+			// :hover
+			&:hover {
+				&::after {
+					transform: scale(1);
+				}
+			}
+
+			// Active
+			&_active {
+				&::before,
+				&::after {
+					transform: scale(1);
+				}
+			}
+		}
+	}
+}

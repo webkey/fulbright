@@ -1,11 +1,37 @@
-@@include("../blocks/head/head.html", {"title": "Home - Fulbright"})
-@@include("../blocks/header/header.html", {"currentItem": "Home"})
+@@include("../blocks/head/head.html", {"title": "Site map - Fulbright"})
+@@include("../blocks/header/header.html", {"currentItem": "Site map"})
 <div class="main">
-	@@include("../blocks/promo-section/promo-section.html")
-	@@include("../blocks/caption-section/caption-section.html")
-	@@include("../blocks/events-section/events-section.html")
-	@@include("../blocks/news-section/news-section.html")
-	@@include("../blocks/gallery-section/gallery-section.html")
+	@@include("../blocks/entry/entry.html", {
+	"image": "img-entry-grand-for-americans.jpg",
+	"title": "Site map",
+	"figurePosition": "top-left",
+	"breadcrumbs": {
+	"items": ["Home"],
+	"last": "Site map"
+	}
+	})
+	<div class="single">
+		<section class="single-section edit-content">
+			<div class="layout-page">
+				<div class="layout-content">
+					<ul>
+						<li><a href="home.html">Home</a></li>
+						<li><a href="inner.html">Grants for Americans</a></li>
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="news.html">News</a></li>
+						<li><a href="staff.html">Meet the staff</a></li>
+						<li><a href="contacts.html">Contacts</a></li>
+						<li><a href="graduates.html">Graduates</a></li>
+						<li><a href="graduates-with-nav.html">Graduates with Navigation</a></li>
+						<li><a href="404.html">404</a></li>
+						<li><a href="gallery.html">Gallery</a></li>
+						<li><a href="forum.html">Forum</a></li>
+						<li><a href="personal.html">Personal Area</a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+	</div>
 </div>
-@@include("../blocks/footer/footer.html", {"currentItem": "Home"})
+@@include("../blocks/footer/footer.html", {"currentItem": "Site map"})
 @@include("../blocks/link/link.html")

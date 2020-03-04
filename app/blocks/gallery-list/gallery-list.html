@@ -1,0 +1,13 @@
+<div class="gallery-list">
+	<div class="gallery-list__holder js-gallery-list">
+		<div class="gallery-list__grid-sizer js-grid-sizer"></div>
+		@@for (var i = 0; i < images.length; i++) {
+		<div class="gallery-list__li js-gallery-list-item" data-aos="fade-up">
+			@@include("gallery-list-el.html", {
+			"image": "`+images[i]+`.jpg",
+			"imageLarge": "`+images[i]+`-lg.jpg"
+			})
+		</div>
+		}
+	</div>
+</div>

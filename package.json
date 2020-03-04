@@ -116,8 +116,13 @@
     "stylelint": "^10.1.0"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
     "aos": "^3.0.0-beta.6",
+    "autosize": "^4.0.2",
+    "imagesloaded": "^4.1.4",
     "jquery": "^2.1.4",
+    "masonry-layout": "^4.2.2",
+    "stickyfilljs": "^2.1.0",
     "svg4everybody": "^2.0.0",
     "swiper": "^4.5.1"
   }

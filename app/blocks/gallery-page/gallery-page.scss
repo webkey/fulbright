@@ -1,0 +1,68 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.gallery-page {
+	padding: 10.5rem 0 11.9rem;
+
+	@include below($lg) {
+		padding: 4rem 0 5rem;
+	}
+
+	&__heading {
+		margin-bottom: 5.3rem;
+
+		@include below($lg) {
+			margin-bottom: 2.5rem;
+		}
+	}
+
+	&__nav {
+		margin-bottom: 4rem;
+
+		@include below($lg) {
+			margin-bottom: 2.5rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__control {
+		margin-bottom: 0.9rem;
+
+		@include below($lg) {
+			margin-bottom: -4rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__panels {
+		position: relative;
+		z-index: 2;
+		margin-bottom: 6rem;
+
+		@include below($lg) {
+			margin-bottom: 3rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__footer {
+		position: relative;
+		text-align: center;
+
+		&-btn {
+			display: block;
+			width: 36.2rem;
+			max-width: 100%;
+			margin: 0 auto;
+		}
+	}
+}

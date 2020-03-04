@@ -1,0 +1,226 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.replica {
+	$author-width: 18.2rem;
+	$author-width--sm: 15rem;
+	$content-width: calc(100% - #{$author-width});
+	$content-width--sm: calc(100% - #{$author-width--sm});
+
+	padding: 0.8rem 1.2rem 0.7rem;
+	border: 1px solid rgba(#c7c9c7, 0.3);
+	border-radius: 1rem;
+
+	@include clearfix;
+
+	&_even {
+		border-color: transparent;
+		background-color: rgba(#c4c4c4, 0.2);
+	}
+
+	&__author {
+		float: left;
+		clear: left;
+		width: $author-width;
+		min-height: 1rem;
+		padding-right: 2rem;
+
+		@include below($lg) {
+			width: $author-width--sm;
+		}
+
+		@include below($sm) {
+			float: none;
+			clear: none;
+			padding: 0;
+			min-height: 0;
+			width: auto;
+			margin-bottom: 1rem;
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: flex-end;
+			align-items: center;
+		}
+
+		&-name {
+			font-weight: 600;
+			font-size: 1.4rem;
+			line-height: 2rem;
+			color: black;
+			margin-bottom: 0.3rem;
+
+			@include below($sm) {
+				margin: 0;
+				font-size: 1.6rem;
+				line-height: 2.4rem;
+			}
+		}
+
+		&-photo {
+			$size: 5rem;
+
+			height: $size;
+			width: $size;
+			border-radius: $size;
+			overflow: hidden;
+
+			@include below($sm) {
+				margin-right: 1.5rem;
+			}
+
+			&-img {
+				height: 100%;
+				width: 100%;
+				border-radius: $size;
+			}
+		}
+	}
+
+	&__meta {
+		float: right;
+		clear: right;
+		width: $content-width;
+		min-height: 1rem;
+		margin-bottom: 0.4rem;
+		padding: 0.3rem 0;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+
+		@include below($lg) {
+			width: $content-width--sm;
+		}
+
+		@include below($sm) {
+			float: none;
+			clear: none;
+			padding: 0;
+			min-height: 0;
+			width: auto;
+		}
+
+		&-left {
+			margin-right: 2rem;
+		}
+
+		&-right {
+			position: relative;
+		}
+
+		&-datetime {
+			display: block;
+			font-style: normal;
+			color: #9ea2a2;
+			font-size: 1.2rem;
+			line-height: 1.5rem;
+		}
+
+		&-date {
+			margin-right: 0.6rem;
+		}
+	}
+
+	&__answer {
+		font-size: 1.2rem;
+		line-height: 1.5rem;
+
+		&-el {
+			$el: &;
+
+			display: inline-block;
+			vertical-align: top;
+			text-decoration: none;
+			color: $text-color-light;
+
+			&-icon {
+				$size: 4rem;
+
+				height: $size;
+				width: $size;
+				display: block;
+				position: relative;
+				margin: -1.3rem -1.5rem -1.2rem -1rem;
+
+				&::before,
+				&::after {
+					$size: 1.8rem;
+
+					height: $size;
+					width: $size;
+					margin: -#{round-float($size / 2, 1)};
+					content: "";
+					display: block;
+					position: absolute;
+					left: 50%;
+					top: 50%;
+					background-position: center;
+					background-repeat: no-repeat;
+					background-size: contain;
+					transition: opacity $animation-speed;
+				}
+
+				&::before {
+					background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOC4yNSAxMC41VjE0LjI1TDAuNzUgOC4yNUw4LjI1IDIuMjVWNkMxMi4zNzUgNiAxNS43NSA5LjM3NSAxNS43NSAxMy41QzE1Ljc1IDEzLjcyNSAxNS43NSAxMy44NzUgMTUuNzUgMTQuMUMxNC41NSAxMS44NSAxMi4zIDEwLjUgOS43NSAxMC41SDguMjVaIiBmaWxsPSIjOUVBMkEyIi8+PC9zdmc+);
+				}
+
+				&::after {
+					opacity: 0;
+					background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOC4yNSAxMC41VjE0LjI1TDAuNzUgOC4yNUw4LjI1IDIuMjVWNkMxMi4zNzUgNiAxNS43NSA5LjM3NSAxNS43NSAxMy41QzE1Ljc1IDEzLjcyNSAxNS43NSAxMy44NzUgMTUuNzUgMTQuMUMxNC41NSAxMS44NSAxMi4zIDEwLjUgOS43NSAxMC41SDguMjVaIiBmaWxsPSIjMTI3OWM1Ii8+PC9zdmc+);
+				}
+
+				@at-root {
+					a#{$el}:hover & {
+						&::before {
+							opacity: 0;
+						}
+
+						&::after {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__content {
+		float: right;
+		clear: right;
+		width: $content-width;
+		min-height: 1rem;
+		font-size: 1.2rem;
+		line-height: 1.5rem;
+
+		@include below($lg) {
+			width: $content-width--sm;
+		}
+
+		@include below($sm) {
+			float: none;
+			clear: none;
+			padding: 0;
+			min-height: 0;
+			width: auto;
+			font-size: 1.4rem;
+			line-height: 2rem;
+		}
+	}
+
+	&__text {
+		font-weight: 500;
+		color: #2f343d;
+		margin: 0 0 0.3rem;
+	}
+
+	&__quote {
+		margin: 0.6rem 0;
+
+		&:first-child {
+			margin-top: 0.4rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

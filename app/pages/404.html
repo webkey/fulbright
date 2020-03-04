@@ -1,0 +1,36 @@
+@@include("../blocks/head/head.html", {"title": "Error 404 - Fulbright"})
+@@include("../blocks/header/header.html", {"currentItem": "Error 404"})
+<div class="main">
+	<section class="error-page">
+		<div class="error-page__shadow"></div>
+		<div class="error-page__bg"></div>
+		<div class="error-page__heading">
+			<div class="layout-page">
+				<div class="layout-content">
+					<div class="error-page__breadcrumbs">
+						<ul class="error-page__breadcrumbs-list">
+							<li class="error-page__breadcrumbs-li">
+								<a class="error-page__breadcrumbs-li-el" href="index.html" title="Home">Home</a>
+							</li>
+							<li class="error-page__breadcrumbs-li">404</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="error-page__content">
+			<div class="layout-page">
+				<div class="layout-content">
+					<h1 class="error-page__visual">404</h1>
+					<h2 class="error-page__title">Page not found</h2>
+					<div class="error-page__text">Wa’re sorry, the page you requested could not be found.<br> Please go back to the homepage.</div>
+					<div class="error-page__meta">
+						@@include("../blocks/button/button.html", {"text": "Home page", "title": "Go back to the homepage", "href": "home.html"})
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+@@include("../blocks/footer/footer.html", {"currentItem": "Error 404"})
+@@include("../blocks/link/link.html")

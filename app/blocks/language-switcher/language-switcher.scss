@@ -15,7 +15,7 @@
 		position: relative;
 		padding: 0.4rem 1.8rem 0.4rem 3.2rem;
 		min-height: 2.6rem;
-		width: 10.6rem;
+		width: 8.2rem;
 		font-size: 1.3rem;
 		line-height: 1.8rem;
 		color: white;
@@ -26,12 +26,18 @@
 		transition: opacity $animation-speed;
 
 		@include below($lg) {
-			width: 9.7rem;
+			width: auto;
 			padding-left: 2.5rem;
 		}
 
 		&:hover {
 			opacity: 0.7;
+		}
+
+		&-inner {
+			@include below($lg) {
+				display: none;
+			}
 		}
 
 		&-icon {
@@ -86,22 +92,19 @@
 
 	&__drop {
 		padding: 0.6rem 0 0;
+		position: absolute;
+		right: 0;
+		top: 100%;
+		opacity: 0;
+		pointer-events: none;
+		transform: translate3d(0, -1rem, 0);
+		transition: opacity $animation-speed, transform $animation-speed;
 
-		html:not(.no-js) & {
-			position: absolute;
-			right: 0;
-			top: 100%;
-			opacity: 0;
-			pointer-events: none;
-			transform: translate3d(0, -1rem, 0);
-			transition: opacity $animation-speed, transform $animation-speed;
-
-			//&_open {
-			&.language-drop-is-open {
-				opacity: 1;
-				pointer-events: auto;
-				transform: translate3d(0, 0, 0);
-			}
+		//&_open {
+		&.language-drop-is-open {
+			opacity: 1;
+			pointer-events: auto;
+			transform: translate3d(0, 0, 0);
 		}
 
 		&-list {
@@ -109,7 +112,7 @@
 			padding: 1rem 1.9rem 1rem 1.8rem;
 			font-size: 1.3rem;
 			line-height: 1.8rem;
-			color: $title-color;
+			color: $link-color;
 			background-color: white;
 
 			@include below($lg) {
@@ -128,13 +131,13 @@
 			}
 
 			a {
-				color: $link-color;
+				color: $text-color;
 				text-decoration: none;
 				transition: color $animation-speed;
 				-webkit-tap-highlight-color: transparent;
 
 				&:hover {
-					color: $highlight-color--hover;
+					color: $link-color;
 				}
 
 				&:active {

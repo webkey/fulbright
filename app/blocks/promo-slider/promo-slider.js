@@ -27,8 +27,11 @@ app.promoSlider = {
 		shortSwipes: false,
 		longSwipesMs: 50,
 		longSwipesRatio: 0.05,
+		speed: 1000,
 		parallax: true,
-
+		autoplay: {
+			delay: 4000
+		},
 		pagination: {
 			type: 'bullets',
 			el: '.js-promo-slider__pagination',

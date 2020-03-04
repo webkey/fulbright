@@ -1,0 +1,186 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.error-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+	padding: 1.9rem 0 10rem;
+	height: 100%;
+
+	@include below($lg) {
+		padding-bottom: 5rem;
+	}
+
+	@include below($lg) {
+		padding: #{$header-height--sm + 2} 0 5rem;
+	}
+
+	&__shadow {
+		display: block;
+		position: absolute;
+		left: 0;
+		top: -4rem;
+		height: 4rem;
+		width: 100%;
+		box-shadow: 0 4px 14px rgba(41, 53, 72, 0.4);
+
+		@include below($lg) {
+			top: 0;
+			height: $header-height--sm * 4;
+			box-shadow: none;
+
+			@include linear-gradient(to bottom, rgba($base-color-alt, 0.5) 0%, rgba($base-color-alt, 0) 100%);
+		}
+	}
+
+	&__bg {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		width: 100%;
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			background-image: url('../images/bg-map.svg');
+			opacity: 0.1;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+
+			@include below($lg) {
+				background-position: 70%;
+				background-size: auto 75%;
+			}
+		}
+	}
+
+	&__heading {
+		position: relative;
+		width: 100%;
+		margin-bottom: 8.9rem;
+		flex-shrink: 0;
+
+		@include below($lg) {
+			margin-bottom: 4rem;
+		}
+	}
+
+	&__breadcrumbs {
+		font-weight: bold;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		color: $base-color-alt;
+		text-align: center;
+
+		@include below($lg) {
+			font-size: 1.4rem;
+		}
+
+		&-list {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			cursor: default;
+		}
+
+		&-li {
+			display: inline;
+			margin: 0;
+
+			&::after {
+				display: inline;
+				content: ">";
+				color: $text-color-muted;
+			}
+
+			&:last-child {
+				&::after {
+					content: none;
+				}
+			}
+
+			&-el {
+				color: $text-color-muted;
+				text-decoration: none;
+				transition: color $animation-speed;
+
+				&:hover {
+					color: $link-color;
+				}
+			}
+		}
+	}
+
+	&__content {
+		position: relative;
+		width: 100%;
+		flex: 1 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: stretch;
+
+		.layout-page {
+			width: 100%;
+		}
+	}
+
+	&__visual {
+		font-weight: bold;
+		font-size: 24rem;
+		line-height: 1;
+		color: $base-gradient-color-start;
+		text-align: center;
+		margin-bottom: 2.2rem;
+
+		@include below($lg) {
+			font-size: 12rem;
+			margin-bottom: 2.5rem;
+		}
+
+		@supports (background-clip: text) {
+			background: linear-gradient(to right, $base-gradient-color-start 0%, $base-gradient-color-end 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+	}
+
+	&__title {
+		font-weight: bold;
+		font-size: 4.2rem;
+		line-height: 4.4rem;
+		color: $title-color;
+		text-align: center;
+		margin-bottom: 1.9rem;
+
+		@include below($lg) {
+			float: none;
+			width: auto;
+			font-size: 2.8rem;
+			line-height: 4.2rem;
+			margin-bottom: 1.3rem;
+		}
+	}
+
+	&__text {
+		text-align: center;
+		margin-bottom: 4rem;
+
+		@include below($lg) {
+			margin-bottom: 2rem;
+		}
+	}
+
+	&__meta {
+		text-align: center;
+	}
+}

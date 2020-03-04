@@ -1,0 +1,28 @@
+<div class="replica-quote">
+	<div class="replica-quote__meta" style="display: none;">
+		<time class="replica-quote__meta-datetime" datetime="@@dateTime">
+			<span class="replica-quote__meta-date">@@data</span>
+			<span class="replica-quote__meta-time">@@time</span>
+		</time>
+	</div>
+	<div class="replica-quote__author">
+		<div class="replica-quote__author-name">@@name</div>
+		<div class="replica-quote__author-photo" style="display: none;">
+			<img src="assets/images/@@photo" alt="@@name">
+		</div>
+	</div>
+	<div class="replica-quote__content">
+		@@if(context.quote){
+		<div class="replica-quote__quote">
+			@@include("../replica-quote/replica-quote.html", {
+			"name": "@@quote.name",
+			"data": "@@quote.data",
+			"time": "@@quote.time",
+			"dateTime": "@@quote.dateTime",
+			"text": "@@quote.text"
+			})
+		</div>
+		}
+		<div class="replica-quote__text">@@text</div>
+	</div>
+</div>

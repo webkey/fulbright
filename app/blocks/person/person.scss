@@ -1,0 +1,201 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.person {
+	$content-width: 57%;
+	$aside-width: 43%;
+
+	display: block;
+
+	&__layout {
+		@include clearfix;
+	}
+
+	&__aside {
+		float: left;
+		clear: left;
+		width: $aside-width;
+		padding-right: 8.6%;
+		min-height: 1rem;
+
+		@include below($lg) {
+			float: none;
+			width: auto;
+			padding-right: 0;
+			margin-bottom: 2rem;
+		}
+
+		&-figure {
+			padding-top: 0.7rem;
+
+			&-img {
+				display: block;
+				width: 100%;
+			}
+
+			@include below($lg) {
+				padding: 0;
+			}
+		}
+	}
+
+	&__content {
+		float: right;
+		clear: right;
+		min-height: 1rem;
+		width: $content-width;
+
+		@include below($lg) {
+			float: none;
+			width: auto;
+		}
+	}
+
+	&__name {
+		float: right;
+		clear: right;
+		min-height: 1rem;
+		width: $content-width;
+		font-weight: bold;
+		font-size: 4.2rem;
+		line-height: 4.4rem;
+		color: $title-color;
+		margin-bottom: 4.7rem;
+
+		@include below($lg) {
+			float: none;
+			width: auto;
+			font-size: 2.8rem;
+			line-height: 4.2rem;
+			margin-bottom: 3rem;
+		}
+	}
+
+	&__hgroup {
+		margin-bottom: 3.1rem;
+
+		@include below($lg) {
+			margin-bottom: 2rem;
+		}
+	}
+
+	&__title {
+		font-weight: bold;
+		font-size: 2.8rem;
+		line-height: 4.2rem;
+		color: $title-color;
+		margin-bottom: 0.8rem;
+
+		@include below($lg) {
+			font-size: 2rem;
+			line-height: 3.6rem;
+			margin-bottom: 1rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__sub-title {
+		font-weight: bold;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		color: $title-color-alt;
+		margin-bottom: 1rem;
+
+		@include below($lg) {
+			margin-bottom: 1rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__meta {
+		margin-bottom: 2.2rem;
+
+		@include below($lg) {
+			margin-bottom: 2rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&-row {
+			margin-bottom: 1rem;
+			display: flex;
+			align-items: flex-start;
+
+			@include below($lg) {
+				display: block;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-label {
+			font-weight: bold;
+			font-size: 1.7rem;
+			line-height: 2.8rem;
+			color: $base-color-alt;
+			min-width: 11.2rem;
+			padding-right: 2rem;
+
+			@include below($lg) {
+				padding-right: 0;
+				margin-bottom: 1.5rem;
+			}
+		}
+
+		&-list {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			font-size: 1.7rem;
+			line-height: 2.4rem;
+			padding: 0.1rem 0 0;
+
+			&-el {
+				padding: 0 2.5rem 1rem 0;
+				display: flex;
+				align-items: flex-start;
+
+				&-icon {
+					margin-right: 1.8rem;
+				}
+
+				&-content {
+					a {
+						text-decoration: none;
+						transition: color $animation-speed;
+
+						&:hover {
+							color: $highlight-color--hover;
+						}
+
+						&:active {
+							color: $highlight-color--active;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&__text {
+		margin-bottom: 4rem;
+
+		@include below($lg) {
+			margin-bottom: 2rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}

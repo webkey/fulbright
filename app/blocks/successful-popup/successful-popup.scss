@@ -1,0 +1,55 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.successful-popup {
+	$popup: &;
+
+	width: 34.4rem;
+	max-width: 100%;
+	padding: 4.3rem 5.2rem;
+	font-size: 1.7rem;
+	line-height: 2.8rem;
+	font-weight: bold;
+	text-align: center;
+	box-shadow: 0 0.4rem 0.4rem rgba(0, 0, 0, 0.25);
+	border-radius: 1rem;
+
+	@include below($lg) {
+		padding: 4rem 2rem;
+	}
+
+	&__icon {
+		margin-bottom: 1rem;
+
+		svg {
+			$size: 3rem;
+
+			display: inline-block;
+			vertical-align: top;
+			height: $size;
+			width: $size;
+
+			path {
+				stroke: #43933c;
+			}
+		}
+	}
+
+	&__content {
+		display: block;
+	}
+}
+
+.fancybox-successful-popup {
+	.fancybox-bg {
+		background-color: black;
+	}
+
+	&.fancybox-is-open .fancybox-bg {
+		opacity: 0.2;
+	}
+
+	.fancybox-button {
+		display: none;
+	}
+}

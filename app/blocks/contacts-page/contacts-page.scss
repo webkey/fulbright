@@ -2,10 +2,10 @@
 @import '../../styles/helpers/mixins';
 
 .contacts-page {
-	padding: 17.3rem 0 5.3rem;
+	padding: 17.3rem 0 0;
 
 	@include below($lg) {
-		padding: 4rem 0 5rem;
+		padding: 4rem 0 0;
 	}
 
 	&__heading {
@@ -13,6 +13,77 @@
 
 		@include below($lg) {
 			margin-bottom: 2.5rem;
+		}
+	}
+
+	&__content {
+		margin-bottom: 5.3rem;
+
+		@include below($lg) {
+			margin-bottom: 5rem;
+		}
+	}
+}
+
+.contacts-page-section {
+	margin-bottom: 10.3rem;
+
+	@include below($lg) {
+		margin-bottom: 4rem;
+	}
+
+	&__heading {
+		position: relative;
+		margin-bottom: 4.8rem;
+
+		@include below($lg) {
+			margin-bottom: 3rem;
+		}
+
+		&_contacts {
+			margin-bottom: 6.1rem;
+
+			@include below($lg) {
+				margin-bottom: 3rem;
+			}
+		}
+
+		&-title {
+			font-weight: bold;
+			font-size: 4.2rem;
+			line-height: 4.8rem;
+			text-align: center;
+			color: $title-color;
+			margin-bottom: 0;
+
+			@include below($lg) {
+				font-size: 2.8rem;
+				line-height: 4.2rem;
+			}
+		}
+	}
+
+	&__content {
+		margin-bottom: 4.8rem;
+
+		@include below($lg) {
+			margin-bottom: 3rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&-layout {
+			&_form {
+				width: 65.6rem;
+				max-width: 100%;
+			}
+
+			&_center {
+				margin-left: auto;
+				margin-right: auto;
+			}
 		}
 	}
 }

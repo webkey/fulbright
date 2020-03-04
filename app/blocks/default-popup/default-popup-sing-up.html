@@ -1,0 +1,93 @@
+<div style="display: none;" id="popup-sing-up" class="default-popup">
+	<div class="default-popup__layout">
+		<div class="default-popup__title">Sign up</div>
+		<div class="default-popup__content">
+			<form action="#" class="default-popup__form">
+				<div class="default-popup__form-content">
+					<div class="default-popup__form-el">
+						<div class="default-popup__form-label">
+							@@include("../form-element/form-label.html", {
+							"label": "Name:",
+							"id": "sing-up-name"
+							})
+						</div>
+						<div class="default-popup__form-field">
+							<div class="form-def-wrap">
+								@@include("../form-element/form-input.html", {
+								"id": "sing-up-name",
+								"placeholder": "Your Name",
+								"required": "true"
+								})
+							</div>
+						</div>
+					</div>
+					<div class="default-popup__form-el">
+						<div class="default-popup__form-label">
+							@@include("../form-element/form-label.html", {
+							"label": "E-mail:",
+							"id": "sing-up-email"
+							})
+						</div>
+						<div class="default-popup__form-field">
+							<div class="form-def-wrap">
+								@@include("../form-element/form-input.html", {
+								"id": "sing-up-email",
+								"placeholder": "Your Email",
+								"type": "email",
+								"required": "true"
+								})
+							</div>
+						</div>
+					</div>
+					<div class="default-popup__form-el">
+						<div class="default-popup__form-label">
+							@@include("../form-element/form-label.html", {
+							"label": "Password:",
+							"id": "sing-up-password"
+							})
+						</div>
+						<div class="default-popup__form-field">
+							<div class="form-def-wrap">
+								<a href="#" class="form-def-show-pass js-show-pass">
+									<span class="form-def-show-pass__icon"></span>
+								</a>
+								@@include("../form-element/form-input.html", {
+								"id": "sing-up-password",
+								"placeholder": "Your Password",
+								"type": "password",
+								"required": "true"
+								})
+							</div>
+						</div>
+					</div>
+					<div class="default-popup__form-el">
+						<div class="default-popup__form-label">
+							@@include("../form-element/form-label.html", {
+							"label": "Repeat password:",
+							"id": "sing-up-repeat-password"
+							})
+						</div>
+						<div class="default-popup__form-field">
+							<div class="form-def-wrap">
+								<a href="#" class="form-def-show-pass js-show-pass">
+									<span class="form-def-show-pass__icon"></span>
+								</a>
+								@@include("../form-element/form-input.html", {
+								"id": "sing-up-repeat-password",
+								"placeholder": "Repeat Your Password",
+								"type": "password",
+								"required": "true"
+								})
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="default-popup__form-footer">
+					<div class="default-popup__form-submit">
+						@@include("../button/button-submit.html", {"text": "Sign up", "class": "default-popup__form-submit-btn"})
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

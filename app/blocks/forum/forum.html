@@ -1,0 +1,40 @@
+<div class="forum">
+	<div class="forum__layout">
+		<div class="forum__aside">
+			<div class="forum__aside-row">
+				@@include("../forum-categories/forum-categories.html")
+			</div>
+			<div class="forum__aside-row" style="display: none;">
+				<div class="forum__aside-pagination">
+					@@include("../pagination/pagination.html")
+				</div>
+			</div>
+		</div>
+		<div class="forum__content">
+			<div class="forum__topic">
+				<div class="forum__topic-head">
+					<div class="forum__topic-head-caption">
+						<h2 class="forum__topic-head-caption-title">University entrance 2019</h2>
+						<div class="forum__topic-head-caption-control">
+							<a href="#" class="btn-default forum__topic-btn-replay"><span>Reply</span></a>
+						</div>
+					</div>
+					<div class="forum__topic-head-pagination">
+						@@include("../pagination/pagination.html")
+					</div>
+				</div>
+				<div class="forum__topic-body">
+					@@include("../forum-talk/forum-talk.html")
+				</div>
+				<div class="forum__topic-foot">
+					<div class="forum__topic-foot-pagination">
+						@@include("../pagination/pagination.html")
+					</div>
+				</div>
+				<div class="forum__topic-message">
+					@@include("../forum-message/forum-message.html")
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

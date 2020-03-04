@@ -1,0 +1,31 @@
+@@include("../blocks/head/head.html", {"title": "Personal Area - Fulbright"})
+@@include("../blocks/header/header.html", {"currentItem": "Personal Area"})
+<div class="main">
+	@@include("../blocks/entry/entry.html", {
+		"size": "small-height",
+		"image": "img-entry-forum.jpg",
+		"title": "Personal Area",
+		"figurePosition": "top-left",
+		"breadcrumbs": {
+			"items": ["Home"],
+			"last": "Personal Area"
+		}
+	})
+	<div class="single">
+		<div class="single__content">
+			<section class="single-section single-section_personal">
+				<div class="single-section__content" data-aos="fade">
+					<div class="layout-page">
+						<div class="layout-content">
+							<div class="single-section__content-layout single-section__content-layout_form">
+								@@include("../blocks/personal-data/personal-data.html")
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+@@include("../blocks/footer/footer.html", {"currentItem": "Personal Area"})
+@@include("../blocks/link/link.html")

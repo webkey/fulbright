@@ -44,12 +44,12 @@
 		width: 17.4rem;
 		max-width: 100%;
 		flex-shrink: 0;
-		background: url(../images/logo.png) no-repeat;
+		background: url(../images/logo.svg) no-repeat;
 		background-size: contain;
 
-		@include retina {
-			background-image: url(../images/logo-2x.png);
-		}
+		//@include retina {
+		//	background-image: url(../images/logo-2x.png);
+		//}
 
 		&::before {
 			content: "";

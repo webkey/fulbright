@@ -1,9 +1,9 @@
 .gallery-slider {
 	position: relative;
-	padding-bottom: 10.7rem;
+	padding-bottom: 4.5rem;
 
 	@include below($lg) {
-		padding-bottom: 6rem;
+		padding-bottom: 2rem;
 	}
 
 	html:not(.no-js) &:not(.is-loaded) {
@@ -180,9 +180,10 @@
 	}
 
 	&__pagination {
-		position: absolute;
-		left: 0;
-		bottom: 4.5rem;
+		position: relative;
+		padding: 0.2rem 0 0;
+		left: auto;
+		bottom: auto;
 		width: 100%;
 		z-index: 5;
 		pointer-events: none;
@@ -193,6 +194,7 @@
 
 		&-list {
 			display: flex;
+			flex-wrap: wrap;
 			align-items: center;
 			justify-content: center;
 		}
@@ -207,6 +209,10 @@
 			margin: 0.8rem;
 			cursor: pointer;
 			pointer-events: auto;
+
+			@include below($lg) {
+				margin: 0;
+			}
 
 			&::before,
 			&::after {

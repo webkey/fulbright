@@ -1,0 +1,141 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.default-popup {
+	$popup: &;
+
+	width: 46.5rem;
+	max-width: 100%;
+	padding: 6.4rem 3rem 8rem;
+
+	@include below($lg) {
+		padding: 4rem 2rem 4rem;
+	}
+
+	&__layout {
+		width: 26.5rem;
+		max-width: 100%;
+		margin: 0 auto;
+	}
+
+	&__title {
+		display: block;
+		font-weight: bold;
+		font-size: 2.8rem;
+		line-height: 4.2rem;
+		color: $title-color;
+		margin: 0 0 1.9rem;
+
+		@include below($lg) {
+			font-size: 2rem;
+			line-height: 3.6rem;
+		}
+	}
+
+	&__sub-title {
+		display: block;
+		font-weight: bold;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		color: $title-color;
+		margin: 0 0 1.5rem;
+	}
+
+	&__text {
+		font-size: 12px;
+		line-height: 15px;
+		margin: 0 0 1.5rem;
+
+		p {
+			margin-bottom: 15px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&__form {
+		margin-bottom: 4.6rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&-content {
+			margin-bottom: 4rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-el {
+			margin: 0 0 1.7rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-label {
+			position: relative;
+			line-height: 0;
+			margin-bottom: 0.7rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-field {
+			position: relative;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-edit {
+			position: absolute;
+			right: 1.3rem;
+			top: 0.8rem;
+			line-height: 2.4rem;
+		}
+
+		&-btns-group {
+			margin-bottom: 4rem;
+		}
+
+		&-submit-btn {
+			display: block;
+			width: 100%;
+		}
+	}
+}
+
+.fancybox-default-popup {
+	.fancybox-bg {
+		background-color: black;
+	}
+
+	&.fancybox-is-open .fancybox-bg {
+		opacity: 0.2;
+	}
+
+	.fancybox-close-small {
+		color: $text-color-light;
+		opacity: 1;
+		transition: color $animation-speed;
+
+		svg {
+			path {
+				fill: currentColor;
+			}
+		}
+
+		&:hover {
+			color: $link-color;
+		}
+	}
+}

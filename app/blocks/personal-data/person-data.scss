@@ -1,0 +1,382 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.personal-date {
+	$grid-space: $grid-space;
+
+	&__hgroup {
+		margin-bottom: 4.1rem;
+
+		@include below($lg) {
+			margin-bottom: 2rem;
+		}
+	}
+
+	&__title {
+		font-weight: bold;
+		font-size: 3.3rem;
+		line-height: 4.4rem;
+		color: $title-color;
+		margin-bottom: 0.8rem;
+
+		@include below($lg) {
+			font-size: 2rem;
+			line-height: 3.6rem;
+			margin-bottom: 1rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__sub-title {
+		font-weight: bold;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		color: $title-color-alt;
+		margin-bottom: 1rem;
+
+		@include below($lg) {
+			margin-bottom: 1rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__content {
+		position: relative;
+	}
+
+	&__caption {
+		display: flex;
+		align-items: flex-start;
+		margin-bottom: 5.6rem;
+
+		@include below($sm) {
+			display: block;
+			margin-bottom: 2rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&-aside {
+			$width: 13.4rem;
+
+			padding-right: 3.4rem;
+			flex-shrink: 1;
+			flex-basis: $width;
+			max-width: $width;
+
+			@include below($sm) {
+				max-width: none;
+				padding: 0;
+				margin-bottom: 2rem;
+			}
+
+			&-photo {
+				$size: 10rem;
+
+				display: block;
+				overflow: hidden;
+				text-decoration: none;
+				color: inherit;
+				height: $size;
+				width: $size;
+				border-radius: $size;
+				margin-bottom: 0.8rem;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			&-img {
+				height: 100%;
+				width: 100%;
+			}
+
+			&-setting {
+				font-size: 1.2rem;
+				line-height: 1.8rem;
+				text-align: center;
+
+				@include below($sm) {
+					text-align: left;
+				}
+
+				a {
+					padding: 0.5em 0;
+					text-decoration: none;
+					transition: color $animation-speed;
+
+					&:hover {
+						color: $highlight-color--hover;
+					}
+
+					&:active {
+						color: $highlight-color--active;
+					}
+				}
+			}
+		}
+
+		&-main {
+			flex-grow: 1;
+		}
+	}
+
+	&__name {
+		display: block;
+		font-weight: bold;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		color: $title-color;
+		margin-bottom: 1.5rem;
+
+		@include below($lg) {
+			margin-bottom: 2rem;
+		}
+	}
+
+	&__info {
+		margin-bottom: 4.2rem;
+
+		@include below($sm) {
+			margin-bottom: 2rem;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&-list {
+			margin: 0;
+		}
+
+		&-item {
+			margin: 0 0 0.6rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-row {
+			display: flex;
+			align-items: flex-start;
+			margin: 0 -#{round-float($grid-space / 2, 1)} 2.7rem;
+
+			@include below($sm) {
+				display: block;
+				margin: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-col {
+			$width: 50%;
+
+			flex: 1 0 $width;
+			max-width: $width;
+			padding: 0 #{round-float($grid-space / 2, 1)};
+
+			@include below($sm) {
+				max-width: none;
+				padding: 0;
+				margin: 0 0 2rem;
+			}
+		}
+
+		&-unit {
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			line-height: 0;
+
+			&_edit {
+				padding-right: 4.3rem;
+			}
+
+			&-label {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				font-weight: bold;
+				font-size: 1.7rem;
+				line-height: 2.8rem;
+				color: $title-color;
+				margin-right: 1.5rem;
+			}
+
+			&-text {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				font-size: 1.4rem;
+				line-height: 2.6rem;
+				color: $text-color;
+				margin: 0.2rem 0.5rem 0 0;
+				word-break: break-word;
+			}
+
+			&-pass {
+				position: relative;
+				display: inline-block;
+				font-size: 1.4rem;
+				line-height: 1.8rem;
+				color: $form-def-placeholder-color;
+				letter-spacing: 0.13em;
+				margin: 0.8rem 0 0;
+			}
+
+			&-edit {
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+		}
+	}
+
+	&__edit {
+		$el: &;
+
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		height: 2.4rem;
+		width: 2.4rem;
+		text-decoration: none;
+		color: $text-color-light;
+
+		&-icon {
+			$size: 4rem;
+
+			height: $size;
+			width: $size;
+			display: block;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin: -#{round-float($size / 2, 1)};
+
+			&::before,
+			&::after {
+				$size: 1.8rem;
+
+				height: $size;
+				width: $size;
+				margin: -#{round-float($size / 2, 1)};
+				content: "";
+				display: block;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				transition: opacity $animation-speed;
+			}
+
+			&::before {
+				background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNyAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOS4xMzc1IDQuODU3NTZMMTIuMTQyMyA3Ljg2MzAyTDUuMTI5NzUgMTQuODc0OEgyLjEyNVYxMS44Njk0TDkuMTM3NSA0Ljg1Njg2VjQuODU3NTZaTTEwLjEzOTEgMy44NTU5OEwxMS42NDE1IDIuMzUyOUMxMS43NzQzIDIuMjIwMTEgMTEuOTU0NCAyLjE0NTUxIDEyLjE0MjMgMi4xNDU1MUMxMi4zMzAxIDIuMTQ1NTEgMTIuNTEwMiAyLjIyMDExIDEyLjY0MyAyLjM1MjlMMTQuNjQ2OSA0LjM1Njc3QzE0Ljc3OTcgNC40ODk2MSAxNC44NTQzIDQuNjY5NzQgMTQuODU0MyA0Ljg1NzU2QzE0Ljg1NDMgNS4wNDUzOSAxNC43Nzk3IDUuMjI1NTIgMTQuNjQ2OSA1LjM1ODM2TDEzLjE0MzggNi44NjA3M0wxMC4xMzkxIDMuODU1OThaIiBmaWxsPSIjOUVBMkEyIi8+PC9zdmc+);
+			}
+
+			&::after {
+				opacity: 0;
+				background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTciIHZpZXdCb3g9IjAgMCAxNyAxNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOS4xMzc1IDQuODU3NTZMMTIuMTQyMyA3Ljg2MzAyTDUuMTI5NzUgMTQuODc0OEgyLjEyNVYxMS44Njk0TDkuMTM3NSA0Ljg1Njg2VjQuODU3NTZaTTEwLjEzOTEgMy44NTU5OEwxMS42NDE1IDIuMzUyOUMxMS43NzQzIDIuMjIwMTEgMTEuOTU0NCAyLjE0NTUxIDEyLjE0MjMgMi4xNDU1MUMxMi4zMzAxIDIuMTQ1NTEgMTIuNTEwMiAyLjIyMDExIDEyLjY0MyAyLjM1MjlMMTQuNjQ2OSA0LjM1Njc3QzE0Ljc3OTcgNC40ODk2MSAxNC44NTQzIDQuNjY5NzQgMTQuODU0MyA0Ljg1NzU2QzE0Ljg1NDMgNS4wNDUzOSAxNC43Nzk3IDUuMjI1NTIgMTQuNjQ2OSA1LjM1ODM2TDEzLjE0MzggNi44NjA3M0wxMC4xMzkxIDMuODU1OThaIiBmaWxsPSIjMTI3OWM1Ii8+PC9zdmc+);
+			}
+
+			@at-root {
+				a#{$el}:hover & {
+					&::before {
+						opacity: 0;
+					}
+
+					&::after {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	&__form {
+		margin-bottom: 4.6rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		&-content {
+			margin-bottom: 4rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-row {
+			display: flex;
+			align-items: flex-start;
+			margin: 0 -#{round-float($grid-space / 2, 1)} 2.7rem;
+
+			@include below($sm) {
+				display: block;
+				margin: 0;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-col {
+			$width: 50%;
+
+			flex: 1 0 $width;
+			max-width: $width;
+			padding: 0 #{round-float($grid-space / 2, 1)};
+
+			@include below($sm) {
+				max-width: none;
+				padding: 0;
+				margin: 0 0 2rem;
+			}
+		}
+
+		&-label {
+			position: relative;
+			line-height: 0;
+			margin-bottom: 0.7rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-field {
+			position: relative;
+			padding: 0 5.1rem 0 0;
+			margin-bottom: 2.7rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-edit {
+			position: absolute;
+			right: 1.3rem;
+			top: 0.8rem;
+			line-height: 2.4rem;
+		}
+	}
+}

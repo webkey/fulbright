@@ -1,0 +1,27 @@
+.forum-talk {
+	position: relative;
+
+	&__list {
+		position: relative;
+	}
+
+	&__li {
+		padding-bottom: 1rem;
+
+		&-replica {
+			position: relative;
+		}
+
+		&-msg {
+			position: relative;
+
+			html:not(.no-js) & {
+				display: none;
+			}
+
+			&-holder {
+				padding-top: 1rem;
+			}
+		}
+	}
+}

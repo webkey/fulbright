@@ -12,13 +12,13 @@
 	})
 	<div class="single">
 		<section class="single-section single-section_about">
-			<div class="single-section__heading" data-aos="fade-up">
+			<div class="single-section__heading" data-aos="fade">
 				@@include("../blocks/hgroup/hgroup.html", {
 				"title": "About the fulbright program",
 				"text": "The Fulbright Program, the U.S. government's flagship program in international educational exchange, was proposed to the U.S. Congress in 1945 by then freshman Senator J. William Fulbright of Arkansas."
 				})
 			</div>
-			<div class="single-section__content" data-aos="fade-up">
+			<div class="single-section__content" data-aos="fade">
 				<div class="layout-page">
 					<div class="layout-content">
 						@@include("../blocks/about-tabs/about-tabs.html")
@@ -26,11 +26,11 @@
 				</div>
 			</div>
 		</section>
-		<section class="single-section single-section_about">
-			<div class="single-section__heading" data-aos="fade-up">
+		<section class="single-section single-section_meet-staff">
+			<div class="single-section__heading single-section__heading_meet-staff" data-aos="fade-up">
 				<div class="layout-page">
 					<div class="layout-content">
-						<div class="single-section__heading-title">Meet the staff</div>
+						<h2 class="single-section__heading-title">Meet the staff</h2>
 					</div>
 				</div>
 			</div>
@@ -40,8 +40,35 @@
 				</div>
 			</div>
 		</section>
+		<section class="single-section single-section_gallery">
+			<div class="single-section__heading single-section__heading_gallery" data-aos="fade-up">
+				<div class="layout-page">
+					<div class="layout-content">
+						<h2 class="single-section__heading-title">Gallery</h2>
+					</div>
+				</div>
+			</div>
+			<div class="single-section__content" data-aos="fade-up">
+				@@include("../blocks/catalog-slider/catalog-slider.html")
+			</div>
+		</section>
+		<section class="single-section single-section_contacts">
+			<div class="single-section__heading" data-aos="fade-up">
+				@@include("../blocks/hgroup/hgroup.html", {
+				"title": "Location of the fulbright office <span class='nobr'>in Moscow</span>",
+				"text": "The Fulbright Program in RussiaInstitute of International Education <br> (Institut Mezhdunarodnogo Obrazovaniya)"
+				})
+			</div>
+			<div class="single-section__content" data-aos="fade-up">
+				<div class="layout-page">
+					<div class="layout-content">
+						@@include("../blocks/contacts/contacts.html")
+					</div>
+				</div>
+			</div>
+		</section>
 	</div>
-	@@include("../blocks/bottom-map/bottom-map.html")
+	@@include("../blocks/map/map.html")
 </div>
-@@include("../blocks/footer/footer.html", {"currentItem": "Grants for Americans"})
-@@include("../blocks/link/link.html")
+@@include("../blocks/footer/footer.html", {"currentItem": "About"})
+@@include("../blocks/link/link.html", {"hasMap": true})

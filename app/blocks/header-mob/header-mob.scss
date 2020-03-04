@@ -34,8 +34,13 @@
 		}
 	}
 
+	&__search {
+		position: relative;
+	}
+
 	&__language {
-		margin-left: 2.8rem;
+		position: relative;
+		margin-left: 2rem;
 	}
 
 	&__mob-menu-control {
@@ -68,5 +73,10 @@
 			background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMyA0SDIxVjZIM1Y0Wk0zIDExSDIxVjEzSDNWMTFaTTMgMThIMjFWMjBIM1YxOFoiIGZpbGw9IndoaXRlIi8+PC9zdmc+);
 			background-size: contain;
 		}
+	}
+
+	&__login {
+		position: relative;
+		margin-left: 1.6rem;
 	}
 }

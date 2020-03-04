@@ -86,7 +86,7 @@
 			}
 		}
 
-		&-arr {
+		&-arrow {
 			position: absolute;
 			right: 0;
 			top: 0;
@@ -140,39 +140,37 @@
 
 		&-drop {
 			min-width: 20rem;
+			position: absolute;
+			left: 0;
+			top: 100%;
+			opacity: 0;
+			pointer-events: none;
+			transform: translate3d(0, -0.2rem, 0);
+			transition: opacity $animation-speed, transform $animation-speed;
 
 			@include below($lg) {
 				min-width: 0;
 				margin-right: -2.8rem;
-			}
-
-			html:not(.no-js) & {
-				position: absolute;
-				left: 0;
-				top: 100%;
-				opacity: 0;
-				pointer-events: none;
-				transform: translate3d(0, -0.2rem, 0);
-				transition: opacity $animation-speed, transform $animation-speed;
-
-				@include below($lg) {
-					position: relative;
-					left: auto;
-					top: auto;
-					opacity: 1;
-					transform: translate3d(0, 0, 0);
-					pointer-events: auto;
-					display: none;
-				}
+				position: relative;
+				left: auto;
+				top: auto;
+				opacity: 1;
+				pointer-events: auto;
+				transform: translate3d(0, 0, 0);
+				display: none;
 			}
 
 			@at-root {
 				#{$li}.hover & {
-					html:not(.no-js) & {
-						opacity: 1;
-						pointer-events: auto;
-						transform: translate3d(0, 0, 0);
-					}
+					opacity: 1;
+					pointer-events: auto;
+					transform: translate3d(0, 0, 0);
+				}
+			}
+
+			@at-root {
+				#{$li}.current & {
+					display: block;
 				}
 			}
 		}
@@ -256,12 +254,17 @@
 					// .current
 					#{$li}.current & {
 						box-shadow: inset 0 -2px 0 $link-color;
+
+						@include below($lg) {
+							font-weight: bold;
+							box-shadow: inset 0 -2px 0 transparent;
+						}
 					}
 				}
 			}
 		}
 
-		&-arr {
+		&-arrow {
 			position: absolute;
 			right: 0;
 			top: 0;
@@ -317,39 +320,37 @@
 
 		&-drop {
 			min-width: 20rem;
+			position: absolute;
+			left: 100%;
+			top: -1rem;
+			opacity: 0;
+			pointer-events: none;
+			transform: translate3d(-0.2rem, 0, 0);
+			transition: opacity $animation-speed, transform $animation-speed;
 
 			@include below($lg) {
 				min-width: 0;
 				margin-right: -2.8rem;
-			}
-
-			html:not(.no-js) & {
-				position: absolute;
-				left: 100%;
-				top: -1rem;
-				opacity: 0;
-				pointer-events: none;
-				transform: translate3d(-0.2rem, 0, 0);
-				transition: opacity $animation-speed, transform $animation-speed;
-
-				@include below($lg) {
-					position: relative;
-					left: auto;
-					top: auto;
-					opacity: 1;
-					transform: translate3d(0, 0, 0);
-					pointer-events: auto;
-					display: none;
-				}
+				position: relative;
+				left: auto;
+				top: auto;
+				opacity: 1;
+				transform: translate3d(0, 0, 0);
+				pointer-events: auto;
+				display: none;
 			}
 
 			@at-root {
 				#{$li}.hover & {
-					html:not(.no-js) & {
-						opacity: 1;
-						pointer-events: auto;
-						transform: translate3d(0, 0, 0);
-					}
+					opacity: 1;
+					pointer-events: auto;
+					transform: translate3d(0, 0, 0);
+				}
+			}
+
+			@at-root {
+				#{$li}.current & {
+					display: block;
 				}
 			}
 		}
@@ -419,6 +420,11 @@
 					// js hover - class .hover
 					#{$li}.hover & {
 						color: $link-color;
+
+						@include below($lg) {
+							font-weight: bold;
+							box-shadow: inset 0 -2px 0 transparent;
+						}
 					}
 				}
 			}
@@ -438,7 +444,7 @@
 			}
 		}
 
-		&-arr {
+		&-arrow {
 			position: absolute;
 			right: 0;
 			top: 0;
@@ -494,34 +500,35 @@
 
 		&-drop {
 			min-width: 20rem;
+			position: absolute;
+			left: 100%;
+			top: 0;
+			opacity: 0;
+			pointer-events: none;
+			transform: translate3d(-0.5rem, 0, 0);
+			transition: opacity $animation-speed, transform $animation-speed;
 
-			html:not(.no-js) & {
-				position: absolute;
-				left: 100%;
-				top: 0;
-				opacity: 0;
-				pointer-events: none;
-				transform: translate3d(-0.5rem, 0, 0);
-				transition: opacity $animation-speed, transform $animation-speed;
-
-				@include below($lg) {
-					position: relative;
-					left: auto;
-					top: auto;
-					opacity: 1;
-					transform: translate3d(0, 0, 0);
-					pointer-events: auto;
-					display: none;
-				}
+			@include below($lg) {
+				position: relative;
+				left: auto;
+				top: auto;
+				opacity: 1;
+				transform: translate3d(0, 0, 0);
+				pointer-events: auto;
+				display: none;
 			}
 
 			@at-root {
 				#{$li}.hover & {
-					html:not(.no-js) & {
-						opacity: 1;
-						pointer-events: auto;
-						transform: translate3d(0, 0, 0);
-					}
+					opacity: 1;
+					pointer-events: auto;
+					transform: translate3d(0, 0, 0);
+				}
+			}
+
+			@at-root {
+				#{$li}.current & {
+					display: block;
 				}
 			}
 		}

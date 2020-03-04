@@ -1,0 +1,65 @@
+<div style="display: none;" id="popup-login" class="default-popup">
+	<div class="default-popup__layout">
+		<div class="default-popup__title">Login</div>
+		<div class="default-popup__content">
+			<form action="#" class="default-popup__form">
+				<div class="default-popup__form-content">
+					<div class="default-popup__form-el">
+						<div class="default-popup__form-label">
+							@@include("../form-element/form-label.html", {
+							"label": "E-mail:",
+							"id": "login-email"
+							})
+						</div>
+						<div class="default-popup__form-field">
+							<div class="form-def-wrap">
+								@@include("../form-element/form-input.html", {
+								"id": "login-email",
+								"placeholder": "Your Email",
+								"type": "email",
+								"required": "true"
+								})
+							</div>
+						</div>
+					</div>
+					<div class="default-popup__form-el">
+						<div class="default-popup__form-label">
+							@@include("../form-element/form-label.html", {
+							"label": "Password:",
+							"id": "login-password"
+							})
+						</div>
+						<div class="default-popup__form-field">
+							<div class="form-def-wrap">
+								<a href="#" class="form-def-show-pass js-show-pass">
+									<span class="form-def-show-pass__icon"></span>
+								</a>
+								@@include("../form-element/form-input.html", {
+								"id": "login-password",
+								"placeholder": "Your Password",
+								"type": "password",
+								"required": "true"
+								})
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="default-popup__form-footer">
+					<div class="default-popup__form-btns-group">
+						<div class="btns-group">
+							<div class="btns-group__item">
+								@@include("../button/button-submit.html", {"text": "Login", "class": "btns-group-btn"})
+							</div>
+							<div class="btns-group__item">
+								<div class="btns-group__text"><a href="#" class="js-default-popup-opener" data-src="#popup-forgot-password">Forgot password?</a></div>
+							</div>
+						</div>
+					</div>
+					<div class="default-popup__form-submit">
+						@@include("../button/button.html", {"text": "Sing up", "class": "default-popup__form-submit-btn js-default-popup-opener", "dataSrc": "#popup-sing-up"})
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

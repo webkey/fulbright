@@ -2,6 +2,7 @@
 	$grid-space: $grid-space;
 
 	margin-bottom: 11rem;
+	overflow: hidden; // for aos animation
 
 	@include below($lg) {
 		margin-bottom: 4rem;

@@ -1,1 +1,1 @@
-<a href="#" class="btn-default"><span>@@text</span></a>
+<a href="@@if(context.href){@@href}@@if(!context.href){#}" class="btn-default@@if(context.class){ @@class}"@@if(context.dataSrc){ data-src="@@dataSrc"} title="@@if(context.title){@@title}@@if(!context.title){@@text}"><span>@@text</span></a>

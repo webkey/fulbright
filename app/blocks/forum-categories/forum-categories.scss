@@ -1,0 +1,54 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.forum-categories {
+	position: relative;
+
+	&__list {
+		position: relative;
+	}
+
+	&__li {
+		padding-bottom: 3rem;
+
+		&:last-child {
+			padding-bottom: 0;
+		}
+	}
+
+	&__title {
+		font-weight: bold;
+		font-size: 1.7rem;
+		line-height: 2.8rem;
+		margin-bottom: 1rem;
+
+		@include below($sm) {
+			margin-bottom: 1rem;
+		}
+	}
+
+	&__content {
+		margin-bottom: 2rem;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.forum-themes {
+	position: relative;
+
+	&__list {
+		position: relative;
+	}
+
+	&__li {
+		padding: 0.7rem 0;
+		border-bottom: 1px solid #c7c9c7;
+
+		@include below($sm) {
+			padding: 1.1rem 0 0.7rem;
+		}
+	}
+}

@@ -1,0 +1,210 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.form-def-label-wrap {
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	margin-bottom: 0.6rem;
+}
+
+.form-def-label {
+	margin: 0;
+	font-family: inherit;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	font-weight: bold;
+	color: $title-color-alt;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent !important;
+
+	mark {
+		background: none;
+		color: $base-color;
+	}
+}
+
+.form-def-wrap {
+	position: relative;
+	width: 100%;
+}
+
+.form-def {
+	$form-def: &;
+
+	display: block;
+	position: relative;
+	height: 4.1rem;
+	width: 100%;
+	padding: 0.6rem 1.2rem;
+	margin: 0;
+	background-color: $form-def-bg-color;
+	box-shadow: none;
+	border: 1px solid $form-def-border-color;
+	font-family: inherit;
+	font-size: 1.3rem;
+	line-height: 2.7rem;
+	color: $form-def-text-color;
+	transition: color $animation-speed, border $animation-speed;
+
+	&::-ms-clear,
+	&::-ms-reveal {
+		display: none;
+	}
+	// В normalize на input-елементах обнулены закрукления через сложный селектор
+	@at-root {
+		#{$form-def},
+		input#{$form-def} {
+			border-radius: 0.4rem;
+		}
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	// Дополнительные стили для <textarea>
+	@at-root {
+		textarea#{$form-def} {
+			$lh: 2.7rem;
+			$space-vertical: 1.2rem;
+			$lines: 3;
+			$height: calc(#{$lh * $lines + $space-vertical} + 2px);
+
+			min-height: $height;
+			height: $height;
+			resize: vertical;
+
+			&_callback-message {
+				min-height: calc(12.9rem + 2px);
+				height: calc(12.9rem + 2px);
+			}
+		}
+	}
+
+	// Placeholder
+	// ----------------------------------------------------
+	@include input-placeholder {
+		color: $form-def-placeholder-color;
+		transition: $animation-speed opacity;
+	}
+
+	// Placeholder hide on focus
+	@include input-placeholder-focus {
+		opacity: 0;
+	}
+
+	// Hover
+	// ----------------------------------------------------
+	&:hover {
+		border-color: $form-def-border-color--focus;
+	}
+
+	// Focus
+	// ----------------------------------------------------
+	&:focus,
+	&.focused {
+		border-color: $form-def-border-color--focus;
+	}
+
+	// Has value
+	// ----------------------------------------------------
+	&.filled {
+		border-color: $form-def-text-color;
+	}
+
+	// Error
+	// ----------------------------------------------------
+	&.error {
+		color: $form-error-color;
+		border-color: $form-error-color;
+
+		// Placeholder
+		@include input-placeholder {
+			color: $form-error-color;
+		}
+	}
+
+	// Disabled
+	// ----------------------------------------------------
+	&[disabled] {
+		@include forms-disabled;
+
+		@include input-placeholder {
+			color: $form-text-color--disabled !important;
+		}
+	}
+
+	&-show-pass {
+		$el: &;
+
+		position: absolute;
+		right: 0;
+		top: 0;
+		height: 4rem;
+		width: 4rem;
+		text-decoration: none;
+		color: $text-color-light;
+		z-index: 5;
+
+		& ~ #{$form-def} {
+			padding-right: 4.6rem;
+		}
+
+		&__icon {
+			$size: 4rem;
+
+			height: $size;
+			width: $size;
+			display: block;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin: -#{round-float($size / 2, 1)};
+
+			&::before,
+			&::after {
+				$size: 1.8rem;
+
+				height: $size;
+				width: $size;
+				margin: -#{round-float($size / 2, 1)};
+				content: "";
+				display: block;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				transition: opacity $animation-speed;
+			}
+
+			&::before {
+				background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMC43ODczMjMgOEMxLjQxMzk5IDQuNTg2NjcgNC40MDUzMiAyIDcuOTk5OTkgMkMxMS41OTQ3IDIgMTQuNTg1MyA0LjU4NjY3IDE1LjIxMjcgOEMxNC41ODYgMTEuNDEzMyAxMS41OTQ3IDE0IDcuOTk5OTkgMTRDNC40MDUzMiAxNCAxLjQxNDY2IDExLjQxMzMgMC43ODczMjMgOFpNNy45OTk5OSAxMS4zMzMzQzguODg0MDQgMTEuMzMzMyA5LjczMTg5IDEwLjk4MjEgMTAuMzU3IDEwLjM1N0MxMC45ODIxIDkuNzMxOSAxMS4zMzMzIDguODg0MDYgMTEuMzMzMyA4QzExLjMzMzMgNy4xMTU5NSAxMC45ODIxIDYuMjY4MSAxMC4zNTcgNS42NDI5OEM5LjczMTg5IDUuMDE3ODYgOC44ODQwNCA0LjY2NjY3IDcuOTk5OTkgNC42NjY2N0M3LjExNTkzIDQuNjY2NjcgNi4yNjgwOSA1LjAxNzg2IDUuNjQyOTcgNS42NDI5OEM1LjAxNzg1IDYuMjY4MSA0LjY2NjY2IDcuMTE1OTUgNC42NjY2NiA4QzQuNjY2NjYgOC44ODQwNiA1LjAxNzg1IDkuNzMxOSA1LjY0Mjk3IDEwLjM1N0M2LjI2ODA5IDEwLjk4MjEgNy4xMTU5MyAxMS4zMzMzIDcuOTk5OTkgMTEuMzMzM1pNNy45OTk5OSAxMEM3LjQ2OTU2IDEwIDYuOTYwODUgOS43ODkyOSA2LjU4NTc4IDkuNDE0MjFDNi4yMTA3IDkuMDM5MTQgNS45OTk5OSA4LjUzMDQzIDUuOTk5OTkgOEM1Ljk5OTk5IDcuNDY5NTcgNi4yMTA3IDYuOTYwODYgNi41ODU3OCA2LjU4NTc5QzYuOTYwODUgNi4yMTA3MSA3LjQ2OTU2IDYgNy45OTk5OSA2QzguNTMwNDIgNiA5LjAzOTEzIDYuMjEwNzEgOS40MTQyIDYuNTg1NzlDOS43ODkyOCA2Ljk2MDg2IDkuOTk5OTkgNy40Njk1NyA5Ljk5OTk5IDhDOS45OTk5OSA4LjUzMDQzIDkuNzg5MjggOS4wMzkxNCA5LjQxNDIgOS40MTQyMUM5LjAzOTEzIDkuNzg5MjkgOC41MzA0MiAxMCA3Ljk5OTk5IDEwWiIgZmlsbD0iIzllYTJhMiIvPjwvc3ZnPg==);
+			}
+
+			&::after {
+				opacity: 0;
+				background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMC43ODczMjMgOEMxLjQxMzk5IDQuNTg2NjcgNC40MDUzMiAyIDcuOTk5OTkgMkMxMS41OTQ3IDIgMTQuNTg1MyA0LjU4NjY3IDE1LjIxMjcgOEMxNC41ODYgMTEuNDEzMyAxMS41OTQ3IDE0IDcuOTk5OTkgMTRDNC40MDUzMiAxNCAxLjQxNDY2IDExLjQxMzMgMC43ODczMjMgOFpNNy45OTk5OSAxMS4zMzMzQzguODg0MDQgMTEuMzMzMyA5LjczMTg5IDEwLjk4MjEgMTAuMzU3IDEwLjM1N0MxMC45ODIxIDkuNzMxOSAxMS4zMzMzIDguODg0MDYgMTEuMzMzMyA4QzExLjMzMzMgNy4xMTU5NSAxMC45ODIxIDYuMjY4MSAxMC4zNTcgNS42NDI5OEM5LjczMTg5IDUuMDE3ODYgOC44ODQwNCA0LjY2NjY3IDcuOTk5OTkgNC42NjY2N0M3LjExNTkzIDQuNjY2NjcgNi4yNjgwOSA1LjAxNzg2IDUuNjQyOTcgNS42NDI5OEM1LjAxNzg1IDYuMjY4MSA0LjY2NjY2IDcuMTE1OTUgNC42NjY2NiA4QzQuNjY2NjYgOC44ODQwNiA1LjAxNzg1IDkuNzMxOSA1LjY0Mjk3IDEwLjM1N0M2LjI2ODA5IDEwLjk4MjEgNy4xMTU5MyAxMS4zMzMzIDcuOTk5OTkgMTEuMzMzM1pNNy45OTk5OSAxMEM3LjQ2OTU2IDEwIDYuOTYwODUgOS43ODkyOSA2LjU4NTc4IDkuNDE0MjFDNi4yMTA3IDkuMDM5MTQgNS45OTk5OSA4LjUzMDQzIDUuOTk5OTkgOEM1Ljk5OTk5IDcuNDY5NTcgNi4yMTA3IDYuOTYwODYgNi41ODU3OCA2LjU4NTc5QzYuOTYwODUgNi4yMTA3MSA3LjQ2OTU2IDYgNy45OTk5OSA2QzguNTMwNDIgNiA5LjAzOTEzIDYuMjEwNzEgOS40MTQyIDYuNTg1NzlDOS43ODkyOCA2Ljk2MDg2IDkuOTk5OTkgNy40Njk1NyA5Ljk5OTk5IDhDOS45OTk5OSA4LjUzMDQzIDkuNzg5MjggOS4wMzkxNCA5LjQxNDIgOS40MTQyMUM5LjAzOTEzIDkuNzg5MjkgOC41MzA0MiAxMCA3Ljk5OTk5IDEwWiIgZmlsbD0iIzEyNzljNSIvPjwvc3ZnPg==);
+			}
+
+			@at-root {
+				a#{$el}:hover & {
+					&::before {
+						opacity: 0;
+					}
+
+					&::after {
+						opacity: 1;
+					}
+				}
+
+				a#{$el}.is-show & {
+					&::before {
+						filter: contrast(10) invert(1);
+					}
+				}
+			}
+		}
+	}
+}

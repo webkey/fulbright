@@ -1,0 +1,18 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.staff-page {
+	padding: 11.2rem 0 11.9rem;
+
+	@include below($lg) {
+		padding: 4rem 0 5rem;
+	}
+
+	&__heading {
+		margin-bottom: 4.9rem;
+
+		@include below($lg) {
+			margin-bottom: 2.5rem;
+		}
+	}
+}

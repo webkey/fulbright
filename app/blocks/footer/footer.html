@@ -9,7 +9,7 @@
 					<div class="footer__common-grid">
 						<div class="footer__logo">
 							@@if(context.currentItem == "index"){<span class="footer__logo-inner">Fulbright</span>}
-							@@if(context.currentItem != "index"){<a href="index.html" class="footer__logo-inner" title="Fulbright">Fulbright</a>}
+							@@if(context.currentItem != "index"){<a href="home.html" class="footer__logo-inner" title="Fulbright">Fulbright</a>}
 						</div>
 						<div class="footer__description">The Fulbright Program, the U.S. government's flagship program in international educational exchange, was proposed to the U.S. Congress in 1945 by then freshman Senator J. William.</div>
 						<div class="footer__subscribe">
@@ -19,19 +19,32 @@
 					<div class="footer__common-grid footer__common-grid_nav">
 						<div class="footer__nav">
 							<div class="footer__nav-col">
-								<div class="footer__nav-item"><a href="#" class="footer__nav-el">Home</a></div>
-								<div class="footer__nav-item"><a href="#" class="footer__nav-el">Grants for Americans</a></div>
-								<div class="footer__nav-item"><a href="#" class="footer__nav-el">Grants for Russians</a></div>
-								<div class="footer__nav-item"><a href="#" class="footer__nav-el">For Russian Institutions</a></div>
-								<div class="footer__nav-item"><a href="#" class="footer__nav-el">Fulbright Community</a></div>
-								<div class="footer__nav-item"><a href="#" class="footer__nav-el">About Us</a></div>
+								@@if(context.currentItem != 'Home'){<div class="footer__nav-item"><a href="home.html" class="footer__nav-el">Home</a></div>}
+								@@if(context.currentItem == 'Home'){<div class="footer__nav-item current"><span class="footer__nav-el">Home</span></div>}
+
+								<div class="footer__nav-item"><a href="inner.html" class="footer__nav-el">Grants for Americans</a></div>
+								<div class="footer__nav-item"><a href="inner.html" class="footer__nav-el">Grants for Russians</a></div>
+								<div class="footer__nav-item"><a href="inner.html" class="footer__nav-el">For Russian Institutions</a></div>
+								<div class="footer__nav-item"><a href="inner.html" class="footer__nav-el">Fulbright Community</a></div>
+
+								@@if(context.currentItem != 'About'){<div class="footer__nav-item"><a href="about.html" class="footer__nav-el">About Us</a></div>}
+								@@if(context.currentItem == 'About'){<div class="footer__nav-item current"><span class="footer__nav-el">About Us</span></div>}
 							</div>
 							<div class="footer__nav-col">
-								<div class="footer__nav-item"><a href="#" class="footer__nav-el">Contacts</a></div>
-								<div class="footer__nav-item"><a href="#" class="footer__nav-el">Blog</a></div>
-								<div class="footer__nav-item current"><span class="footer__nav-el">Gallery</span></div>
-								<div class="footer__nav-item"><a href="#" class="footer__nav-el">Meet the staff</a></div>
-								<div class="footer__nav-item"><a href="#" class="footer__nav-el">Fulbright Community</a></div>
+								@@if(context.currentItem != 'Contacts'){<div class="footer__nav-item"><a href="contacts.html" class="footer__nav-el">Contacts</a></div>}
+								@@if(context.currentItem == 'Contacts'){<div class="footer__nav-item current"><span class="footer__nav-el">Contacts</span></div>}
+
+								@@if(context.currentItem != 'Blog'){<div class="footer__nav-item"><a href="404.html" class="footer__nav-el">Blog</a></div>}
+								@@if(context.currentItem == 'Blog'){<div class="footer__nav-item current"><span class="footer__nav-el">Blog</span></div>}
+
+								@@if(context.currentItem != 'Gallery'){<div class="footer__nav-item"><a href="gallery.html" class="footer__nav-el">Gallery</a></div>}
+								@@if(context.currentItem == 'Gallery'){<div class="footer__nav-item current"><span class="footer__nav-el">Gallery</span></div>}
+
+								@@if(context.currentItem != 'Meet the staff'){<div class="footer__nav-item"><a href="staff.html" class="footer__nav-el">Meet the staff</a></div>}
+								@@if(context.currentItem == 'Meet the staff'){<div class="footer__nav-item current"><span class="footer__nav-el">Meet the staff</span></div>}
+
+								@@if(context.currentItem != 'Fulbright Community'){<div class="footer__nav-item"><a href="404.html" class="footer__nav-el">Fulbright Community</a></div>}
+								@@if(context.currentItem == 'Fulbright Community'){<div class="footer__nav-item current"><span class="footer__nav-el">Fulbright Community</span></div>}
 							</div>
 						</div>
 					</div>
@@ -84,7 +97,7 @@
 					<div class="footer__bottom-right">
 						<div class="footer__development">
 							<span class="footer__development-text">Разработка сайта:</span>
-							<a href="https://www.imedia.by/" class="footer__development-link" target="_blank">iMedia Solutions</a>
+							<a href="https://www.imedia24.ru/" class="footer__development-link" target="_blank">iMedia Solutions</a>
 						</div>
 					</div>
 				</div>

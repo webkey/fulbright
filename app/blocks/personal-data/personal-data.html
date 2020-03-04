@@ -1,0 +1,127 @@
+<div class="personal-date">
+	<div class="personal-date__hgroup">
+		<h2 class="personal-date__title">Personal data</h2>
+	</div>
+	<div class="personal-date__content">
+		<div class="personal-date__caption">
+			<div class="personal-date__caption-aside">
+				<div class="personal-date__caption-aside-photo">
+					<img class="personal-date__caption-aside-img" src="assets/images/personal-data-no-photo-x2.png" alt="Marina Vitkova" />
+				</div>
+				<div class="personal-date__caption-aside-setting">
+					<a href="#">Change photo</a>
+				</div>
+			</div>
+			<div class="personal-date__caption-main">
+				@@include("personal-data-info.html", {
+				"typeLayout": "list",
+				"name": "Marina Vitkova",
+				"email": "MariiyygVit12@mail.ru",
+				"password": "*  *  *  *  *  *  *"
+				})
+			</div>
+		</div>
+		<div class="personal-date__form">
+			<form action="#" class="personal-date__form-form">
+				<div class="personal-date__form-content">
+					<div class="personal-date__form-row">
+						<div class="personal-date__form-col">
+							<div class="personal-date__form-label">
+								@@include("../form-element/form-label.html", {
+								"label": "Name:",
+								"id": "personal-date-name"
+								})
+							</div>
+							<div class="personal-date__form-field">
+								<div class="form-def-wrap">
+									@@include("../form-element/form-input.html", {
+									"id": "personal-date-name",
+									"placeholder": "Your Name",
+									"required": "true"
+									})
+								</div>
+								<div class="personal-date__form-edit">
+									<div class="personal-date__edit">
+										<span class="personal-date__edit-icon"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="personal-date__form-col">
+							<div class="personal-date__form-label">
+								@@include("../form-element/form-label.html", {
+								"label": "Surname:",
+								"id": "personal-date-surname"
+								})
+							</div>
+							<div class="personal-date__form-field">
+								<div class="form-def-wrap">
+									@@include("../form-element/form-input.html", {
+									"id": "personal-date-surname",
+									"placeholder": "Your Surname",
+									"required": "true"
+									})
+								</div>
+								<div class="personal-date__form-edit">
+									<div class="personal-date__edit">
+										<span class="personal-date__edit-icon"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="personal-date__form-row">
+						<div class="personal-date__form-col">
+							<div class="personal-date__form-label">
+								@@include("../form-element/form-label.html", {
+								"label": "E-mail:",
+								"id": "personal-date-email"
+								})
+							</div>
+							<div class="personal-date__form-field">
+								<div class="form-def-wrap">
+									@@include("../form-element/form-input.html", {
+									"id": "personal-date-email",
+									"type": "email",
+									"placeholder": "Your E-mail",
+									"required": "true"
+									})
+								</div>
+								<div class="personal-date__form-edit">
+									<div class="personal-date__edit">
+										<span class="personal-date__edit-icon"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="personal-date__form-col">
+							<div class="personal-date__form-label">
+								@@include("../form-element/form-label.html", {
+								"label": "Phone:",
+								"id": "personal-date-phone"
+								})
+							</div>
+							<div class="personal-date__form-field">
+								<div class="form-def-wrap">
+									@@include("../form-element/form-input.html", {
+									"id": "personal-date-phone",
+									"placeholder": "Your Phone",
+									"required": "true"
+									})
+								</div>
+								<div class="personal-date__form-edit">
+									<div class="personal-date__edit">
+										<span class="personal-date__edit-icon"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="personal-date__form-footer">
+					@@include("../button/button-submit.html", {"text": "Submit", "class": "personal-date__form-submit-btn"})
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

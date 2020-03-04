@@ -1,0 +1,64 @@
+@@include("../blocks/head/head.html", {"title": "Gallery - Fulbright"})
+@@include("../blocks/header/header.html", {"currentItem": "Gallery"})
+<div class="main">
+	@@include("../blocks/entry/entry.html", {
+		"image": "img-entry-gallery.jpg",
+		"title": "Gallery",
+		"figurePosition": "top-left",
+		"breadcrumbs": {
+			"items": ["Home", "About Us"],
+			"last": "Gallery"
+		}
+	})
+	<section class="gallery-page">
+		<div class="gallery-page__heading" data-aos="fade-up">
+			@@include("../blocks/hgroup/hgroup.html", {
+			"title": "Our graduates 2010 year",
+			"titleClass": "js-gallery-title",
+			"text": "Over the course of Fulbright’s history, over 500<br> graduates have graduated!",
+			"textClass": "js-gallery-subtitle"
+			})
+		</div>
+		<div class="gallery-page__control" data-aos="fade-up">
+			@@include("../blocks/tabs-slider/tabs-slider.html", {
+			"class": "js-gallery-tabs js-gallery-tabs-slider",
+			"href": "temp-gallery-content",
+			"tabs": "true"
+			})
+		</div>
+		<div class="gallery-page__panels js-gallery-container">
+			<div class="gallery-page__panel">
+				<div class="layout-page">
+					@@include("../blocks/gallery-list/gallery-list.html", {
+					"images": [
+					"img-gallery-01",
+					"img-gallery-02",
+					"img-gallery-03",
+					"img-gallery-04",
+					"img-gallery-05",
+					"img-gallery-06",
+					"img-gallery-07",
+					"img-gallery-08",
+					"img-gallery-09",
+					"img-gallery-10",
+					"img-gallery-11",
+					"img-gallery-12",
+					"img-gallery-13",
+					"img-gallery-14"
+					]
+					})
+				</div>
+			</div>
+		</div>
+		<div class="gallery-page__footer aos-init aos-animate" data-aos="fade">
+			<div class="layout-page">
+				<div class="layout-content">
+					<a href="#" class="btn-default gallery-page__footer-btn js-gallery-load-more"><span>Show more</span></a>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+@@include("../blocks/preloader/preloader.html")
+@@include("../blocks/footer/footer.html", {"currentItem": "Gallery"})
+@@include("../blocks/link/link.html")

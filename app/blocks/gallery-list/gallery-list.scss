@@ -1,0 +1,72 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.gallery-list {
+	position: relative;
+	overflow: hidden;
+
+	&__holder {
+		margin: 0 -0.8rem -1.5rem -0.7rem;
+
+		@include clearfix;
+	}
+
+	&__li,
+	&__grid-sizer {
+		width: 16.66%;
+
+		@include below($lg) {
+			width: 50%;
+		}
+
+		@include below($md) {
+			width: 33.33%;
+		}
+
+		@include below($sm) {
+			width: 50%;
+		}
+	}
+
+	&__li {
+		float: left;
+		padding: 0 0.8rem 1.5rem 0.7rem;
+
+		&-el {
+			$el: &;
+
+			display: block;
+			position: relative;
+			overflow: hidden;
+			text-decoration: none;
+			-webkit-tap-highlight-color: transparent;
+
+			&-img {
+				width: 100%;
+			}
+
+			&-cover {
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				transition: opacity $animation-speed;
+				will-change: opacity;
+				opacity: 0;
+
+				@include linear-gradient(90deg, $base-gradient-color-start 0%, $base-gradient-color-end 100%);
+
+				@at-root {
+					a#{$el}:hover & {
+						opacity: 0.28;
+					}
+
+					a#{$el}:active & {
+						opacity: 0.4;
+					}
+				}
+			}
+		}
+	}
+}

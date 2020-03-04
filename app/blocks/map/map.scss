@@ -1,0 +1,9 @@
+.map {
+	overflow: hidden;
+	height: 53.2rem;
+	background-color: $bg-color-alt;
+
+	@include below($lg) {
+		height: 28rem;
+	}
+}

@@ -10,21 +10,41 @@
 			"last": "Contacts"
 		}
 	})
-	<section class="contacts-page">
-		<div class="contacts-page__heading">
-			@@include("../blocks/hgroup/hgroup.html", {
-			"title": "Location of the fulbright office <span class='nobr'>in Moscow</span>",
-			"text": "The Fulbright Program in RussiaInstitute of International Education <br> (Institut Mezhdunarodnogo Obrazovaniya)"
-			})
-		</div>
-		<div class="layout-page">
-			<div class="layout-content">
-				@@include("../blocks/contacts/contacts.html")
+	<div class="contacts-page">
+		<section class="contacts-page-section">
+			<div class="contacts-page-section__heading" data-aos="fade-up">
+				@@include("../blocks/hgroup/hgroup.html", {
+				"title": "Location of the fulbright office <span class='nobr'>in Moscow</span>",
+				"text": "The Fulbright Program in RussiaInstitute of International Education <br> (Institut Mezhdunarodnogo Obrazovaniya)"
+				})
 			</div>
-		</div>
-	</section>
+			<div class="contacts-page-section__content" data-aos="fade-up">
+				<div class="layout-page">
+					<div class="layout-content">
+						@@include("../blocks/contacts/contacts.html")
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="contacts-page-section contacts-page-section_contacts">
+			<div class="contacts-page-section__heading contacts-page-section__heading_contacts" data-aos="fade-up">
+				<div class="layout-page">
+					<div class="layout-content">
+						<h2 class="contacts-page-section__heading-title">Contacts</h2>
+					</div>
+				</div>
+			</div>
+			<div class="contacts-page-section__content contacts-page-section__content_form contacts-page-section__content_center" data-aos="fade-up">
+				<div class="layout-page">
+					<div class="layout-form">
+						@@include("../blocks/callback/callback.html")
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
 
-	@@include("../blocks/bottom-map/bottom-map.html")
+	@@include("../blocks/map/map.html")
 </div>
 @@include("../blocks/footer/footer.html", {"currentItem": "Contacts"})
-@@include("../blocks/link/link.html")
+@@include("../blocks/link/link.html", {"hasMap": true})

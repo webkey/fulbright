@@ -1,0 +1,80 @@
+<div class="tabs-slider">
+	<div class="tabs-slider__line"></div>
+	<div class="layout-page">
+		<div class="tabs-slider__container swiper-container@@if(context.class){ @@class}">
+			<div class="swiper-wrapper">
+				@@include("tabs-slide.html", {
+				"title": "2020",
+				"tabs": "@@tabs",
+				"href": "@@href-01.html"
+				})
+				@@include("tabs-slide.html", {
+				"title": "2019",
+				"tabs": "@@tabs",
+				"href": "@@href-02.html"
+				})
+				@@include("tabs-slide.html", {
+				"title": "2018",
+				"tabs": "@@tabs",
+				"href": "@@href-01.html",
+				"isActive": "true"
+				})
+				@@include("tabs-slide.html", {
+				"title": "2017",
+				"tabs": "@@tabs",
+				"href": "@@href-02.html"
+				})
+				@@include("tabs-slide.html", {
+				"title": "2016",
+				"tabs": "@@tabs",
+				"href": "@@href-01.html"
+				})
+				@@include("tabs-slide.html", {
+				"title": "2015",
+				"tabs": "@@tabs",
+				"href": "@@href-02.html"
+				})
+				@@include("tabs-slide.html", {
+				"title": "2014",
+				"tabs": "@@tabs",
+				"href": "@@href-01.html"
+				})
+				@@include("tabs-slide.html", {
+				"title": "2013",
+				"tabs": "@@tabs",
+				"href": "@@href-02.html"
+				})
+				@@include("tabs-slide.html", {
+				"title": "2012",
+				"tabs": "@@tabs",
+				"href": "@@href-01.html"
+				})
+				@@include("tabs-slide.html", {
+				"title": "2011",
+				"tabs": "@@tabs",
+				"href": "@@href-02.html"
+				})
+				@@include("tabs-slide.html", {
+				"title": "2010",
+				"tabs": "@@tabs",
+				"href": "@@href-01.html"
+				})
+			</div>
+			<div class="tabs-slider__pagination ">
+				<div class="layout-content">
+					<div class="tabs-slider__pagination-list js-tabs-slider__pagination"></div>
+				</div>
+			</div>
+			<div class="tabs-slider__buttons">
+				<div class="tabs-slider__buttons-layout">
+					<div class="tabs-slider__button tabs-slider__button_prev js-tabs-slider__button-prev">
+						@@include("../../svg/arrow-left-s-line.svg")
+					</div>
+					<div class="tabs-slider__button tabs-slider__button_next js-tabs-slider__button-next">
+						@@include("../../svg/arrow-right-s-line.svg")
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

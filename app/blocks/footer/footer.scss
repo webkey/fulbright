@@ -41,12 +41,12 @@
 		width: 17.4rem;
 		margin: 0 0 1.1rem;
 		flex-shrink: 0;
-		background: url(../images/logo.png) no-repeat;
+		background: url(../images/logo.svg) no-repeat;
 		background-size: contain;
 
-		@include retina {
-			background-image: url(../images/logo-2x.png);
-		}
+		//@include retina {
+		//	background-image: url(../images/logo-2x.png);
+		//}
 
 		@include below($lg) {
 			margin-bottom: 1.5rem;
@@ -102,7 +102,7 @@
 
 	&__common {
 		display: flex;
-		padding: 6.2rem 0 0.5rem;
+		padding: 6.2rem 0 1rem;
 		margin: 0 -1.5rem;
 
 		@include below($lg) {
@@ -121,7 +121,7 @@
 			@include below($lg) {
 				max-width: none;
 				padding: 0;
-				margin: 0 0 3rem;
+				margin: 0 0 3.5rem;
 			}
 
 			&_nav,

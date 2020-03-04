@@ -222,6 +222,23 @@
 
 					var curId = $(this).attr('href').substring(1);
 
+					var curHash = '#' + curId;
+
+					// Check if hash has to be set in the URL location
+					if(config.setHash) {
+						// Set the hash using the history api if available to tackle Chromes repaint bug on hash change
+						if(history.pushState) {
+							// Fix for missing window.location.origin in IE
+							if (!window.location.origin) {
+								window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+							}
+							history.pushState(null, null, window.location.origin + window.location.pathname + window.location.search + curHash);
+						} else {
+							// Otherwise fallback to the hash update for sites that don't support the history api
+							window.location.hash = curHash;
+						}
+					}
+
 					if (isAnimated || !collapsible && curId === activeId) {
 						return false;
 					}
@@ -237,6 +254,16 @@
 					if (config.compactView) {
 						changeSelect();
 						closeSelect();
+					}
+				});
+			},
+
+			changeHash = function () {
+				$(window).on('hashchange', function() {
+					if (window.location.hash && $element.has(window.location.hash).length) {
+						activeId = window.location.hash.substring(1);
+
+						show();
 					}
 				});
 			},
@@ -307,6 +334,14 @@
 					$element.addClass(mixedClasses.collapsible);
 				}
 
+				if (config.setHash) {
+					if (window.location.hash && $element.has(window.location.hash).length) {
+						activeId = window.location.hash.substring(1);
+
+						show();
+					}
+				}
+
 				// После инициализации плагина добавить внутренний класс и,
 				// если указан в опициях, пользовательский класс
 				$element.addClass(mixedClasses.initialized);
@@ -319,6 +354,7 @@
 			eventsSelect: eventsSelect,
 			closeSelectByClickOutside: closeSelectByClickOutside,
 			closeSelectByClickEsc: closeSelectByClickEsc,
+			changeHash: changeHash,
 			events: events,
 			init: init
 		};
@@ -341,6 +377,7 @@
 				_[i].msTabs.eventsSelect();
 				_[i].msTabs.closeSelectByClickOutside();
 				_[i].msTabs.closeSelectByClickEsc();
+				_[i].msTabs.changeHash();
 				_[i].msTabs.events();
 			} else {
 				ret = _[i].msTabs[opt].apply(_[i].msTabs, args);
@@ -363,6 +400,8 @@
 		activeIndex: 0,
 		// Позволить открывать и закрывать таб по клику на один и тот же переключатель
 		collapsible: false,
+		// Добавление и переход по #hash
+		setHash: false,
 		// Настройки компактного вида (для девайсов, например)
 		compactView: {
 			// Элемент, который будет селектом

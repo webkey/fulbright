@@ -4,13 +4,16 @@
 .btn-default {
 	$btn: &;
 
+	overflow: hidden;
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
 	cursor: pointer;
 	margin: 0;
 	padding: 1.1rem 3.1rem;
-	font-size: 1.4rem;
+	font-family: inherit;
+	font-weight: 500;
+	font-size: 1.3rem;
 	line-height: 1.8rem;
 	color: white;
 	text-decoration: none;
@@ -22,10 +25,22 @@
 	user-select: none;
 	-webkit-tap-highlight-color: transparent;
 
+	// Button for callback form
+	&_callback-btn {
+		display: block;
+		margin: 0 auto;
+		width: 24rem;
+		max-width: 100%;
+
+		@include below($sm) {
+			width: 100%;
+		}
+	}
+
 	@at-root {
 		#{$btn},
 		input#{$btn} {
-			border-radius: 0.4rem;
+			border-radius: 4px;
 		}
 	}
 
@@ -42,7 +57,7 @@
 		top: 0;
 		height: 100%;
 		width: 100%;
-		border-radius: 0.4rem;
+		border-radius: 6px;
 		background-color: $highlight-color--hover;
 		will-change: transform;
 		transform-origin: top left;

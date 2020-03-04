@@ -1,0 +1,49 @@
+<h3 class="personal-date__name">@@name</h3>
+<div class="personal-date__info">
+	@@if(context.typeLayout != "list"){
+	<div class="personal-date__info-row">
+		<div class="personal-date__info-col">
+			<div class="personal-date__info-unit">
+				<div class="personal-date__info-unit-label">E-mail:</div>
+				<div class="personal-date__info-unit-text">@@email</div>
+			</div>
+		</div>
+		<div class="personal-date__info-col">
+			<div class="personal-date__info-unit personal-date__info-unit_edit">
+				<div class="personal-date__info-unit-label">Password</div>
+				<div class="personal-date__info-unit-text">
+					<span class="personal-date__info-unit-pass">@@password</span>
+				</div>
+				<div class="personal-date__info-unit-edit">
+					<a class="personal-date__edit js-default-popup-opener" href="#" title="Edit password" data-src="#edit-password">
+						<span class="personal-date__edit-icon"></span>
+					</a>
+				</div>
+				@@include("../default-popup/default-popup-change-password.html")
+			</div>
+		</div>
+	</div>}
+	@@if(context.typeLayout == "list"){
+	<div class="personal-date__info-list">
+		<div class="personal-date__info-item">
+			<div class="personal-date__info-unit">
+				<div class="personal-date__info-unit-label">E-mail:</div>
+				<div class="personal-date__info-unit-text">@@email</div>
+			</div>
+		</div>
+		<div class="personal-date__info-item">
+			<div class="personal-date__info-unit personal-date__info-unit_edit">
+				<div class="personal-date__info-unit-label">Password</div>
+				<div class="personal-date__info-unit-text">
+					<span class="personal-date__info-unit-pass">@@password</span>
+				</div>
+				<div class="personal-date__info-unit-edit">
+					<a class="personal-date__edit js-default-popup-opener" href="#" title="Edit password" data-src="#edit-password">
+						<span class="personal-date__edit-icon"></span>
+					</a>
+				</div>
+				@@include("../default-popup/default-popup-change-password.html")
+			</div>
+		</div>
+	</div>}
+</div>

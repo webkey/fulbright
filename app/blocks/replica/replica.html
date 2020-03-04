@@ -1,0 +1,38 @@
+<div class="replica@@if(context.mod){ replica_@@mod}">
+	<div class="replica__meta">
+		<div class="replica__meta-left">
+			<time class="replica__meta-datetime" datetime="@@dateTime">
+				<span class="replica__meta-date">@@data</span>
+				<span class="replica__meta-time">@@time</span>
+			</time>
+		</div>
+		<div class="replica__meta-right">
+			<div class="replica__answer">
+				<a class="replica__answer-el js-reply-msg-control" href="#" title="Reply">
+					<div class="replica__answer-el-icon"></div>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="replica__author">
+		<div class="replica__author-name">@@name</div>
+		<div class="replica__author-photo">
+			<img class="replica__author-photo-img" src="assets/images/@@photo" alt="@@name">
+		</div>
+	</div>
+	<div class="replica__content">
+		@@if(context.quote){
+		<div class="replica__quote">
+			@@include("../replica-quote/replica-quote.html", {
+			"name": "@@quote.name",
+			"photo": "@@quote.photo",
+			"data": "@@quote.data",
+			"time": "@@quote.time",
+			"dateTime": "@@quote.dateTime",
+			"text": "@@quote.text"
+			})
+		</div>
+		}
+		<div class="replica__text">@@text</div>
+	</div>
+</div>

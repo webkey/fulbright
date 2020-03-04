@@ -13,6 +13,7 @@ app.aboutTabs = {
 			anchor: '.js-about-tabs__thumbs a',
 			panels: '.js-about-tabs__panels',
 			panel: '.js-about-tabs__panel',
+			setHash: true,
 			compactView: {
 				elem: '.js-about-tabs__select',
 				drop: '.js-about-tabs__select-drop',

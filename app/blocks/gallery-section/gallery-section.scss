@@ -23,10 +23,21 @@
 		top: 0;
 		height: 100%;
 		width: 100%;
-		background-image: url('../images/map.png');
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: auto 100%;
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			background-image: url('../images/bg-map.svg');
+			opacity: 0.1;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+		}
 	}
 
 	&__heading {

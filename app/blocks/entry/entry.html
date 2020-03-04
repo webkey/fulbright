@@ -1,16 +1,16 @@
-<div class="entry">
+<div class="entry@@if(context.size){ entry_@@size}" data-aos="fade">
 	<div class="entry__bg lozad" data-background-image="assets/images/@@image">
 		<div class="promo-slider__slide-bg-cover"></div>
 	</div>
 	<div class="entry__figure entry__figure_@@figurePosition"></div>
 	<div class="layout-page">
 		<div class="layout-content">
-			<div class="entry__container">
+			<div class="entry__container@@if(context.size){ entry__container_@@size}">
 				<div class="entry__holder">
 					<div class="entry__logo">
-						<a href="index.html" class="entry__logo-inner">Fulbright</a>
+						<a href="home.html" class="entry__logo-inner">Fulbright</a>
 					</div>
-					<h1 class="entry__title">@@title</h1>
+					<h1 class="entry__title@@if(context.titleMod){ entry__title_@@titleMod}">@@title</h1>
 					<div class="entry__breadcrumbs">
 						<ul class="entry__breadcrumbs-list">
 							@@for (var i = 0; i < breadcrumbs.items.length; i++) {

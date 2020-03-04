@@ -1,0 +1,61 @@
+@@include("../blocks/head/head.html", {"title": "Graduates - Fulbright"})
+@@include("../blocks/header/header.html", {"currentItem": "Graduates"})
+<div class="main">
+	@@include("../blocks/entry/entry.html", {
+		"image": "img-entry-graduates.jpg",
+		"title": "Graduates",
+		"figurePosition": "top-left",
+		"breadcrumbs": {
+			"items": ["Home", "About Us"],
+			"last": "Graduates"
+		}
+	})
+	<section class="gallery-page">
+		<div class="gallery-page__heading" data-aos="fade-up">
+			@@include("../blocks/hgroup/hgroup.html", {
+			"title": "Our graduates 2010 year",
+			"text": "Over the course of Fulbright’s history, over 500<br> graduates have graduated!"
+			})
+		</div>
+		<div class="gallery-page__nav" data-aos="fade-up">
+			<div class="layout-page">
+				<div class="layout-content">
+					@@include("../blocks/page-nav/page-nav.html", {
+					"currentItem": "Category 1",
+					"items": ["Category 2"]
+					})
+				</div>
+			</div>
+		</div>
+		<div class="gallery-page__control" data-aos="fade-up">
+			@@include("../blocks/tabs-slider/tabs-slider.html", {
+			"class": "js-graduates-tabs-slider"
+			})
+		</div>
+		<div class="gallery-page__panels">
+			<div class="gallery-page__panel edit-content">
+				<div class="layout-page">
+					<div class="layout-content">
+						<ol>
+							<li>Joel Ericson</li>
+							<li>Natalia Smirnova</li>
+							<li>Elena Shabashova</li>
+							<li>Olga Petrova</li>
+							<li>Marina Bezrukova</li>
+							<li>Ksenia Shomnikova</li>
+							<li>Joel Ericson</li>
+							<li>Natalia Smirnova</li>
+							<li>Elena Shabashova</li>
+							<li>Olga Petrova</li>
+							<li>Marina Bezrukova</li>
+							<li>Ksenia Shomnikova</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+@@include("../blocks/preloader/preloader.html")
+@@include("../blocks/footer/footer.html", {"currentItem": "Graduates"})
+@@include("../blocks/link/link.html")

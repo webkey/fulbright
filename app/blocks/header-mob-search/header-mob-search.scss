@@ -52,25 +52,21 @@
 .hm-search {
 	$search-form-size: 6rem 100%;
 
-	position: relative;
+	position: absolute;
+	left: 0;
+	top: 100%;
 	height: nth($search-form-size, 1);
 	width: nth($search-form-size, 2);
 	z-index: 5;
+	opacity: 0;
+	pointer-events: none;
+	transform: translate3d(0, -1rem, 0);
+	transition: opacity $animation-speed, transform $animation-speed;
 
-	html:not(.no-js) & {
-		position: absolute;
-		left: 0;
-		top: 100%;
-		opacity: 0;
-		pointer-events: none;
-		transform: translate3d(0, -1rem, 0);
-		transition: opacity $animation-speed, transform $animation-speed;
-
-		&.h-search-panel-is-open {
-			opacity: 1;
-			pointer-events: auto;
-			transform: translate3d(0, 0, 0);
-		}
+	&.h-search-panel-is-open {
+		opacity: 1;
+		pointer-events: auto;
+		transform: translate3d(0, 0, 0);
 	}
 
 	&__field {

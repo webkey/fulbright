@@ -1,0 +1,160 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.forum {
+	$grid-space: $grid-space;
+	$content-width: 58.4%;
+	$aside-width: 41.6%;
+
+	&__layout {
+		display: flex;
+		align-items: flex-start;
+		margin: 0 -#{round-float($grid-space / 2, 1)};
+
+		@include below($lg) {
+			display: block;
+			margin: 0;
+		}
+	}
+
+	&__aside {
+		$width: $aside-width;
+
+		flex: 1 0 $width;
+		max-width: $width;
+		position: relative;
+		padding: 0.3rem #{round-float($grid-space / 2, 1)} 0;
+
+		@include below($lg) {
+			max-width: none;
+			padding: 0;
+			margin: 0 0 5rem;
+		}
+
+		&-row {
+			margin-bottom: 2rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-pagination {
+			text-align: center;
+		}
+	}
+
+	&__content {
+		$width: $content-width;
+
+		flex: 1 0 $width;
+		max-width: $width;
+		position: relative;
+		padding: 0 #{round-float($grid-space / 2, 1)};
+
+		@include below($lg) {
+			max-width: none;
+			padding: 0;
+		}
+	}
+
+	&__topic {
+		&-head {
+			margin-bottom: 1.9rem;
+
+			&-caption {
+				margin-bottom: 2.8rem;
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
+
+				@include below($lg) {
+					display: block;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+
+				&-title {
+					font-weight: bold;
+					font-size: 3.3rem;
+					line-height: 4.4rem;
+					color: $title-color-alt;
+					margin: 0;
+
+					@include below($lg) {
+						font-size: 2.8rem;
+						line-height: 4.2rem;
+						margin-bottom: 1.5rem;
+						text-align: center;
+					}
+				}
+
+				&-control {
+					flex-shrink: 0;
+					margin-left: 2rem;
+					padding: 0.2rem 0;
+
+					@include below($lg) {
+						margin: 0;
+						padding: 0;
+						text-align: center;
+					}
+				}
+			}
+
+			&-pagination {
+				margin-bottom: 1.8rem;
+
+				@include below($lg) {
+					text-align: center;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		&-btn-replay {
+			width: 19.6rem;
+		}
+
+		&-body {
+			margin-bottom: 0.9rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&-foot {
+			margin-bottom: 4.3rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			&-pagination {
+				margin-bottom: 2rem;
+
+				@include below($lg) {
+					text-align: center;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		&-message {
+			margin-bottom: 2rem;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

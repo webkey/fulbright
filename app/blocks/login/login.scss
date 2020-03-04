@@ -1,0 +1,66 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.login {
+	display: flex;
+	align-items: center;
+
+	.header-main & {
+		@include below($lg) {
+			display: none;
+		}
+	}
+
+	&__in {
+		margin-right: 0.9rem;
+	}
+
+	&__in,
+	&__out {
+		position: relative;
+		display: block;
+		color: white;
+		text-decoration: none;
+		line-height: 2.4rem;
+		transition: opacity $animation-speed;
+
+		&::before {
+			$size: 3.4rem;
+
+			content: "";
+			display: none;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			height: $size;
+			width: $size;
+			margin: -#{round-float($size / 2, 1)};
+			background-color: rgba(white, 0);
+
+			@include below($lg) {
+				display: block;
+			}
+		}
+
+		&-figure {
+			overflow: hidden;
+			border-radius: 4px;
+			height: 2.4rem;
+			width: 2.4rem;
+		}
+
+		&-icon {
+			height: 2.4rem;
+			width: 2.4rem;
+		}
+
+		&-img {
+			height: 2.4rem;
+			width: 2.4rem;
+		}
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+}

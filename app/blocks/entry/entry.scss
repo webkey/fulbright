@@ -98,6 +98,29 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
+		@include below($lg) {
+			height: auto;
+			min-height: 24rem;
+			padding: #{$header-height--sm + 2rem} 0 2rem;
+		}
+
+		@include below($md) {
+			min-height: 28rem;
+		}
+
+		&_small-height {
+			height: 20rem;
+
+			@include below($lg) {
+				height: auto;
+				min-height: 20rem;
+			}
+
+			@include below($md) {
+				min-height: 24rem;
+			}
+		}
 	}
 
 	&__holder {
@@ -150,9 +173,19 @@
 		margin-bottom: 1.6rem;
 
 		@include below($lg) {
-			font-size: 2.8rem;
-			line-height: 4.2rem;
+			font-size: 2.6rem;
+			line-height: 3.8rem;
 			margin-bottom: 1rem;
+		}
+
+		&_small {
+			font-size: 4.6rem;
+			line-height: 5.2rem;
+
+			@include below($lg) {
+				font-size: 2.6rem;
+				line-height: 3.8rem;
+			}
 		}
 
 		&:last-child {
@@ -168,6 +201,7 @@
 		text-align: center;
 
 		@include below($lg) {
+			font-weight: 400;
 			font-size: 1.4rem;
 		}
 

@@ -7,21 +7,37 @@
 	@include below($lg) {
 		padding: 4rem 0 0;
 	}
+}
 
-	&:last-child {
-		margin-bottom: 6.4rem;
+.single-section {
+	margin-bottom: 10.3rem;
+
+	@include below($lg) {
+		margin-bottom: 4rem;
+	}
+
+	&_meet-staff {
+		margin-bottom: 9.7rem;
 
 		@include below($lg) {
 			margin-bottom: 4rem;
 		}
 	}
-}
 
-.single-section {
-	margin-bottom: 10rem;
+	&_gallery {
+		margin-bottom: 10.6rem;
 
-	@include below($lg) {
-		margin-bottom: 4rem;
+		@include below($lg) {
+			margin-bottom: 4rem;
+		}
+	}
+
+	&_contacts {
+		margin-bottom: 12rem;
+
+		@include below($lg) {
+			margin-bottom: 4rem;
+		}
 	}
 
 	&__heading {
@@ -30,6 +46,22 @@
 
 		@include below($lg) {
 			margin-bottom: 3rem;
+		}
+
+		&_meet-staff {
+			margin-bottom: 6rem;
+
+			@include below($lg) {
+				margin-bottom: 3rem;
+			}
+		}
+
+		&_gallery {
+			margin-bottom: 6.1rem;
+
+			@include below($lg) {
+				margin-bottom: 3rem;
+			}
 		}
 
 		&-title {
@@ -56,6 +88,13 @@
 
 		&:last-child {
 			margin-bottom: 0;
+		}
+
+		&-layout {
+			&_form {
+				width: 65.6rem;
+				max-width: 100%;
+			}
 		}
 	}
 }

@@ -30,6 +30,7 @@ $bg-color-alt: #f3f3f3 !default;
 // ----------------------------------------------------
 $text-color: #3f444f !default;
 $text-color-muted: #5a5f6a !default;
+$text-color-light: #9ea2a2 !default;
 // ----------------------------------------------------
 $title-color: #262b33 !default;
 $title-color-alt: #2f343d !default;
@@ -51,8 +52,11 @@ $layout-page-space--sm: 0 1.6rem !default;
 
 // Layout content
 // ====================================================
-// Maximal width of site
+// Maximal width of content
 $layout-content-max-width: 114.6rem !default;
+
+// Maximal width of forms
+$layout-form-max-width: 80rem !default;
 
 // Grid layout
 // ====================================================
@@ -70,3 +74,25 @@ $header-height--sm: 5rem !default;
 // Animation
 // ====================================================
 $animation-speed: 0.35s !default;
+
+// Form elements colors scheme
+// ====================================================
+$form-def-text-color: $text-color !default;
+$form-def-placeholder-color: #828282 !default;
+$form-def-bg-color: #fff !default;
+$form-def-border-color: #c4c4c4 !default;
+$form-def-border-color--focus: #1279c5 !default;
+$form-error-color: $error-color !default;
+$form-text-color--disabled: #ced4da !default;
+$form-bg-color--disabled: #e9ecef !default;
+$form-border-color--disabled: #ced4da !default;
+
+// Form elements disabled
+// ====================================================
+@mixin forms-disabled {
+	cursor: default;
+	color: $form-text-color--disabled;
+	background-color: $form-bg-color--disabled;
+	border-color: $form-border-color--disabled;
+	box-shadow: none;
+}

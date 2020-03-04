@@ -1,0 +1,25 @@
+@@include("../blocks/head/head.html", {"title": "Forum - Fulbright"})
+@@include("../blocks/header/header.html", {"currentItem": "Forum"})
+<div class="main">
+	@@include("../blocks/entry/entry.html", {
+		"image": "img-entry-forum.jpg",
+		"title": "Forum",
+		"figurePosition": "top-left",
+		"breadcrumbs": {
+			"items": ["Home", "About us"],
+			"last": "Forum"
+		}
+	})
+	<section class="forum-page">
+		<div class="forum-page__content" data-aos="fade">
+			<div class="layout-page">
+				<div class="layout-content">
+					@@include("../blocks/forum/forum.html")
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+@@include("../blocks/preloader/preloader.html")
+@@include("../blocks/footer/footer.html", {"currentItem": "Forum"})
+@@include("../blocks/link/link.html")

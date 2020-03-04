@@ -1,0 +1,48 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.tags {
+	$space: 1.5rem;
+
+	display: block;
+	transition: opacity $animation-speed;
+	font-size: 1.6rem;
+	line-height: 2.8rem;
+
+	&__list {
+		margin: 0;
+	}
+
+	&__li {
+		display: inline;
+		margin: 0 #{$space} 0 0;
+		word-break: break-word;
+
+		&-el {
+			$el: &;
+
+			color: $link-color;
+			user-select: none;
+
+			@at-root {
+				// if link
+				a#{$el} {
+					text-decoration: none;
+					transition: color $animation-speed;
+
+					&:hover {
+						color: $highlight-color--hover;
+					}
+
+					&:active {
+						color: $highlight-color--active;
+					}
+
+					&:visited {
+						color: $text-color-muted;
+					}
+				}
+			}
+		}
+	}
+}

@@ -201,8 +201,8 @@
 				$visibleDrop.filter(':visible')
 					.show().data('active', true).attr('data-active', true);
 
-				$visibleDrop.filter(':visible')
-					.closest(config.block).addClass(config.modifiers.activeClass);
+				// $visibleDrop.filter(':visible')
+				// 	.closest(config.block).addClass(config.modifiers.activeClass);
 
 				// Добавить внутренние классы на:
 				if (config.pluginClasses) {

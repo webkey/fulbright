@@ -2,14 +2,22 @@
 @import '../../styles/helpers/mixins';
 
 .f-subscribe {
-	$search-form-size: 2.8rem 29.6rem;
+	$search-form-height: 2.8rem;
 
-	width: nth($search-form-size, 2);
+	width: 29.6rem;
 	max-width: 100%;
+
+	@include below($lg) {
+		width: calc(50% + 10.1rem);
+	}
+
+	&__form {
+		position: relative;
+	}
 
 	&__field {
 		position: relative;
-		border-bottom: 1px solid white;
+		border-bottom: 1px solid rgba(white, 0.6);
 	}
 
 	&__label {
@@ -21,19 +29,19 @@
 			font-weight: 600;
 			font-size: 1.4rem;
 			line-height: 2.8rem;
-			color: white;
+			color: rgba(white, 0.7);
 		}
 	}
 
 	&__input {
 		$font-size: 1.3rem;
 		$line-height: 2rem;
-		$ident-v: #{round-float((nth($search-form-size, 1) - $line-height) / 2, 1)};
+		$ident-v: #{round-float(($search-form-height - $line-height) / 2, 1)};
 
 		display: block;
-		padding: #{$ident-v} 9.5rem #{$ident-v} 0;
-		width: 100%;
-		height: nth($search-form-size, 1);
+		padding: #{$ident-v} 0 #{$ident-v};
+		width: calc(100% - 10.5rem);
+		height: $search-form-height;
 		color: white;
 		cursor: text;
 		background: none;
@@ -45,27 +53,25 @@
 		line-height: $line-height;
 
 		@include input-placeholder {
-			color: white;
+			color: rgba(white, 0.7);
 			transition: opacity $animation-speed;
 		}
 
 		@include input-placeholder-focus {
-			color: white;
+			color: rgba(white, 0.7);
 			opacity: 0;
 		}
 	}
 
 	&__submit {
+		$btn: &;
+
 		position: absolute;
 		top: 50%;
 		right: -0.8rem;
 		width: 10.9rem;
 		color: $link-color;
 		cursor: pointer;
-		background-image: url('../images/icons/icon-subscribe.svg');
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: contain;
 		transform: translate(0, -50%);
 		user-select: none;
 		transition: opacity $animation-speed;
@@ -77,8 +83,56 @@
 			@include ratio(109, 24);
 		}
 
-		&:hover {
-			opacity: 0.7;
+		&-bg {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100%;
+				width: 100%;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: contain;
+				transition: opacity $animation-speed;
+			}
+
+			&::before {
+				background-image: url('../images/icons/icon-subscribe_gradient.svg');
+				opacity: 0;
+
+				html:lang(ru) & {
+					background-image: url('../images/icons/icon-subscribe_ru_gradient.svg');
+				}
+			}
+
+			&::after {
+				background-image: url('../images/icons/icon-subscribe_white.svg');
+				opacity: 0.7;
+
+				html:lang(ru) & {
+					background-image: url('../images/icons/icon-subscribe_ru_white.svg');
+				}
+			}
+
+			@at-root {
+				#{$btn}:hover & {
+					&::before {
+						opacity: 1;
+					}
+
+					&::after {
+						opacity: 0;
+					}
+				}
+			}
 		}
 
 		&-text {
@@ -100,6 +154,87 @@
 		}
 	}
 
+	&__checkbox {
+		$checkbox-size: 1.8rem !default;
+		$checkbox-check-size: 0.6rem 1rem !default;
+
+		display: inline-block;
+		vertical-align: top;
+		margin: 1rem 0 0;
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+		color: white;
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+		transition: opacity $animation-speed;
+		opacity: 0.7;
+
+		&:hover {
+			opacity: 1;
+		}
+
+		// Hide default inputs
+		input[type="checkbox"] {
+			position: absolute;
+			height: 16px;
+			width: 16px;
+			padding: 0;
+			margin: 0;
+			display: none;
+
+			& ~ span {
+				position: relative;
+				display: inline-block;
+				vertical-align: top;
+				padding-left: 2.7rem;
+				cursor: pointer;
+
+				&::before,
+				&::after {
+					content: "";
+					display: block;
+					position: absolute;
+					transition: border-color ease-in-out 0.2s;
+					box-sizing: border-box;
+				}
+
+				&::before {
+					left: 0;
+					top: 50%;
+					border: 1px solid currentColor;
+					width: $checkbox-size;
+					height: $checkbox-size;
+					margin: -#{round-float($checkbox-size / 2, 1)} 0;
+					border-radius: 0.3rem;
+					transition: opacity $animation-speed;
+				}
+
+				&::after {
+					opacity: 0;
+					left: 0;
+					top: 50%;
+					height: nth($checkbox-check-size, 1);
+					width: nth($checkbox-check-size, 2);
+					margin: -#{round-float(nth($checkbox-check-size, 1) / 2, 1) + 0.1} #{round-float(($checkbox-size - nth($checkbox-check-size, 2)) / 2, 1)};
+					border: solid currentColor;
+					border-width: 0 0 0.2rem 0.2rem;
+					transform: rotate(-30deg) scale3d(1.1, 1.1, 1);
+					transition: transform cubic-bezier(0.45, -1.1, 0.45, 2.1) 0.22s, opacity ease-in-out 0.2s;
+				}
+			}
+
+			// Checked
+			&:checked {
+				& ~ span {
+					&::after {
+						opacity: 1;
+						transform: rotate(-45deg) scale3d(1, 1, 1);
+					}
+				}
+			}
+		}
+	}
+
 	&__note {
 		position: absolute;
 		left: 0;
@@ -108,6 +243,6 @@
 		font-weight: 600;
 		font-size: 1.2rem;
 		line-height: 1.8rem;
-		color: white;
+		color: rgba(white, 0.7);
 	}
 }

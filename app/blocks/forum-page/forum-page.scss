@@ -1,0 +1,10 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.forum-page {
+	padding: 10.6rem 0 11.4rem;
+
+	@include below($lg) {
+		padding: 4rem 0 5rem;
+	}
+}

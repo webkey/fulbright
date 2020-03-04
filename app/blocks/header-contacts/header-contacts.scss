@@ -2,12 +2,12 @@
 @import '../../styles/helpers/mixins';
 
 .h-contacts {
-	display: block;
+	$space: 2rem;
 
 	&__list {
 		display: flex;
 		align-items: center;
-		margin: 0 -2rem;
+		margin: 0 -#{round-float($space / 2, 1)};
 
 		@include below($lg) {
 			margin: 0;
@@ -16,7 +16,7 @@
 	}
 
 	&__item {
-		padding: 0 2rem;
+		padding: 0 #{round-float($space / 2, 1)};
 
 		@include below($lg) {
 			padding: 0;

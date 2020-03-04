@@ -1,0 +1,31 @@
+@@include("../blocks/head/head.html", {"title": "Natalia Smirnova - Fulbright"})
+@@include("../blocks/header/header.html", {"currentItem": "Meet the staff"})
+<div class="main">
+	@@include("../blocks/entry/entry.html", {
+		"image": "img-entry-meet-the-staff.jpg",
+		"title": "Meet the staff",
+		"figurePosition": "top-left",
+		"breadcrumbs": {
+			"items": ["Home", "About us"],
+			"last": "Meet the staff"
+		}
+	})
+	<section class="staff-page">
+		<div class="staff-page__content" data-aos="fade-up">
+			<div class="layout-page">
+				<div class="layout-content">
+					@@include("../blocks/person/person.html", {
+					"photo": "img-staff-lg-04.jpg",
+					"name": "Natalia Smirnova",
+					"title": "Primary Contact for Russian Graduate Students",
+					"subTitle": "Primary Contact for Russian Graduate Students",
+					"contact": "--contact--",
+					"text": "<strong>Natalia Smirnova is Deputy Director of the Fulbright Program in Russia</strong>, assisting the Program Director in supervising programs for Russian participants in general and administering Fulbright Visiting Graduate Student Program. Natalia has been working for Fulbright program in Russia since 1993. She has experience of administering all the Fulbright programs (for both American and Russian participants) and after the Fulbright program in Russia expanded she was promoted to Deputy Director position (in 2008).<br>Since 1986 till 1993 Mrs. Smirnova held a position of engineer-programmer at the All-Union Institute for Automated Systems, the first telecommunication node in Russia. Natalia administered computer networks and was engaged in training of soviet researchers on working with foreign data banks of different specialization.<br>She is a graduate of Moscow Engineering Physics Institute majoring in Computer Sciences and has a diploma of Technical Translator from the same Institute."
+					})
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+@@include("../blocks/footer/footer.html", {"currentItem": "Meet the staff"})
+@@include("../blocks/link/link.html")

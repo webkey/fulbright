@@ -1,0 +1,107 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.forum-theme {
+	display: flex;
+	align-items: flex-start;
+
+	@include below($sm) {
+		display: block;
+	}
+
+	&__caption {
+		$width: 51.7%;
+
+		flex: 1 0 $width;
+		max-width: $width;
+		padding: 0.4rem 2rem 0 0;
+
+		@include below($sm) {
+			max-width: none;
+			padding: 0;
+		}
+	}
+
+	&__title {
+		font-weight: 500;
+		font-size: 1.6rem;
+		line-height: 2rem;
+		margin: 0 0 -0.1rem;
+
+		a {
+			color: $link-color;
+			text-decoration: none;
+			transition: color $animation-speed;
+
+			&:hover {
+				color: $highlight-color--hover;
+			}
+
+			&:active {
+				color: $highlight-color--active;
+			}
+		}
+	}
+
+	&__description {
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+		color: $text-color-light;
+	}
+
+	&__content {
+		$width: 48.3%;
+
+		flex: 1 0 $width;
+		max-width: $width;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+
+		@include below($sm) {
+			max-width: none;
+		}
+	}
+
+	&__create {
+		$width: 65%;
+
+		flex: 1 0 $width;
+		max-width: $width;
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+		padding: 0.6rem 0 0.5rem;
+
+		&-author {
+			font-weight: 500;
+			color: #002b49;
+			padding-left: 1.4rem;
+			background-repeat: no-repeat;
+			background-position: 0 0.7rem;
+			background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI4IiB2aWV3Qm94PSIwIDAgOSA4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik04LjQyOTkyIDAuMDEyMjA3QzguNTkxNjQgMC4wMTIyMDcgOC43MjUwNyAwLjA2NTU0MDQgOC44MzAxOSAwLjE3MjIwN0M4LjkzNTMxIDAuMjc4ODc0IDguOTg3ODcgMC40MTQyNTggOC45ODc4NyAwLjU3ODM2MVY1LjQyNzU5QzguOTg3ODcgNS41ODM0OSA4LjkzNTMxIDUuNzE0NzcgOC44MzAxOSA1LjgyMTQ0QzguNzI1MDcgNS45MjgxIDguNTkxNjQgNS45ODU1NCA4LjQyOTkyIDUuOTkzNzVINS42MTU5VjcuOTg3NTlMMy4zNzE5NyA1Ljk5Mzc1SDAuNTU3OTUyQzAuNDA0MzEzIDUuOTkzNzUgMC4yNzQ5MzMgNS45MzYzMSAwLjE2OTgxMSA1LjgyMTQ0QzAuMDY0NjkgNS43MDY1NyAwLjAwODA4NjI1IDUuNTc1MjggMCA1LjQyNzU5VjAuNTc4MzYxQzAgMC40MTQyNTggMC4wNTY2MDM4IDAuMjc4ODc0IDAuMTY5ODExIDAuMTcyMjA3QzAuMjgzMDE5IDAuMDY1NTQwNCAwLjQxMjM5OSAwLjAxMjIwNyAwLjU1Nzk1MiAwLjAxMjIwN0g4LjQyOTkyWiIgZmlsbD0iIzAwMkI0OSIvPjwvc3ZnPg==);
+			background-size: 0.9rem auto;
+		}
+
+		&-datetime {
+			display: block;
+			font-style: normal;
+			color: $text-color-light;
+		}
+	}
+
+	&__options {
+		$width: 35%;
+
+		flex: 1 0 $width;
+		max-width: $width;
+		text-align: right;
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+		padding: 0.6rem 0 0.5rem;
+
+		&-pages {
+			font-weight: 500;
+			color: #002b49;
+		}
+	}
+}

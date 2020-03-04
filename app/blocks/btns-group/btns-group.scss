@@ -1,0 +1,41 @@
+@import '../../styles/helpers/variables';
+@import '../../styles/helpers/mixins';
+
+.btns-group {
+	display: flex;
+	align-items: center;
+
+	&__item {
+		$width: 50%;
+
+		flex: 1 0 $width;
+		max-width: $width;
+	}
+
+	&-btn {
+		display: block;
+		width: 100%;
+	}
+
+	&__text {
+		font-size: 1.2rem;
+		line-height: 1.5rem;
+		font-weight: bold;
+		padding-left: 1.5rem;
+
+		a {
+			padding: 1em 0;
+			text-decoration: none;
+			color: $link-color;
+			transition: color $animation-speed;
+
+			&:hover {
+				color: $highlight-color--hover;
+			}
+
+			&:active {
+				color: $highlight-color--active;
+			}
+		}
+	}
+}

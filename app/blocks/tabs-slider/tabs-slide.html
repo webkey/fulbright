@@ -1,0 +1,20 @@
+<div class="swiper-slide tabs-slider__slide@@if(context.isActive){ swiper-slide-active}">
+	<div class="tabs-slider__slide-frame js-slider-frame">
+		<div class="tabs-slider__slide-holder js-slider-scale">
+			<a href="@@if(context.tabs != '@@tabs'){@@href}@@if(context.tabs == '@@tabs'){javascript:void(0)}" class="tabs-slider__slide-el">
+				<div class="tabs-slider__slide-el-content">
+					<div class="tabs-slider__slide-el-point" data-swiper-parallax-scale="4"></div>
+					<div class="tabs-slider__slide-el-active-point" data-swiper-parallax-opacity="0" data-swiper-parallax-scale="0">
+						@@include("../../svg/balloon.svg", {"class": "tabs-slider__slide-el-active-point-svg"})
+					</div>
+					<div class="tabs-slider__slide-el-caption">
+						<div class="tabs-slider__slide-el-caption-holder" data-swiper-parallax-scale="4">
+							<div class="tabs-slider__slide-el-title">@@title</div>
+							<div class="tabs-slider__slide-el-text">year</div>
+						</div>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>

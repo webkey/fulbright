@@ -14,12 +14,11 @@ app.common = {
 		body.appendChild(script);
 	},
 	addStyleFile(nameFile) {
-		const head = document.getElementsByTagName('head')[0];
 		const appCss = document.getElementById('app-css');
 		const link = document.createElement('link');
 		link.rel = 'stylesheet';
 		link.href = `${app.pathToLibsFiles}/css/${nameFile}.css`;
-		head.before(link, appCss);
+		appCss.before(link);
 	},
 	initScript(nameFile, nameLib, callback) {
 		let hasLibs = null;
@@ -66,7 +65,7 @@ app.common = {
 		app.common.initScript('aos', 'aos', () => {
 			AOS.init({
 				duration: 1200,
-				offset: 50,
+				offset: 20,
 				easing: 'ease-in-out',
 				once: true
 			});
@@ -76,13 +75,12 @@ app.common = {
 	toggleMobMenu() {
 		app.common.initScript('jquery.switch-class', 'switchClass', () => {
 			const $controlElement = $('.js-mob-menu-control');
-			const $closeElement = $('.js-mob-menu-close');
 			const $html = $('html');
 			if ($controlElement.length) {
 				$controlElement.switchClass({
 					removeExisting: true,
-					switchClassTo: $('.js-mob-menu'),
-					removeEl: $closeElement,
+					switchClassTo: $('.js-mob-menu').add('.js-mob-menu-overlay'),
+					removeEl: $('.js-mob-menu-close').add('.js-mob-menu-overlay'),
 					cssScrollFixed: true,
 					preventRemoveClass: 'js-mob-menu-prevent-hide',
 					modifiers: {
@@ -96,6 +94,36 @@ app.common = {
 					}
 				});
 			}
+		});
+	},
+	showPassword() {
+		const btn = '.js-show-pass';
+		const $btn = $(btn);
+		const activeClass = 'is-show';
+
+		if ($btn.length) {
+			$('body').on('click', btn, function (e) {
+				const $curBtn = $(this);
+				const $curInput = $curBtn.parent().find('input');
+
+				$curInput.attr('type', 'text');
+
+				if (!$curBtn.hasClass(activeClass)) {
+					$curBtn.addClass(activeClass);
+					$curInput.attr('type', 'text');
+				} else {
+					$curBtn.removeClass(activeClass);
+					$curInput.attr('type', 'password');
+				}
+
+				e.preventDefault();
+			});
+		}
+	},
+	positionSticky() {
+		app.common.initScript('stickyfill.min', 'Stickyfill', () => {
+			const $stickyElement = $('.js-sticky');
+			Stickyfill.add($stickyElement);
 		});
 	}
 };

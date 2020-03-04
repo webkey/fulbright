@@ -1,0 +1,14 @@
+<div class="page-nav">
+	<div class="page-nav__list">
+		@@if(context.currentItem){
+		<div class="page-nav__li current">
+			<span class="page-nav__li-el"><span class="page-nav__li-el-in">@@currentItem</span></span>
+		</div>}
+		@@for (var i = 0; i < items.length; i++) {
+		<div class="page-nav__li">
+			<a class="page-nav__li-el" href="#" title="`+items[i]+`">
+				<span class="page-nav__li-el-in">`+items[i]+`</span>
+			</a>
+		</div>}
+	</div>
+</div>

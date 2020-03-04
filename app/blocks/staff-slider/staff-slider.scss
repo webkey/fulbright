@@ -3,11 +3,6 @@
 
 .staff-slider {
 	position: relative;
-	padding-bottom: 10.7rem;
-
-	@include below($lg) {
-		padding-bottom: 6rem;
-	}
 
 	html:not(.no-js) &:not(.is-loaded) {
 		opacity: 0;
@@ -136,8 +131,12 @@
 			}
 
 			&-content {
-				padding: 2.4rem 0 0;
+				padding-top: 2.4rem;
 				position: relative;
+
+				@include below($lg) {
+					padding-top: 1.5rem;
+				}
 			}
 
 			&-title {
@@ -147,6 +146,11 @@
 				color: $title-color-alt;
 				margin: 0 0 0.1rem;
 				transition: color $animation-speed;
+
+				@include below($lg) {
+					font-size: 1.6rem;
+					line-height: 2.6rem;
+				}
 
 				@at-root {
 					a#{$el}:hover & {
@@ -161,6 +165,11 @@
 				color: $text-color;
 				transition: color $animation-speed;
 
+				@include below($lg) {
+					font-size: 1.6rem;
+					line-height: 2.6rem;
+				}
+
 				@at-root {
 					a#{$el}:hover & {
 						color: $link-color;
@@ -171,25 +180,28 @@
 	}
 
 	&__pagination {
-		position: absolute;
-		left: 0;
-		bottom: 4.5rem;
-		width: 100%;
-		z-index: 5;
+		padding: 3.2rem 0 0;
 		pointer-events: none;
+		bottom: 0;
 
 		@include below($lg) {
-			bottom: 0;
+			padding-top: 1rem;
+		}
+
+		@include below(375px) {
+			display: none;
 		}
 
 		&-list {
 			display: flex;
+			flex-wrap: wrap;
 			align-items: center;
 			justify-content: center;
 		}
 
 		&-bullet {
 			position: relative;
+			flex-shrink: 0;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -198,6 +210,10 @@
 			margin: 0.8rem;
 			cursor: pointer;
 			pointer-events: auto;
+
+			@include below($lg) {
+				margin: 0;
+			}
 
 			&::before,
 			&::after {
@@ -251,5 +267,61 @@
 				}
 			}
 		}
+	}
+
+	&__controls {
+		padding-top: 2rem;
+		display: none;
+
+		@include below(375px) {
+			display: block;
+		}
+
+		&-holder {
+			position: relative;
+			padding: 0.8rem 2.4rem;
+			width: 12rem;
+			height: 4rem;
+			margin: 0 auto;
+		}
+	}
+
+	&__button {
+		position: absolute;
+		top: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 4rem;
+		width: 4rem;
+		margin: -2rem -0.8rem;
+		color: black;
+		cursor: pointer;
+
+		svg {
+			display: block;
+			height: 2.4rem;
+			width: 2.4rem;
+		}
+
+		path {
+			fill: currentColor;
+		}
+
+		&_prev {
+			left: 0;
+		}
+
+		&_next {
+			right: 0;
+		}
+	}
+
+	&__fraction {
+		text-align: center;
+		font-weight: bold;
+		font-size: 1.6rem;
+		line-height: 2.4rem;
+		color: black;
 	}
 }
